@@ -1,0 +1,3666 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Aspose.Pdf RestApi",
+    "description" : "Demo 1",
+    "termsOfService" : "https://asopse.com",
+    "contact" : {
+      "name" : "Evgeny Pirogov",
+      "email" : "Evgeny.Pirogov@aspose.com"
+    },
+    "license" : {
+      "name" : "Aspose.Pdf license"
+    },
+    "version" : "v1"
+  },
+  "servers" : [ {
+    "url" : "/"
+  } ],
+  "paths" : {
+    "/pdf/webapi/status/{id}" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Retrieves the status of a processing.",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The ID of the processing to check the status of.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a FileResponse object with the status information.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "If the file does not exist or if there was an error processing the request."
+          },
+          "500" : {
+            "description" : "If there was a server error."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/download/{id}" : {
+      "get" : {
+        "tags" : [ "Api" ],
+        "summary" : "Downloads a file.",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The id of the processing to download.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "file",
+          "in" : "query",
+          "description" : "The name of the file to download.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns the file to download."
+          },
+          "400" : {
+            "description" : "If the file does not exist."
+          },
+          "500" : {
+            "description" : "If there was a server error."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/download-stream/{id}" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Downloads a file as a stream.",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The ID of the processing to download.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "fileName",
+          "in" : "query",
+          "description" : "The name of the file to download.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns the file stream and metadata.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "If the file does not exist or if there was an error processing the request."
+          },
+          "500" : {
+            "description" : "If there was a server error."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/remove/{id}" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Removes all files from processing.",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The ID of the processing to remove.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a FileResponse object indicating that all files was successfully removed.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "If the file does not exist or if there was an error processing the request."
+          },
+          "500" : {
+            "description" : "If there was a server error."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/lock" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Locks a document with the provided password and optional files.",
+        "description" : "This endpoint is used to lock a resource with an optional password and associated files.\r\nIf the lock is started, the response will contain a success status and processing id.\r\nIf the lock fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "passw",
+          "in" : "query",
+          "description" : "The password required to lock the resource.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_lock_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/unlock" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Attempts to unlock a document with an password and associated files.",
+        "description" : "This endpoint is used to unlock a resource that was previously locked with a password on associated files.\r\nIf the unlock is started, the response will contain a success status and an optional message.\r\nIf the unlock fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "passw",
+          "in" : "query",
+          "description" : "The password used in locked document.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_unlock_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/parse" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Parses the provided files using a parser service.",
+        "description" : "This endpoint is used to send files to a parser service for processing.\r\nIf the parsing is started, the response will contain a success status and an optional message.\r\nIf the parsing fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_parse_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/splitdoc" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Splits the provided documents based on the specified split type and page rage to spit.",
+        "description" : "This endpoint is used to split documents based on the specified split type and page rage.\r\nIf the splitting is started, the response will contain a success status and an optional message.\r\nIf the splitting fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "splitType",
+          "in" : "query",
+          "description" : "The type of splitting to be performed.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "pars",
+          "in" : "query",
+          "description" : "Optional page rage for the splitting operation.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_splitdoc_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/splitimage" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Splits the provided images into smaller parts based on the specified parameters.",
+        "description" : "This endpoint is used to split images into smaller parts based on the specified parameters.\r\nIf the splitting is started, the response will contain a success status and an optional message.\r\nIf the splitting fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "splitType",
+          "in" : "query",
+          "description" : "The type of splitting to be performed.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "vertical",
+          "in" : "query",
+          "description" : "The number of vertical splits to create.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "horizontal",
+          "in" : "query",
+          "description" : "The number of horizontal splits to create.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "outputType",
+          "in" : "query",
+          "description" : "The desired output format for the split images.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_splitimage_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/redact" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Redacts specified text from the provided documents, with options to search case-sensitively, target in text, comments, and metadata.",
+        "description" : "This endpoint is used to redact specified text from the provided files, with options to search case-sensitively and target different parts of the document such as text, comments, and metadata.\r\nIf the redaction is started, the response will contain a success status and an optional message.\r\nIf the redaction fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "searchQuery",
+          "in" : "query",
+          "description" : "The text to search for and redact.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "replaceText",
+          "in" : "query",
+          "description" : "The text to replace the found text with.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "caseSensitive",
+          "in" : "query",
+          "description" : "Indicates whether the search should be case-sensitive.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "text",
+          "in" : "query",
+          "description" : "Indicates whether text should be redacted.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "comments",
+          "in" : "query",
+          "description" : "Indicates whether comments should be redacted.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "metadata",
+          "in" : "query",
+          "description" : "Indicates whether metadata should be redacted.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_redact_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/search" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Searches the provided files for the specified query and makr found text with yellow background.",
+        "description" : "This endpoint is used to search the provided files for the specified query.\r\nIf the search is started, the response will contain a success status and an optional message.\r\nIf the search fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "description" : "The text to search for within the files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_search_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/remove" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Removes annotations from the provided documents.",
+        "description" : "This endpoint is used to remove annotations from the provided files.\r\nIf the removal is started, the response will contain a success status and an optional message.\r\nIf the removal fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_remove_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/convert" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Converts the provided files from one format to another, with options for XML conversion and font size adjustment.",
+        "description" : "This endpoint is used to convert the provided files from one format to another.\r\nIf the conversion is started, the response will contain a success status and an optional message.\r\nIf the conversion fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "inputType",
+          "in" : "query",
+          "description" : "The format of the input files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "outputType",
+          "in" : "query",
+          "description" : "The desired format for the output files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "xmlType",
+          "in" : "query",
+          "description" : "The type of XML conversion to perform, if applicable.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "xmlTag",
+          "in" : "query",
+          "description" : "The XML tag to use for conversion, if applicable.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "fontSise",
+          "in" : "query",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "isToSingle",
+          "in" : "query",
+          "description" : "Indicates whether the conversion should result in a single file, if applicable.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "separator",
+          "in" : "query",
+          "description" : "The separator to use when converting, if applicable.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_convert_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/merge" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Merges the provided files into a single document or image, with options for orientation and page size.",
+        "description" : "This endpoint is used to merge the provided files into a single document or image.\r\nIf the merge is started, the response will contain a success status and an optional message.\r\nIf the merge fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "inputType",
+          "in" : "query",
+          "description" : "The format of the input files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "outputType",
+          "in" : "query",
+          "description" : "The desired format for the output file.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "horizontal",
+          "in" : "query",
+          "description" : "The number of images to merge horizontally, if applicable.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "vertical",
+          "in" : "query",
+          "description" : "The number of images to merge vertically, if applicable.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "pageSize",
+          "in" : "query",
+          "description" : "The page size for the output file, if applicable.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "dc_isLandscape",
+          "in" : "query",
+          "description" : "Indicates whether the output file should be in landscape orientation.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_merge_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/searchable" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Converts the provided files into a searchable PDF format for the specified language.",
+        "description" : "This endpoint is used to convert the provided files into a searchable PDF format for the specified language.\r\nIf the conversion is started, the response will contain a success status and an optional message.\r\nIf the conversion fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "query",
+          "description" : "The language of the files to be converted.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_searchable_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/rotate" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Rotates the provided files by a specified angle, with options for rotation type and page number.",
+        "description" : "This endpoint is used to rotate the provided files by a specified angle.\r\nIf the rotation is started, the response will contain a success status and an optional message.\r\nIf the rotation fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "angle",
+          "in" : "query",
+          "description" : "The angle by which to rotate the files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "rotateType",
+          "in" : "query",
+          "description" : "The type of rotation to perform.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "pageNum",
+          "in" : "query",
+          "description" : "The page number to rotate, if applicable.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_rotate_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/Organize" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Organizes the provided documents by removing or moving specified pages.",
+        "description" : "This endpoint is used to organize the provided documents by removing or moving specified pages.\r\nIf the organization is started, the response will contain a success status and an optional message.\r\nIf the organization fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "inputType",
+          "in" : "query",
+          "description" : "The format of the input files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "remove",
+          "in" : "query",
+          "description" : "The pages to remove from the document.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "move",
+          "in" : "query",
+          "description" : "The pages to move within the document.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_Organize_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/esign" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Electronically signs the provided files with the specified certificate and its password.",
+        "description" : "This endpoint is used to electronically sign the provided files with the specified certificate and its password.\r\nIf the signing is started, the response will contain a success status and an optional message.\r\nIf the signing fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "inputType",
+          "in" : "query",
+          "description" : "The format of the input files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "passw",
+          "in" : "query",
+          "description" : "The password to use for electronic signing.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_esign_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/verify_esign" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Verifies the electronic signature of the provided files.",
+        "description" : "This endpoint is used to verify the electronic signature of the provided files.\r\nIf the verification is started, the response will contain a success status and an optional message.\r\nIf the verification fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "inputType",
+          "in" : "query",
+          "description" : "The format of the input files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_verify_esign_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/removepages" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Removes specified pages from the provided files.",
+        "description" : "This endpoint is used to remove specified pages from the provided files.\r\nIf the removal is started, the response will contain a success status and an optional message.\r\nIf the removal fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "removeRange",
+          "in" : "query",
+          "description" : "The range of pages to remove from the files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_removepages_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/extract" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Extracts tables from the provided documents and converts them to the specified output format.",
+        "description" : "This endpoint is used to extract tables from the provided files and convert them to the specified output format.\r\nIf the extraction is started, the response will contain a success status and an optional message.\r\nIf the extraction fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "inputType",
+          "in" : "query",
+          "description" : "The format of the input files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "outputType",
+          "in" : "query",
+          "description" : "The desired format for the output files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_extract_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/compress" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Compresses the provided files using the specified compression level.",
+        "description" : "This endpoint is used to compress the provided files using the specified compression level.\r\nIf the compression is started, the response will contain a success status and an optional message.\r\nIf the compression fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "compressType",
+          "in" : "query",
+          "description" : "The level of compression to use.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_compress_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/addnumber" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Adds page numbers to the provided documents with the specified alignment, starting number, and format.",
+        "description" : "This endpoint is used to add page numbers to the provided files with the specified alignment, starting number, and format.\r\nIf the addition is started, the response will contain a success status and an optional message.\r\nIf the addition fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "vAlignment",
+          "in" : "query",
+          "description" : "The vertical alignment of the page numbers.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "hAlignment",
+          "in" : "query",
+          "description" : "The horizontal alignment of the page numbers.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "startingNumber",
+          "in" : "query",
+          "description" : "The starting number for the page numbers.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "sNumber",
+          "in" : "query",
+          "description" : "The number of the first page to start numbering from.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "fNumber",
+          "in" : "query",
+          "description" : "The number of the last page to end numbering at.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "margin",
+          "in" : "query",
+          "description" : "The margin around the page numbers.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "fontSize",
+          "in" : "query",
+          "description" : "The font size of the page numbers.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "format",
+          "in" : "query",
+          "description" : "The format of the page numbers.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_addnumber_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/convert-webpage" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Converts a web page to the specified output format.",
+        "description" : "This endpoint is used to convert a web page to the specified output format.\r\nIf the conversion is started, the response will contain a success status and an optional message.\r\nIf the conversion fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "outputType",
+          "in" : "query",
+          "description" : "The desired format for the output file.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_convertwebpage_body"
+              },
+              "encoding" : {
+                "webPage" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/xfaconvert" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Converts the provided documents from XFA format to a different format.",
+        "description" : "This endpoint is used to convert the provided files from XFA format to a different format.\r\nIf the conversion is started, the response will contain a success status and an optional message.\r\nIf the conversion fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "inputType",
+          "in" : "query",
+          "description" : "The format of the input files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_xfaconvert_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/watermark" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Adds a watermark to the provided files.",
+        "description" : "This endpoint is used to add a watermark to the provided files.\r\nIf the addition is started, the response will contain a success status and an optional message.\r\nIf the addition fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "inputType",
+          "in" : "query",
+          "description" : "The format of the input files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "outputType",
+          "in" : "query",
+          "description" : "The desired format for the output files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_watermark_body"
+              },
+              "encoding" : {
+                "isText" : {
+                  "style" : "form"
+                },
+                "text" : {
+                  "style" : "form"
+                },
+                "name" : {
+                  "style" : "form"
+                },
+                "size" : {
+                  "style" : "form"
+                },
+                "bold" : {
+                  "style" : "form"
+                },
+                "italic" : {
+                  "style" : "form"
+                },
+                "underlined" : {
+                  "style" : "form"
+                },
+                "color" : {
+                  "style" : "form"
+                },
+                "ContentType" : {
+                  "style" : "form"
+                },
+                "ContentDisposition" : {
+                  "style" : "form"
+                },
+                "Headers" : {
+                  "style" : "form"
+                },
+                "Length" : {
+                  "style" : "form"
+                },
+                "Name" : {
+                  "style" : "form"
+                },
+                "FileName" : {
+                  "style" : "form"
+                },
+                "isBackground" : {
+                  "style" : "form"
+                },
+                "rotation" : {
+                  "style" : "form"
+                },
+                "transparency" : {
+                  "style" : "form"
+                },
+                "layer" : {
+                  "style" : "form"
+                },
+                "pageFrom" : {
+                  "style" : "form"
+                },
+                "pageTo" : {
+                  "style" : "form"
+                },
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/crop" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Crops the provided files to the specified dimensions.",
+        "description" : "This endpoint is used to crop the provided files to the specified dimensions.\r\nIf the cropping is started, the response will contain a success status and an optional message.\r\nIf the cropping fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "inputType",
+          "in" : "query",
+          "description" : "The format of the input files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "top",
+          "in" : "query",
+          "description" : "The number of pixels to crop from the top.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "right",
+          "in" : "query",
+          "description" : "The number of pixels to crop from the right.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "bottom",
+          "in" : "query",
+          "description" : "The number of pixels to crop from the bottom.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "left",
+          "in" : "query",
+          "description" : "The number of pixels to crop from the left.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "outputType",
+          "in" : "query",
+          "description" : "The desired format for the output files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_crop_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/resize" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Resizes the provided files to the specified dimensions or using a preset size.",
+        "description" : "This endpoint is used to resize the provided files to the specified dimensions or using a preset size.\r\nIf the resizing is started, the response will contain a success status and an optional message.\r\nIf the resizing fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "inputType",
+          "in" : "query",
+          "description" : "The format of the input files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "outputType",
+          "in" : "query",
+          "description" : "The desired format for the output files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "resizeType",
+          "in" : "query",
+          "description" : "The type of resizing to apply.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "presetType",
+          "in" : "query",
+          "description" : "The type of preset size to use for resizing.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "presetSize",
+          "in" : "query",
+          "description" : "The preset size to use for resizing.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "width",
+          "in" : "query",
+          "description" : "The desired width of the resized files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "height",
+          "in" : "query",
+          "description" : "The desired height of the resized files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "percentage",
+          "in" : "query",
+          "description" : "The percentage to resize the files by.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "useProportions",
+          "in" : "query",
+          "description" : "Indicates whether to maintain the aspect ratio when resizing.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "pageSize",
+          "in" : "query",
+          "description" : "The page size to use for the resized files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_resize_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/hash" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Hashes the provided files using the specified algorithm.",
+        "description" : "This endpoint is used to hash the provided files using the specified algorithm.\r\nIf the hashing is started, the response will contain a success status and an optional message.\r\nIf the hashing fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "inputType",
+          "in" : "query",
+          "description" : "The format of the input files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "outputType",
+          "in" : "query",
+          "description" : "The desired format for the output files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "alg",
+          "in" : "query",
+          "description" : "The hashing algorithm to use.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_hash_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/Signature" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Adds a signature to the provided files.",
+        "description" : "This endpoint is used to add a signature to the provided files.\r\nIf the addition is started, the response will contain a success status and an optional message.\r\nIf the addition fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "inputType",
+          "in" : "query",
+          "description" : "The format of the input files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "outputType",
+          "in" : "query",
+          "description" : "The desired format for the output files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "signatureType",
+          "in" : "query",
+          "description" : "The type of signature to add.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_Signature_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/Comparison" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Compare provided files and create document with marked changes.",
+        "description" : "This endpoint is used to compare the provided files.\r\nIf the comparison is started, the response will contain a success status and an optional message.\r\nIf the comparison fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_Comparison_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/BinaryComparison" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Performs a binary comparison on the provided files.",
+        "description" : "This endpoint is used to perform a binary comparison on the provided files.\r\nIf the comparison is started, the response will contain a success status and an optional message.\r\nIf the comparison fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_BinaryComparison_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/music-video" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Creates a music video from the provided files.",
+        "description" : "This endpoint is used to create a music video from the provided files.\r\nIf the creation is started, the response will contain a success status and an optional message.\r\nIf the creation fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "interval",
+          "in" : "query",
+          "description" : "The interval between frames in the music video.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "outputType",
+          "in" : "query",
+          "description" : "The desired format for the output files.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_musicvideo_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/gif" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Creates a GIF from the provided images.",
+        "description" : "This endpoint is used to create a GIF from the provided images.\r\nIf the creation is started, the response will contain a success status and an optional message.\r\nIf the creation fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "keepImagesAsIs",
+          "in" : "query",
+          "description" : "Indicates whether the images should be kept as is.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "resizeToImage",
+          "in" : "query",
+          "description" : "The index of the image to resize the other images to.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "streched",
+          "in" : "query",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "width",
+          "in" : "query",
+          "description" : "The width of the GIF.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "height",
+          "in" : "query",
+          "description" : "The height of the GIF.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "frameTimes",
+          "in" : "query",
+          "description" : "The times for each frame in the GIF.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/chatpdf" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Generates a PDF document based on the provided files and question.",
+        "description" : "This endpoint is used to generate a PDF document based on the provided files and question.\r\nIf the generation is started, the response will contain a success status and an optional message.\r\nIf the generation fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "mode",
+          "in" : "query",
+          "description" : "The mode of operation for the PDF generation.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "question",
+          "in" : "query",
+          "description" : "The question to be included in the PDF.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_chatpdf_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/WordCounter" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Counts the words in the provided files within the specified page range.",
+        "description" : "This endpoint is used to count the words in the provided files within the specified page range.\r\nIf the counting is started, the response will contain a success status and the word count.\r\nIf the counting fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "pageRange",
+          "in" : "query",
+          "description" : "The range of pages to count words in.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_WordCounter_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/repair" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Repairs the provided files.",
+        "description" : "This endpoint is used to repair the provided files.\r\nIf the repair is started, the response will contain a success status and an optional message.\r\nIf the repair fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_repair_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/remove-watermark" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Removes a watermark from the provided files.",
+        "description" : "This endpoint is used to remove a watermark from the provided files.\r\nIf the removal is started, the response will contain a success status and an optional message.\r\nIf the removal fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "isAllPages",
+          "in" : "query",
+          "description" : "Indicates whether the watermark should be removed from all pages.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "watermarkType",
+          "in" : "query",
+          "description" : "The type of watermark to remove.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "removeRange",
+          "in" : "query",
+          "description" : "The range of pages to remove the watermark from.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_removewatermark_body"
+              },
+              "encoding" : {
+                "watermarkText" : {
+                  "style" : "form"
+                },
+                "top" : {
+                  "style" : "form"
+                },
+                "left" : {
+                  "style" : "form"
+                },
+                "bottom" : {
+                  "style" : "form"
+                },
+                "right" : {
+                  "style" : "form"
+                },
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/metadata" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Performs metadata operations on the provided files.",
+        "description" : "This endpoint is used to perform metadata operations on the provided files.\r\nIf the operation is started, the response will contain a success status and an optional message.\r\nIf the operation fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "opration",
+          "in" : "query",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "folder",
+          "in" : "query",
+          "description" : "The folder where the files are located.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "name",
+          "in" : "query",
+          "description" : "The name of the file to perform the operation on.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_metadata_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    },
+    "/pdf/webapi/form-filler" : {
+      "post" : {
+        "tags" : [ "Api" ],
+        "summary" : "Fills a form with the provided files.",
+        "description" : "This endpoint is used to fill a form with the provided files.\r\nIf the filling is started, the response will contain a success status and an optional message.\r\nIf the filling fails, the response will contain an error status and a message indicating the reason for the failure.",
+        "parameters" : [ {
+          "name" : "fileName",
+          "in" : "query",
+          "description" : "The name of the file to fill the form with.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/webapi_formfiller_body"
+              },
+              "encoding" : {
+                "files" : {
+                  "style" : "form"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "The resource was successfully added to processing.",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "The request was invalid or the resource could not be locked."
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "DocProperty" : {
+        "type" : "object",
+        "properties" : {
+          "key" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "name" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "value" : {
+            "nullable" : true
+          },
+          "type" : {
+            "$ref" : "#/components/schemas/PropertyType"
+          },
+          "readOnly" : {
+            "type" : "boolean"
+          }
+        },
+        "additionalProperties" : false,
+        "description" : "The same fields as in DocumentProperty",
+        "example" : {
+          "name" : "name",
+          "readOnly" : true,
+          "type" : 1,
+          "value" : "",
+          "key" : "key"
+        }
+      },
+      "FileProcessingErrorCode" : {
+        "type" : "integer",
+        "format" : "int32",
+        "enum" : [ 0, 10000, 10001, 10002 ]
+      },
+      "FileResponse" : {
+        "type" : "object",
+        "properties" : {
+          "statusCode" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "status" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "text" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "locked" : {
+            "type" : "boolean"
+          },
+          "updated" : {
+            "type" : "string",
+            "description" : "Last updated",
+            "format" : "date-time",
+            "nullable" : true
+          },
+          "sharedFiles" : {
+            "type" : "array",
+            "nullable" : true,
+            "items" : {
+              "$ref" : "#/components/schemas/FileSafeResult"
+            }
+          },
+          "files" : {
+            "type" : "array",
+            "nullable" : true,
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "fileProcessingErrorCode" : {
+            "$ref" : "#/components/schemas/FileProcessingErrorCode"
+          },
+          "fileCount" : {
+            "type" : "integer",
+            "description" : "Get count of files",
+            "format" : "int32",
+            "readOnly" : true
+          },
+          "fileName" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "folderName" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "resultData" : {
+            "nullable" : true
+          },
+          "appInstanceId" : {
+            "type" : "string",
+            "description" : "Where is processing located",
+            "nullable" : true
+          }
+        },
+        "additionalProperties" : false,
+        "example" : {
+          "fileName" : "fileName",
+          "resultData" : "",
+          "fileProcessingErrorCode" : 5,
+          "fileCount" : 5,
+          "appInstanceId" : "appInstanceId",
+          "files" : [ "files", "files" ],
+          "text" : "text",
+          "folderName" : "folderName",
+          "locked" : true,
+          "updated" : "2000-01-23T04:56:07.000+00:00",
+          "sharedFiles" : [ {
+            "fileName" : "fileName",
+            "uploadFileName" : "uploadFileName",
+            "customProp" : [ null, null ],
+            "id" : "id",
+            "fileLength" : 6,
+            "isSuccess" : true,
+            "idUpload" : "idUpload",
+            "builtProp" : [ {
+              "name" : "name",
+              "readOnly" : true,
+              "type" : 1,
+              "value" : "",
+              "key" : "key"
+            }, {
+              "name" : "name",
+              "readOnly" : true,
+              "type" : 1,
+              "value" : "",
+              "key" : "key"
+            } ]
+          }, {
+            "fileName" : "fileName",
+            "uploadFileName" : "uploadFileName",
+            "customProp" : [ null, null ],
+            "id" : "id",
+            "fileLength" : 6,
+            "isSuccess" : true,
+            "idUpload" : "idUpload",
+            "builtProp" : [ {
+              "name" : "name",
+              "readOnly" : true,
+              "type" : 1,
+              "value" : "",
+              "key" : "key"
+            }, {
+              "name" : "name",
+              "readOnly" : true,
+              "type" : 1,
+              "value" : "",
+              "key" : "key"
+            } ]
+          } ],
+          "statusCode" : 0,
+          "status" : "status"
+        }
+      },
+      "FileSafeResult" : {
+        "type" : "object",
+        "properties" : {
+          "isSuccess" : {
+            "type" : "boolean",
+            "description" : "Is result success?"
+          },
+          "id" : {
+            "type" : "string",
+            "description" : "Upload id.",
+            "nullable" : true
+          },
+          "fileName" : {
+            "type" : "string",
+            "description" : "File name.",
+            "nullable" : true
+          },
+          "uploadFileName" : {
+            "type" : "string",
+            "description" : "Gets or sets the name of the upload file.",
+            "nullable" : true
+          },
+          "idUpload" : {
+            "type" : "string",
+            "description" : "idUpload from request.",
+            "nullable" : true
+          },
+          "fileLength" : {
+            "type" : "integer",
+            "description" : "File length.",
+            "format" : "int64",
+            "nullable" : true,
+            "readOnly" : true
+          },
+          "builtProp" : {
+            "type" : "array",
+            "nullable" : true,
+            "items" : {
+              "$ref" : "#/components/schemas/DocProperty"
+            }
+          },
+          "customProp" : {
+            "type" : "array",
+            "nullable" : true,
+            "items" : {
+              "$ref" : "#/components/schemas/DocProperty"
+            }
+          }
+        },
+        "additionalProperties" : false,
+        "description" : "File processing result.",
+        "example" : {
+          "fileName" : "fileName",
+          "uploadFileName" : "uploadFileName",
+          "customProp" : [ null, null ],
+          "id" : "id",
+          "fileLength" : 6,
+          "isSuccess" : true,
+          "idUpload" : "idUpload",
+          "builtProp" : [ {
+            "name" : "name",
+            "readOnly" : true,
+            "type" : 1,
+            "value" : "",
+            "key" : "key"
+          }, {
+            "name" : "name",
+            "readOnly" : true,
+            "type" : 1,
+            "value" : "",
+            "key" : "key"
+          } ]
+        }
+      },
+      "PropertyType" : {
+        "type" : "integer",
+        "format" : "int32",
+        "enum" : [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+      },
+      "webapi_lock_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_unlock_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_parse_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_splitdoc_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_splitimage_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_redact_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_search_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_remove_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_convert_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_merge_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_searchable_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_rotate_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_Organize_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_esign_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_verify_esign_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_removepages_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_extract_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_compress_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_addnumber_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_convertwebpage_body" : {
+        "type" : "object",
+        "properties" : {
+          "webPage" : {
+            "type" : "string"
+          }
+        }
+      },
+      "webapi_xfaconvert_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_watermark_body" : {
+        "type" : "object",
+        "properties" : {
+          "isText" : {
+            "type" : "boolean"
+          },
+          "text" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "bold" : {
+            "type" : "boolean"
+          },
+          "italic" : {
+            "type" : "boolean"
+          },
+          "underlined" : {
+            "type" : "boolean"
+          },
+          "color" : {
+            "type" : "string"
+          },
+          "ContentType" : {
+            "type" : "string"
+          },
+          "ContentDisposition" : {
+            "type" : "string"
+          },
+          "Headers" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "Length" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "Name" : {
+            "type" : "string"
+          },
+          "FileName" : {
+            "type" : "string"
+          },
+          "isBackground" : {
+            "type" : "boolean"
+          },
+          "rotation" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "transparency" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "layer" : {
+            "type" : "boolean"
+          },
+          "pageFrom" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "pageTo" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_crop_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_resize_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_hash_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_Signature_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_Comparison_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_BinaryComparison_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_musicvideo_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_chatpdf_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_WordCounter_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_repair_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_removewatermark_body" : {
+        "type" : "object",
+        "properties" : {
+          "watermarkText" : {
+            "type" : "string"
+          },
+          "top" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "left" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "bottom" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "right" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_metadata_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      },
+      "webapi_formfiller_body" : {
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          }
+        }
+      }
+    }
+  }
+}
