@@ -4,54 +4,50 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**pdfWebapiAddnumberPost**](ApiApi.md#pdfWebapiAddnumberPost) | **POST** /pdf/webapi/addnumber | Adds page numbers to the provided documents with the specified alignment, starting number, and format.
-[**pdfWebapiBinaryComparisonPost**](ApiApi.md#pdfWebapiBinaryComparisonPost) | **POST** /pdf/webapi/BinaryComparison | Performs a binary comparison on the provided files.
-[**pdfWebapiChatpdfPost**](ApiApi.md#pdfWebapiChatpdfPost) | **POST** /pdf/webapi/chatpdf | Generates a PDF document based on the provided files and question.
-[**pdfWebapiComparisonPost**](ApiApi.md#pdfWebapiComparisonPost) | **POST** /pdf/webapi/Comparison | Compare provided files and create document with marked changes.
-[**pdfWebapiCompressPost**](ApiApi.md#pdfWebapiCompressPost) | **POST** /pdf/webapi/compress | Compresses the provided files using the specified compression level.
-[**pdfWebapiConvertPost**](ApiApi.md#pdfWebapiConvertPost) | **POST** /pdf/webapi/convert | Converts the provided files from one format to another, with options for XML conversion and font size adjustment.
-[**pdfWebapiConvertWebpagePost**](ApiApi.md#pdfWebapiConvertWebpagePost) | **POST** /pdf/webapi/convert-webpage | Converts a web page to the specified output format.
-[**pdfWebapiCropPost**](ApiApi.md#pdfWebapiCropPost) | **POST** /pdf/webapi/crop | Crops the provided files to the specified dimensions.
-[**pdfWebapiDownloadIdGet**](ApiApi.md#pdfWebapiDownloadIdGet) | **GET** /pdf/webapi/download/{id} | Downloads a file.
-[**pdfWebapiDownloadStreamIdPost**](ApiApi.md#pdfWebapiDownloadStreamIdPost) | **POST** /pdf/webapi/download-stream/{id} | Downloads a file as a stream.
-[**pdfWebapiEsignPost**](ApiApi.md#pdfWebapiEsignPost) | **POST** /pdf/webapi/esign | Electronically signs the provided files with the specified certificate and its password.
-[**pdfWebapiExtractPost**](ApiApi.md#pdfWebapiExtractPost) | **POST** /pdf/webapi/extract | Extracts tables from the provided documents and converts them to the specified output format.
-[**pdfWebapiFormFillerPost**](ApiApi.md#pdfWebapiFormFillerPost) | **POST** /pdf/webapi/form-filler | Fills a form with the provided files.
-[**pdfWebapiGifPost**](ApiApi.md#pdfWebapiGifPost) | **POST** /pdf/webapi/gif | Creates a GIF from the provided images.
-[**pdfWebapiHashPost**](ApiApi.md#pdfWebapiHashPost) | **POST** /pdf/webapi/hash | Hashes the provided files using the specified algorithm.
-[**pdfWebapiLockPost**](ApiApi.md#pdfWebapiLockPost) | **POST** /pdf/webapi/lock | Locks a document with the provided password and optional files.
-[**pdfWebapiMergePost**](ApiApi.md#pdfWebapiMergePost) | **POST** /pdf/webapi/merge | Merges the provided files into a single document or image, with options for orientation and page size.
-[**pdfWebapiMetadataPost**](ApiApi.md#pdfWebapiMetadataPost) | **POST** /pdf/webapi/metadata | Performs metadata operations on the provided files.
-[**pdfWebapiMusicVideoPost**](ApiApi.md#pdfWebapiMusicVideoPost) | **POST** /pdf/webapi/music-video | Creates a music video from the provided files.
-[**pdfWebapiOrganizePost**](ApiApi.md#pdfWebapiOrganizePost) | **POST** /pdf/webapi/Organize | Organizes the provided documents by removing or moving specified pages.
-[**pdfWebapiParsePost**](ApiApi.md#pdfWebapiParsePost) | **POST** /pdf/webapi/parse | Parses the provided files using a parser service.
-[**pdfWebapiRedactPost**](ApiApi.md#pdfWebapiRedactPost) | **POST** /pdf/webapi/redact | Redacts specified text from the provided documents, with options to search case-sensitively, target in text, comments, and metadata.
-[**pdfWebapiRemoveIdPost**](ApiApi.md#pdfWebapiRemoveIdPost) | **POST** /pdf/webapi/remove/{id} | Removes all files from processing.
-[**pdfWebapiRemovePost**](ApiApi.md#pdfWebapiRemovePost) | **POST** /pdf/webapi/remove | Removes annotations from the provided documents.
-[**pdfWebapiRemoveWatermarkPost**](ApiApi.md#pdfWebapiRemoveWatermarkPost) | **POST** /pdf/webapi/remove-watermark | Removes a watermark from the provided files.
-[**pdfWebapiRemovepagesPost**](ApiApi.md#pdfWebapiRemovepagesPost) | **POST** /pdf/webapi/removepages | Removes specified pages from the provided files.
-[**pdfWebapiRepairPost**](ApiApi.md#pdfWebapiRepairPost) | **POST** /pdf/webapi/repair | Repairs the provided files.
-[**pdfWebapiResizePost**](ApiApi.md#pdfWebapiResizePost) | **POST** /pdf/webapi/resize | Resizes the provided files to the specified dimensions or using a preset size.
-[**pdfWebapiRotatePost**](ApiApi.md#pdfWebapiRotatePost) | **POST** /pdf/webapi/rotate | Rotates the provided files by a specified angle, with options for rotation type and page number.
-[**pdfWebapiSearchPost**](ApiApi.md#pdfWebapiSearchPost) | **POST** /pdf/webapi/search | Searches the provided files for the specified query and makr found text with yellow background.
-[**pdfWebapiSearchablePost**](ApiApi.md#pdfWebapiSearchablePost) | **POST** /pdf/webapi/searchable | Converts the provided files into a searchable PDF format for the specified language.
-[**pdfWebapiSignaturePost**](ApiApi.md#pdfWebapiSignaturePost) | **POST** /pdf/webapi/Signature | Adds a signature to the provided files.
-[**pdfWebapiSplitdocPost**](ApiApi.md#pdfWebapiSplitdocPost) | **POST** /pdf/webapi/splitdoc | Splits the provided documents based on the specified split type and page rage to spit.
-[**pdfWebapiSplitimagePost**](ApiApi.md#pdfWebapiSplitimagePost) | **POST** /pdf/webapi/splitimage | Splits the provided images into smaller parts based on the specified parameters.
-[**pdfWebapiStatusIdPost**](ApiApi.md#pdfWebapiStatusIdPost) | **POST** /pdf/webapi/status/{id} | Retrieves the status of a processing.
-[**pdfWebapiUnlockPost**](ApiApi.md#pdfWebapiUnlockPost) | **POST** /pdf/webapi/unlock | Attempts to unlock a document with an password and associated files.
-[**pdfWebapiVerifyEsignPost**](ApiApi.md#pdfWebapiVerifyEsignPost) | **POST** /pdf/webapi/verify_esign | Verifies the electronic signature of the provided files.
-[**pdfWebapiWatermarkPost**](ApiApi.md#pdfWebapiWatermarkPost) | **POST** /pdf/webapi/watermark | Adds a watermark to the provided files.
-[**pdfWebapiWordCounterPost**](ApiApi.md#pdfWebapiWordCounterPost) | **POST** /pdf/webapi/WordCounter | Counts the words in the provided files within the specified page range.
-[**pdfWebapiXfaconvertPost**](ApiApi.md#pdfWebapiXfaconvertPost) | **POST** /pdf/webapi/xfaconvert | Converts the provided documents from XFA format to a different format.
+[**pdfWebapiAddnumberPost**](ApiApi.md#pdfWebapiAddnumberPost) | **POST** /pdf/webapi/addnumber | Add page numbers to document.
+[**pdfWebapiComparisonPost**](ApiApi.md#pdfWebapiComparisonPost) | **POST** /pdf/webapi/comparison | Compare documents text.
+[**pdfWebapiCompressPost**](ApiApi.md#pdfWebapiCompressPost) | **POST** /pdf/webapi/compress | Compress document.
+[**pdfWebapiConvertPost**](ApiApi.md#pdfWebapiConvertPost) | **POST** /pdf/webapi/convert | Convert document to another format.
+[**pdfWebapiConvertWebpagePost**](ApiApi.md#pdfWebapiConvertWebpagePost) | **POST** /pdf/webapi/convert-webpage | Convert web page to document.
+[**pdfWebapiCropPost**](ApiApi.md#pdfWebapiCropPost) | **POST** /pdf/webapi/crop | Crop document.
+[**pdfWebapiDownloadIdGet**](ApiApi.md#pdfWebapiDownloadIdGet) | **GET** /pdf/webapi/download/{id} | File download.
+[**pdfWebapiEsignPost**](ApiApi.md#pdfWebapiEsignPost) | **POST** /pdf/webapi/esign | Sign document with certificate.
+[**pdfWebapiExtractPost**](ApiApi.md#pdfWebapiExtractPost) | **POST** /pdf/webapi/extract | Extract tables from document.
+[**pdfWebapiFormFillerPost**](ApiApi.md#pdfWebapiFormFillerPost) | **POST** /pdf/webapi/form-filler | Fill form.
+[**pdfWebapiGifPost**](ApiApi.md#pdfWebapiGifPost) | **POST** /pdf/webapi/gif | Make GIF.
+[**pdfWebapiHashPost**](ApiApi.md#pdfWebapiHashPost) | **POST** /pdf/webapi/hash | Calculate document hash.
+[**pdfWebapiLockPost**](ApiApi.md#pdfWebapiLockPost) | **POST** /pdf/webapi/lock | Lock document.
+[**pdfWebapiMergePost**](ApiApi.md#pdfWebapiMergePost) | **POST** /pdf/webapi/merge | Merge documents.
+[**pdfWebapiMetadataPost**](ApiApi.md#pdfWebapiMetadataPost) | **POST** /pdf/webapi/metadata | Read and change document metadata.
+[**pdfWebapiOrganizePost**](ApiApi.md#pdfWebapiOrganizePost) | **POST** /pdf/webapi/organize | Organize document pages.
+[**pdfWebapiParsePost**](ApiApi.md#pdfWebapiParsePost) | **POST** /pdf/webapi/parse | Parse document.
+[**pdfWebapiRedactPost**](ApiApi.md#pdfWebapiRedactPost) | **POST** /pdf/webapi/redact | Redact document text.
+[**pdfWebapiRemoveIdPost**](ApiApi.md#pdfWebapiRemoveIdPost) | **POST** /pdf/webapi/remove/{id} | Remove stored files.
+[**pdfWebapiRemovePost**](ApiApi.md#pdfWebapiRemovePost) | **POST** /pdf/webapi/remove | Remove document annotations.
+[**pdfWebapiRemoveWatermarkPost**](ApiApi.md#pdfWebapiRemoveWatermarkPost) | **POST** /pdf/webapi/remove-watermark | Removes document watermark.
+[**pdfWebapiRemovepagesPost**](ApiApi.md#pdfWebapiRemovepagesPost) | **POST** /pdf/webapi/removepages | Remove pages from document.
+[**pdfWebapiRepairPost**](ApiApi.md#pdfWebapiRepairPost) | **POST** /pdf/webapi/repair | Repair document.
+[**pdfWebapiResizePost**](ApiApi.md#pdfWebapiResizePost) | **POST** /pdf/webapi/resize | Resize document.
+[**pdfWebapiRotatePost**](ApiApi.md#pdfWebapiRotatePost) | **POST** /pdf/webapi/rotate | Rotate document.
+[**pdfWebapiSearchPost**](ApiApi.md#pdfWebapiSearchPost) | **POST** /pdf/webapi/search | Search document text.
+[**pdfWebapiSearchablePost**](ApiApi.md#pdfWebapiSearchablePost) | **POST** /pdf/webapi/searchable | Make scanned pdf searchable.
+[**pdfWebapiSignaturePost**](ApiApi.md#pdfWebapiSignaturePost) | **POST** /pdf/webapi/signature | Add signature to document.
+[**pdfWebapiSplitdocPost**](ApiApi.md#pdfWebapiSplitdocPost) | **POST** /pdf/webapi/splitdoc | Split document.
+[**pdfWebapiSplitimagePost**](ApiApi.md#pdfWebapiSplitimagePost) | **POST** /pdf/webapi/splitimage | Split image.
+[**pdfWebapiStatusIdPost**](ApiApi.md#pdfWebapiStatusIdPost) | **POST** /pdf/webapi/status/{id} | Processing status.
+[**pdfWebapiUnlockPost**](ApiApi.md#pdfWebapiUnlockPost) | **POST** /pdf/webapi/unlock | Unlock document.
+[**pdfWebapiVerifyEsignPost**](ApiApi.md#pdfWebapiVerifyEsignPost) | **POST** /pdf/webapi/verify_esign | Verify document certificate.
+[**pdfWebapiWatermarkPost**](ApiApi.md#pdfWebapiWatermarkPost) | **POST** /pdf/webapi/watermark | Add watermark to document.
+[**pdfWebapiWordcounterPost**](ApiApi.md#pdfWebapiWordcounterPost) | **POST** /pdf/webapi/wordcounter | Count words and chars in document.
+[**pdfWebapiXfaconvertPost**](ApiApi.md#pdfWebapiXfaconvertPost) | **POST** /pdf/webapi/xfaconvert | Convert XFA format to a another format.
 
 <a name="pdfWebapiAddnumberPost"></a>
 # **pdfWebapiAddnumberPost**
 > FileResponse pdfWebapiAddnumberPost(files, vAlignment, hAlignment, startingNumber, sNumber, fNumber, margin, fontSize, format)
 
-Adds page numbers to the provided documents with the specified alignment, starting number, and format.
+Add page numbers to document.
 
-This endpoint is used to add page numbers to the provided files with the specified alignment, starting number, and format.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
+Adds page numbers to the provided documents with the specified alignment, starting number, and format.
 
 ### Example
 ```java
@@ -106,107 +102,13 @@ No authorization required
  - **Content-Type**: multipart/form-data
  - **Accept**: text/plain, application/json, text/json
 
-<a name="pdfWebapiBinaryComparisonPost"></a>
-# **pdfWebapiBinaryComparisonPost**
-> FileResponse pdfWebapiBinaryComparisonPost(files)
-
-Performs a binary comparison on the provided files.
-
-This endpoint is used to perform a binary comparison on the provided files.  If the comparison is started, the response will contain a success status and an optional message.  If the comparison fails, the response will contain an error status and a message indicating the reason for the failure.
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ApiApi;
-
-
-ApiApi apiInstance = new ApiApi();
-List<File> files = Arrays.asList(new File("/path/to/file")); // List<File> | 
-try {
-    FileResponse result = apiInstance.pdfWebapiBinaryComparisonPost(files);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ApiApi#pdfWebapiBinaryComparisonPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **files** | [**List&lt;File&gt;**](File.md)|  | [optional]
-
-### Return type
-
-[**FileResponse**](FileResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: text/plain, application/json, text/json
-
-<a name="pdfWebapiChatpdfPost"></a>
-# **pdfWebapiChatpdfPost**
-> FileResponse pdfWebapiChatpdfPost(files, mode, question)
-
-Generates a PDF document based on the provided files and question.
-
-This endpoint is used to generate a PDF document based on the provided files and question.  If the generation is started, the response will contain a success status and an optional message.  If the generation fails, the response will contain an error status and a message indicating the reason for the failure.
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ApiApi;
-
-
-ApiApi apiInstance = new ApiApi();
-List<File> files = Arrays.asList(new File("/path/to/file")); // List<File> | 
-Integer mode = 56; // Integer | The mode of operation for the PDF generation.
-String question = "question_example"; // String | The question to be included in the PDF.
-try {
-    FileResponse result = apiInstance.pdfWebapiChatpdfPost(files, mode, question);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ApiApi#pdfWebapiChatpdfPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **files** | [**List&lt;File&gt;**](File.md)|  | [optional]
- **mode** | **Integer**| The mode of operation for the PDF generation. | [optional]
- **question** | **String**| The question to be included in the PDF. | [optional]
-
-### Return type
-
-[**FileResponse**](FileResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: text/plain, application/json, text/json
-
 <a name="pdfWebapiComparisonPost"></a>
 # **pdfWebapiComparisonPost**
 > FileResponse pdfWebapiComparisonPost(files)
 
-Compare provided files and create document with marked changes.
+Compare documents text.
 
-This endpoint is used to compare the provided files.  If the comparison is started, the response will contain a success status and an optional message.  If the comparison fails, the response will contain an error status and a message indicating the reason for the failure.
+Compare provided files and create document with marked changes.
 
 ### Example
 ```java
@@ -249,9 +151,9 @@ No authorization required
 # **pdfWebapiCompressPost**
 > FileResponse pdfWebapiCompressPost(files, compressType)
 
-Compresses the provided files using the specified compression level.
+Compress document.
 
-This endpoint is used to compress the provided files using the specified compression level.  If the compression is started, the response will contain a success status and an optional message.  If the compression fails, the response will contain an error status and a message indicating the reason for the failure.
+Compresses the provided files using the specified compression level.
 
 ### Example
 ```java
@@ -296,9 +198,9 @@ No authorization required
 # **pdfWebapiConvertPost**
 > FileResponse pdfWebapiConvertPost(files, inputType, outputType, xmlType, xmlTag, fontSise, isToSingle, separator)
 
-Converts the provided files from one format to another, with options for XML conversion and font size adjustment.
+Convert document to another format.
 
-This endpoint is used to convert the provided files from one format to another.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
+Converts the provided files from one format to another.
 
 ### Example
 ```java
@@ -355,9 +257,9 @@ No authorization required
 # **pdfWebapiConvertWebpagePost**
 > FileResponse pdfWebapiConvertWebpagePost(webPage, outputType)
 
-Converts a web page to the specified output format.
+Convert web page to document.
 
-This endpoint is used to convert a web page to the specified output format.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
+Converts a web page to the specified output format.
 
 ### Example
 ```java
@@ -402,9 +304,9 @@ No authorization required
 # **pdfWebapiCropPost**
 > FileResponse pdfWebapiCropPost(files, inputType, top, right, bottom, left, outputType)
 
-Crops the provided files to the specified dimensions.
+Crop document.
 
-This endpoint is used to crop the provided files to the specified dimensions.  If the cropping is started, the response will contain a success status and an optional message.  If the cropping fails, the response will contain an error status and a message indicating the reason for the failure.
+Crops the provided files to the specified dimensions.
 
 ### Example
 ```java
@@ -459,7 +361,9 @@ No authorization required
 # **pdfWebapiDownloadIdGet**
 > pdfWebapiDownloadIdGet(id, file)
 
-Downloads a file.
+File download.
+
+Downloads processed file.
 
 ### Example
 ```java
@@ -499,58 +403,13 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="pdfWebapiDownloadStreamIdPost"></a>
-# **pdfWebapiDownloadStreamIdPost**
-> FileResponse pdfWebapiDownloadStreamIdPost(id, fileName)
-
-Downloads a file as a stream.
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ApiApi;
-
-
-ApiApi apiInstance = new ApiApi();
-String id = "id_example"; // String | The ID of the processing to download.
-String fileName = "fileName_example"; // String | The name of the file to download.
-try {
-    FileResponse result = apiInstance.pdfWebapiDownloadStreamIdPost(id, fileName);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ApiApi#pdfWebapiDownloadStreamIdPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| The ID of the processing to download. |
- **fileName** | **String**| The name of the file to download. | [optional]
-
-### Return type
-
-[**FileResponse**](FileResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
 <a name="pdfWebapiEsignPost"></a>
 # **pdfWebapiEsignPost**
-> FileResponse pdfWebapiEsignPost(files, inputType, passw)
+> FileResponse pdfWebapiEsignPost(passw, files, inputType)
 
-Electronically signs the provided files with the specified certificate and its password.
+Sign document with certificate.
 
-This endpoint is used to electronically sign the provided files with the specified certificate and its password.  If the signing is started, the response will contain a success status and an optional message.  If the signing fails, the response will contain an error status and a message indicating the reason for the failure.
+Electronically signs the provided documents with the specified certificate.
 
 ### Example
 ```java
@@ -560,11 +419,11 @@ This endpoint is used to electronically sign the provided files with the specifi
 
 
 ApiApi apiInstance = new ApiApi();
+String passw = "passw_example"; // String | 
 List<File> files = Arrays.asList(new File("/path/to/file")); // List<File> | 
 String inputType = "inputType_example"; // String | The format of the input files.
-String passw = "passw_example"; // String | The password to use for electronic signing.
 try {
-    FileResponse result = apiInstance.pdfWebapiEsignPost(files, inputType, passw);
+    FileResponse result = apiInstance.pdfWebapiEsignPost(passw, files, inputType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ApiApi#pdfWebapiEsignPost");
@@ -576,9 +435,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **passw** | **String**|  | [optional]
  **files** | [**List&lt;File&gt;**](File.md)|  | [optional]
  **inputType** | **String**| The format of the input files. | [optional]
- **passw** | **String**| The password to use for electronic signing. | [optional]
 
 ### Return type
 
@@ -597,9 +456,9 @@ No authorization required
 # **pdfWebapiExtractPost**
 > FileResponse pdfWebapiExtractPost(files, inputType, outputType)
 
-Extracts tables from the provided documents and converts them to the specified output format.
+Extract tables from document.
 
-This endpoint is used to extract tables from the provided files and convert them to the specified output format.  If the extraction is started, the response will contain a success status and an optional message.  If the extraction fails, the response will contain an error status and a message indicating the reason for the failure.
+Extracts tables from the provided documents and converts them to the specified output format.
 
 ### Example
 ```java
@@ -646,9 +505,9 @@ No authorization required
 # **pdfWebapiFormFillerPost**
 > FileResponse pdfWebapiFormFillerPost(files, fileName)
 
-Fills a form with the provided files.
+Fill form.
 
-This endpoint is used to fill a form with the provided files.  If the filling is started, the response will contain a success status and an optional message.  If the filling fails, the response will contain an error status and a message indicating the reason for the failure.
+Fills a form with the provided files.
 
 ### Example
 ```java
@@ -691,11 +550,11 @@ No authorization required
 
 <a name="pdfWebapiGifPost"></a>
 # **pdfWebapiGifPost**
-> FileResponse pdfWebapiGifPost(keepImagesAsIs, resizeToImage, streched, width, height, frameTimes)
+> FileResponse pdfWebapiGifPost(files, keepImagesAsIs, resizeToImage, streched, width, height, frameTimes)
+
+Make GIF.
 
 Creates a GIF from the provided images.
-
-This endpoint is used to create a GIF from the provided images.  If the creation is started, the response will contain a success status and an optional message.  If the creation fails, the response will contain an error status and a message indicating the reason for the failure.
 
 ### Example
 ```java
@@ -705,6 +564,7 @@ This endpoint is used to create a GIF from the provided images.  If the creation
 
 
 ApiApi apiInstance = new ApiApi();
+List<File> files = Arrays.asList(new File("/path/to/file")); // List<File> | 
 Boolean keepImagesAsIs = true; // Boolean | Indicates whether the images should be kept as is.
 Integer resizeToImage = 56; // Integer | The index of the image to resize the other images to.
 Boolean streched = true; // Boolean | 
@@ -712,7 +572,7 @@ Integer width = 56; // Integer | The width of the GIF.
 Integer height = 56; // Integer | The height of the GIF.
 String frameTimes = "frameTimes_example"; // String | The times for each frame in the GIF.
 try {
-    FileResponse result = apiInstance.pdfWebapiGifPost(keepImagesAsIs, resizeToImage, streched, width, height, frameTimes);
+    FileResponse result = apiInstance.pdfWebapiGifPost(files, keepImagesAsIs, resizeToImage, streched, width, height, frameTimes);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ApiApi#pdfWebapiGifPost");
@@ -724,6 +584,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **files** | [**List&lt;File&gt;**](File.md)|  | [optional]
  **keepImagesAsIs** | **Boolean**| Indicates whether the images should be kept as is. | [optional]
  **resizeToImage** | **Integer**| The index of the image to resize the other images to. | [optional]
  **streched** | **Boolean**|  | [optional]
@@ -741,16 +602,16 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: text/plain, application/json, text/json
 
 <a name="pdfWebapiHashPost"></a>
 # **pdfWebapiHashPost**
 > FileResponse pdfWebapiHashPost(files, inputType, outputType, alg)
 
-Hashes the provided files using the specified algorithm.
+Calculate document hash.
 
-This endpoint is used to hash the provided files using the specified algorithm.  If the hashing is started, the response will contain a success status and an optional message.  If the hashing fails, the response will contain an error status and a message indicating the reason for the failure.
+Calculate hashes of provided files using the specified algorithm.
 
 ### Example
 ```java
@@ -799,9 +660,9 @@ No authorization required
 # **pdfWebapiLockPost**
 > FileResponse pdfWebapiLockPost(files, passw)
 
-Locks a document with the provided password and optional files.
+Lock document.
 
-This endpoint is used to lock a resource with an optional password and associated files.  If the lock is started, the response will contain a success status and processing id.  If the lock fails, the response will contain an error status and a message indicating the reason for the failure.
+Locks a document with the provided password and optional files.
 
 ### Example
 ```java
@@ -844,11 +705,11 @@ No authorization required
 
 <a name="pdfWebapiMergePost"></a>
 # **pdfWebapiMergePost**
-> FileResponse pdfWebapiMergePost(files, inputType, outputType, horizontal, vertical, pageSize, dcIsLandscape)
+> FileResponse pdfWebapiMergePost(files, inputType, outputType, mergeType, horizontal, vertical, pageSize, dcIsLandscape)
+
+Merge documents.
 
 Merges the provided files into a single document or image, with options for orientation and page size.
-
-This endpoint is used to merge the provided files into a single document or image.  If the merge is started, the response will contain a success status and an optional message.  If the merge fails, the response will contain an error status and a message indicating the reason for the failure.
 
 ### Example
 ```java
@@ -861,12 +722,13 @@ ApiApi apiInstance = new ApiApi();
 List<File> files = Arrays.asList(new File("/path/to/file")); // List<File> | 
 String inputType = "inputType_example"; // String | The format of the input files.
 String outputType = "outputType_example"; // String | The desired format for the output file.
+Integer mergeType = 56; // Integer | Type of merger operation.
 Integer horizontal = 56; // Integer | The number of images to merge horizontally, if applicable.
 Integer vertical = 56; // Integer | The number of images to merge vertically, if applicable.
 String pageSize = "pageSize_example"; // String | The page size for the output file, if applicable.
 Boolean dcIsLandscape = true; // Boolean | Indicates whether the output file should be in landscape orientation.
 try {
-    FileResponse result = apiInstance.pdfWebapiMergePost(files, inputType, outputType, horizontal, vertical, pageSize, dcIsLandscape);
+    FileResponse result = apiInstance.pdfWebapiMergePost(files, inputType, outputType, mergeType, horizontal, vertical, pageSize, dcIsLandscape);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ApiApi#pdfWebapiMergePost");
@@ -881,6 +743,7 @@ Name | Type | Description  | Notes
  **files** | [**List&lt;File&gt;**](File.md)|  | [optional]
  **inputType** | **String**| The format of the input files. | [optional]
  **outputType** | **String**| The desired format for the output file. | [optional]
+ **mergeType** | **Integer**| Type of merger operation. | [optional]
  **horizontal** | **Integer**| The number of images to merge horizontally, if applicable. | [optional]
  **vertical** | **Integer**| The number of images to merge vertically, if applicable. | [optional]
  **pageSize** | **String**| The page size for the output file, if applicable. | [optional]
@@ -903,9 +766,9 @@ No authorization required
 # **pdfWebapiMetadataPost**
 > FileResponse pdfWebapiMetadataPost(files, operation, folder, name)
 
-Performs metadata operations on the provided files.
+Read and change document metadata.
 
-This endpoint is used to perform metadata operations on the provided files.  If the operation is started, the response will contain a success status and an optional message.  If the operation fails, the response will contain an error status and a message indicating the reason for the failure.
+Performs metadata operations on the provided files.
 
 ### Example
 ```java
@@ -916,7 +779,7 @@ This endpoint is used to perform metadata operations on the provided files.  If 
 
 ApiApi apiInstance = new ApiApi();
 List<File> files = Arrays.asList(new File("/path/to/file")); // List<File> | 
-String operation = "operation_example"; // String | 
+String operation = "operation_example"; // String | The operation to perform on the metadata.
 String folder = "folder_example"; // String | The folder where the files are located.
 String name = "name_example"; // String | The name of the file to perform the operation on.
 try {
@@ -933,58 +796,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **files** | [**List&lt;File&gt;**](File.md)|  | [optional]
- **operation** | **String**|  | [optional]
+ **operation** | **String**| The operation to perform on the metadata. | [optional]
  **folder** | **String**| The folder where the files are located. | [optional]
  **name** | **String**| The name of the file to perform the operation on. | [optional]
-
-### Return type
-
-[**FileResponse**](FileResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: text/plain, application/json, text/json
-
-<a name="pdfWebapiMusicVideoPost"></a>
-# **pdfWebapiMusicVideoPost**
-> FileResponse pdfWebapiMusicVideoPost(files, interval, outputType)
-
-Creates a music video from the provided files.
-
-This endpoint is used to create a music video from the provided files.  If the creation is started, the response will contain a success status and an optional message.  If the creation fails, the response will contain an error status and a message indicating the reason for the failure.
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ApiApi;
-
-
-ApiApi apiInstance = new ApiApi();
-List<File> files = Arrays.asList(new File("/path/to/file")); // List<File> | 
-Integer interval = 56; // Integer | The interval between frames in the music video.
-String outputType = "outputType_example"; // String | The desired format for the output files.
-try {
-    FileResponse result = apiInstance.pdfWebapiMusicVideoPost(files, interval, outputType);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ApiApi#pdfWebapiMusicVideoPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **files** | [**List&lt;File&gt;**](File.md)|  | [optional]
- **interval** | **Integer**| The interval between frames in the music video. | [optional]
- **outputType** | **String**| The desired format for the output files. | [optional]
 
 ### Return type
 
@@ -1003,9 +817,9 @@ No authorization required
 # **pdfWebapiOrganizePost**
 > FileResponse pdfWebapiOrganizePost(files, inputType, remove, move)
 
-Organizes the provided documents by removing or moving specified pages.
+Organize document pages.
 
-This endpoint is used to organize the provided documents by removing or moving specified pages.  If the organization is started, the response will contain a success status and an optional message.  If the organization fails, the response will contain an error status and a message indicating the reason for the failure.
+Organizes the provided documents by removing or moving specified pages.
 
 ### Example
 ```java
@@ -1054,9 +868,9 @@ No authorization required
 # **pdfWebapiParsePost**
 > FileResponse pdfWebapiParsePost(files)
 
-Parses the provided files using a parser service.
+Parse document.
 
-This endpoint is used to send files to a parser service for processing.  If the parsing is started, the response will contain a success status and an optional message.  If the parsing fails, the response will contain an error status and a message indicating the reason for the failure.
+Parses the provided files using a parser service.
 
 ### Example
 ```java
@@ -1099,9 +913,9 @@ No authorization required
 # **pdfWebapiRedactPost**
 > FileResponse pdfWebapiRedactPost(files, searchQuery, replaceText, caseSensitive, text, comments, metadata)
 
-Redacts specified text from the provided documents, with options to search case-sensitively, target in text, comments, and metadata.
+Redact document text.
 
-This endpoint is used to redact specified text from the provided files, with options to search case-sensitively and target different parts of the document such as text, comments, and metadata.  If the redaction is started, the response will contain a success status and an optional message.  If the redaction fails, the response will contain an error status and a message indicating the reason for the failure.
+Redacts specified text from the provided documents, with options to search case-sensitively, target in text, comments, and metadata.
 
 ### Example
 ```java
@@ -1156,7 +970,9 @@ No authorization required
 # **pdfWebapiRemoveIdPost**
 > FileResponse pdfWebapiRemoveIdPost(id)
 
-Removes all files from processing.
+Remove stored files.
+
+Removes processed files from storage.
 
 ### Example
 ```java
@@ -1199,9 +1015,9 @@ No authorization required
 # **pdfWebapiRemovePost**
 > FileResponse pdfWebapiRemovePost(files)
 
-Removes annotations from the provided documents.
+Remove document annotations.
 
-This endpoint is used to remove annotations from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
+Removes annotations from the provided documents.
 
 ### Example
 ```java
@@ -1244,9 +1060,9 @@ No authorization required
 # **pdfWebapiRemoveWatermarkPost**
 > FileResponse pdfWebapiRemoveWatermarkPost(watermarkText, top, left, bottom, right, files, isAllPages, watermarkType, removeRange)
 
-Removes a watermark from the provided files.
+Removes document watermark.
 
-This endpoint is used to remove a watermark from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
+Removes a watermark from the document pages.
 
 ### Example
 ```java
@@ -1305,9 +1121,9 @@ No authorization required
 # **pdfWebapiRemovepagesPost**
 > FileResponse pdfWebapiRemovepagesPost(files, removeRange)
 
-Removes specified pages from the provided files.
+Remove pages from document.
 
-This endpoint is used to remove specified pages from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
+Removes specified pages from the provided files.
 
 ### Example
 ```java
@@ -1352,9 +1168,9 @@ No authorization required
 # **pdfWebapiRepairPost**
 > FileResponse pdfWebapiRepairPost(files)
 
-Repairs the provided files.
+Repair document.
 
-This endpoint is used to repair the provided files.  If the repair is started, the response will contain a success status and an optional message.  If the repair fails, the response will contain an error status and a message indicating the reason for the failure.
+Repairs the provided files.
 
 ### Example
 ```java
@@ -1397,9 +1213,9 @@ No authorization required
 # **pdfWebapiResizePost**
 > FileResponse pdfWebapiResizePost(files, inputType, outputType, resizeType, presetType, presetSize, width, height, percentage, useProportions, pageSize)
 
-Resizes the provided files to the specified dimensions or using a preset size.
+Resize document.
 
-This endpoint is used to resize the provided files to the specified dimensions or using a preset size.  If the resizing is started, the response will contain a success status and an optional message.  If the resizing fails, the response will contain an error status and a message indicating the reason for the failure.
+Resizes the provided files to the specified dimensions or using a preset size.
 
 ### Example
 ```java
@@ -1462,9 +1278,9 @@ No authorization required
 # **pdfWebapiRotatePost**
 > FileResponse pdfWebapiRotatePost(files, angle, rotateType, pageNum)
 
-Rotates the provided files by a specified angle, with options for rotation type and page number.
+Rotate document.
 
-This endpoint is used to rotate the provided files by a specified angle.  If the rotation is started, the response will contain a success status and an optional message.  If the rotation fails, the response will contain an error status and a message indicating the reason for the failure.
+Rotates the provided files by a specified angle, with options for rotation type and page number.
 
 ### Example
 ```java
@@ -1513,9 +1329,9 @@ No authorization required
 # **pdfWebapiSearchPost**
 > FileResponse pdfWebapiSearchPost(files, query)
 
-Searches the provided files for the specified query and makr found text with yellow background.
+Search document text.
 
-This endpoint is used to search the provided files for the specified query.  If the search is started, the response will contain a success status and an optional message.  If the search fails, the response will contain an error status and a message indicating the reason for the failure.
+Searches the provided files for the specified query and makr found text with yellow background.
 
 ### Example
 ```java
@@ -1560,9 +1376,9 @@ No authorization required
 # **pdfWebapiSearchablePost**
 > FileResponse pdfWebapiSearchablePost(files, lang)
 
-Converts the provided files into a searchable PDF format for the specified language.
+Make scanned pdf searchable.
 
-This endpoint is used to convert the provided files into a searchable PDF format for the specified language.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
+Converts the provided files into a searchable PDF format for the specified language.
 
 ### Example
 ```java
@@ -1605,11 +1421,11 @@ No authorization required
 
 <a name="pdfWebapiSignaturePost"></a>
 # **pdfWebapiSignaturePost**
-> FileResponse pdfWebapiSignaturePost(files, inputType, outputType, signatureType)
+> FileResponse pdfWebapiSignaturePost(image, text, textColor, files, inputType, outputType, signatureType)
 
-Adds a signature to the provided files.
+Add signature to document.
 
-This endpoint is used to add a signature to the provided files.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
+Adds a signature, text and image to the provided documents.
 
 ### Example
 ```java
@@ -1619,12 +1435,15 @@ This endpoint is used to add a signature to the provided files.  If the addition
 
 
 ApiApi apiInstance = new ApiApi();
+String image = "image_example"; // String | 
+String text = "text_example"; // String | 
+String textColor = "textColor_example"; // String | 
 List<File> files = Arrays.asList(new File("/path/to/file")); // List<File> | 
 String inputType = "inputType_example"; // String | The format of the input files.
 String outputType = "outputType_example"; // String | The desired format for the output files.
 String signatureType = "signatureType_example"; // String | The type of signature to add.
 try {
-    FileResponse result = apiInstance.pdfWebapiSignaturePost(files, inputType, outputType, signatureType);
+    FileResponse result = apiInstance.pdfWebapiSignaturePost(image, text, textColor, files, inputType, outputType, signatureType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ApiApi#pdfWebapiSignaturePost");
@@ -1636,6 +1455,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **image** | **String**|  | [optional]
+ **text** | **String**|  | [optional]
+ **textColor** | **String**|  | [optional]
  **files** | [**List&lt;File&gt;**](File.md)|  | [optional]
  **inputType** | **String**| The format of the input files. | [optional]
  **outputType** | **String**| The desired format for the output files. | [optional]
@@ -1658,9 +1480,9 @@ No authorization required
 # **pdfWebapiSplitdocPost**
 > FileResponse pdfWebapiSplitdocPost(files, splitType, pars)
 
-Splits the provided documents based on the specified split type and page rage to spit.
+Split document.
 
-This endpoint is used to split documents based on the specified split type and page rage.  If the splitting is started, the response will contain a success status and an optional message.  If the splitting fails, the response will contain an error status and a message indicating the reason for the failure.
+Splits the provided documents based on the specified split type and page rage to spit.
 
 ### Example
 ```java
@@ -1707,9 +1529,9 @@ No authorization required
 # **pdfWebapiSplitimagePost**
 > FileResponse pdfWebapiSplitimagePost(files, splitType, vertical, horizontal, outputType)
 
-Splits the provided images into smaller parts based on the specified parameters.
+Split image.
 
-This endpoint is used to split images into smaller parts based on the specified parameters.  If the splitting is started, the response will contain a success status and an optional message.  If the splitting fails, the response will contain an error status and a message indicating the reason for the failure.
+Splits the provided images into smaller parts based on the specified parameters.
 
 ### Example
 ```java
@@ -1760,6 +1582,8 @@ No authorization required
 # **pdfWebapiStatusIdPost**
 > FileResponse pdfWebapiStatusIdPost(id)
 
+Processing status.
+
 Retrieves the status of a processing.
 
 ### Example
@@ -1803,9 +1627,9 @@ No authorization required
 # **pdfWebapiUnlockPost**
 > FileResponse pdfWebapiUnlockPost(files, passw)
 
-Attempts to unlock a document with an password and associated files.
+Unlock document.
 
-This endpoint is used to unlock a resource that was previously locked with a password on associated files.  If the unlock is started, the response will contain a success status and an optional message.  If the unlock fails, the response will contain an error status and a message indicating the reason for the failure.
+Attempts to unlock a document with an password and associated files.
 
 ### Example
 ```java
@@ -1850,9 +1674,9 @@ No authorization required
 # **pdfWebapiVerifyEsignPost**
 > FileResponse pdfWebapiVerifyEsignPost(files, inputType)
 
-Verifies the electronic signature of the provided files.
+Verify document certificate.
 
-This endpoint is used to verify the electronic signature of the provided files.  If the verification is started, the response will contain a success status and an optional message.  If the verification fails, the response will contain an error status and a message indicating the reason for the failure.
+Verifies the electronic signature of the provided files.
 
 ### Example
 ```java
@@ -1895,11 +1719,11 @@ No authorization required
 
 <a name="pdfWebapiWatermarkPost"></a>
 # **pdfWebapiWatermarkPost**
-> FileResponse pdfWebapiWatermarkPost(isText, text, name2, size, bold, italic, underlined, color, contentType, contentDisposition, headers, length, name, fileName, isBackground, rotation, transparency, layer, pageFrom, pageTo, files, inputType, outputType)
+> FileResponse pdfWebapiWatermarkPost(files, inputType, outputType, isColored, isText, text, name, size, bold, italic, underlined, color, isBackground, rotation, transparency, layer, pageFrom, pageTo)
+
+Add watermark to document.
 
 Adds a watermark to the provided files.
-
-This endpoint is used to add a watermark to the provided files.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
 
 ### Example
 ```java
@@ -1909,31 +1733,26 @@ This endpoint is used to add a watermark to the provided files.  If the addition
 
 
 ApiApi apiInstance = new ApiApi();
-Boolean isText = true; // Boolean | 
-String text = "text_example"; // String | 
-String name2 = "name_example"; // String | 
-Integer size = 56; // Integer | 
-Boolean bold = true; // Boolean | 
-Boolean italic = true; // Boolean | 
-Boolean underlined = true; // Boolean | 
-String color = "color_example"; // String | 
-String contentType = "contentType_example"; // String | 
-String contentDisposition = "contentDisposition_example"; // String | 
-Map<String, List<String>> headers = new HashMap(); // Map<String, List<String>> | 
-Long length = 789L; // Long | 
-String name = "name_example"; // String | 
-String fileName = "fileName_example"; // String | 
-Boolean isBackground = true; // Boolean | 
-Integer rotation = 56; // Integer | 
-Float transparency = 3.4F; // Float | 
-Boolean layer = true; // Boolean | 
-Integer pageFrom = 56; // Integer | 
-Integer pageTo = 56; // Integer | 
 List<File> files = Arrays.asList(new File("/path/to/file")); // List<File> | 
 String inputType = "inputType_example"; // String | The format of the input files.
 String outputType = "outputType_example"; // String | The desired format for the output files.
+Boolean isColored = true; // Boolean | Indicate is watermark will be in color or grayscale.
+Boolean isText = true; // Boolean | Indicates whether the watermark is text.
+String text = "text_example"; // String | The text of the watermark.
+String name = "name_example"; // String | The name of the font for the text watermark.
+Integer size = 56; // Integer | The size of the font for the text watermark.
+Boolean bold = true; // Boolean | Indicates whether the text watermark is bold.
+Boolean italic = true; // Boolean | Indicates whether the text watermark is italic.
+Boolean underlined = true; // Boolean | Indicates whether the text watermark is underlined.
+String color = "color_example"; // String | The color of the text or image watermark.
+Boolean isBackground = true; // Boolean | Indicates whether the watermark is a background watermark.
+Integer rotation = 56; // Integer | The rotation angle of the watermark.
+Float transparency = 3.4F; // Float | The transparency of the watermark.
+Boolean layer = true; // Boolean | Indicates whether the watermark is a layer.
+Integer pageFrom = 56; // Integer | The starting page number for the watermark.
+Integer pageTo = 56; // Integer | The ending page number for the watermark.
 try {
-    FileResponse result = apiInstance.pdfWebapiWatermarkPost(isText, text, name2, size, bold, italic, underlined, color, contentType, contentDisposition, headers, length, name, fileName, isBackground, rotation, transparency, layer, pageFrom, pageTo, files, inputType, outputType);
+    FileResponse result = apiInstance.pdfWebapiWatermarkPost(files, inputType, outputType, isColored, isText, text, name, size, bold, italic, underlined, color, isBackground, rotation, transparency, layer, pageFrom, pageTo);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ApiApi#pdfWebapiWatermarkPost");
@@ -1945,29 +1764,24 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **isText** | **Boolean**|  | [optional]
- **text** | **String**|  | [optional]
- **name2** | **String**|  | [optional]
- **size** | **Integer**|  | [optional]
- **bold** | **Boolean**|  | [optional]
- **italic** | **Boolean**|  | [optional]
- **underlined** | **Boolean**|  | [optional]
- **color** | **String**|  | [optional]
- **contentType** | **String**|  | [optional]
- **contentDisposition** | **String**|  | [optional]
- **headers** | [**Map&lt;String, List&lt;String&gt;&gt;**](List&lt;String&gt;.md)|  | [optional]
- **length** | **Long**|  | [optional]
- **name** | **String**|  | [optional]
- **fileName** | **String**|  | [optional]
- **isBackground** | **Boolean**|  | [optional]
- **rotation** | **Integer**|  | [optional]
- **transparency** | **Float**|  | [optional]
- **layer** | **Boolean**|  | [optional]
- **pageFrom** | **Integer**|  | [optional]
- **pageTo** | **Integer**|  | [optional]
  **files** | [**List&lt;File&gt;**](File.md)|  | [optional]
  **inputType** | **String**| The format of the input files. | [optional]
  **outputType** | **String**| The desired format for the output files. | [optional]
+ **isColored** | **Boolean**| Indicate is watermark will be in color or grayscale. | [optional]
+ **isText** | **Boolean**| Indicates whether the watermark is text. | [optional]
+ **text** | **String**| The text of the watermark. | [optional]
+ **name** | **String**| The name of the font for the text watermark. | [optional]
+ **size** | **Integer**| The size of the font for the text watermark. | [optional]
+ **bold** | **Boolean**| Indicates whether the text watermark is bold. | [optional]
+ **italic** | **Boolean**| Indicates whether the text watermark is italic. | [optional]
+ **underlined** | **Boolean**| Indicates whether the text watermark is underlined. | [optional]
+ **color** | **String**| The color of the text or image watermark. | [optional]
+ **isBackground** | **Boolean**| Indicates whether the watermark is a background watermark. | [optional]
+ **rotation** | **Integer**| The rotation angle of the watermark. | [optional]
+ **transparency** | **Float**| The transparency of the watermark. | [optional]
+ **layer** | **Boolean**| Indicates whether the watermark is a layer. | [optional]
+ **pageFrom** | **Integer**| The starting page number for the watermark. | [optional]
+ **pageTo** | **Integer**| The ending page number for the watermark. | [optional]
 
 ### Return type
 
@@ -1982,13 +1796,13 @@ No authorization required
  - **Content-Type**: multipart/form-data
  - **Accept**: text/plain, application/json, text/json
 
-<a name="pdfWebapiWordCounterPost"></a>
-# **pdfWebapiWordCounterPost**
-> FileResponse pdfWebapiWordCounterPost(files, pageRange)
+<a name="pdfWebapiWordcounterPost"></a>
+# **pdfWebapiWordcounterPost**
+> FileResponse pdfWebapiWordcounterPost(files, pageRange)
+
+Count words and chars in document.
 
 Counts the words in the provided files within the specified page range.
-
-This endpoint is used to count the words in the provided files within the specified page range.  If the counting is started, the response will contain a success status and the word count.  If the counting fails, the response will contain an error status and a message indicating the reason for the failure.
 
 ### Example
 ```java
@@ -2001,10 +1815,10 @@ ApiApi apiInstance = new ApiApi();
 List<File> files = Arrays.asList(new File("/path/to/file")); // List<File> | 
 String pageRange = "pageRange_example"; // String | The range of pages to count words in.
 try {
-    FileResponse result = apiInstance.pdfWebapiWordCounterPost(files, pageRange);
+    FileResponse result = apiInstance.pdfWebapiWordcounterPost(files, pageRange);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ApiApi#pdfWebapiWordCounterPost");
+    System.err.println("Exception when calling ApiApi#pdfWebapiWordcounterPost");
     e.printStackTrace();
 }
 ```
@@ -2033,9 +1847,9 @@ No authorization required
 # **pdfWebapiXfaconvertPost**
 > FileResponse pdfWebapiXfaconvertPost(files, inputType)
 
-Converts the provided documents from XFA format to a different format.
+Convert XFA format to a another format.
 
-This endpoint is used to convert the provided files from XFA format to a different format.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
+Converts the provided documents from XFA format to a different format.
 
 ### Example
 ```java

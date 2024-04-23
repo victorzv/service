@@ -1,6 +1,6 @@
 /*
  * Aspose.Pdf RestApi
- * Demo 1
+ * Aspose.Pdf RestApi provides a comprehensive set of endpoints for various PDF-related tasks, enabling efficient document processing and manipulation. Users can retrieve processing status, download files, manage file locks, parse documents, redact sensitive information, convert between formats, merge files, add watermarks, perform text searches, and much more. With endpoints for tasks like electronic signing, document comparison, and form filling, the API offers extensive functionality to cater to diverse PDF requirements.
  *
  * OpenAPI spec version: v1
  * Contact: Evgeny.Pirogov@aspose.com
@@ -14,6 +14,7 @@ package io.swagger.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import io.swagger.v3.oas.annotations.media.Schema;
 import com.google.gson.annotations.SerializedName;
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
@@ -22,26 +23,26 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets FileProcessingErrorCode
+ * FileProcessingErrorCode enum
  */
 @JsonAdapter(FileProcessingErrorCode.Adapter.class)
 public enum FileProcessingErrorCode {
-  @SerializedName("0")
-  NUMBER_0(0),
-  @SerializedName("10000")
-  NUMBER_10000(10000),
-  @SerializedName("10001")
-  NUMBER_10001(10001),
-  @SerializedName("10002")
-  NUMBER_10002(10002);
+  @SerializedName("OK")
+  OK("OK"),
+  @SerializedName("NoImagesFound")
+  NOIMAGESFOUND("NoImagesFound"),
+  @SerializedName("NoSearchResults")
+  NOSEARCHRESULTS("NoSearchResults"),
+  @SerializedName("WrongRegExp")
+  WRONGREGEXP("WrongRegExp");
 
-  private Integer value;
+  private String value;
 
-  FileProcessingErrorCode(Integer value) {
+  FileProcessingErrorCode(String value) {
     this.value = value;
   }
 
-  public Integer getValue() {
+  public String getValue() {
     return value;
   }
 
@@ -50,7 +51,7 @@ public enum FileProcessingErrorCode {
     return String.valueOf(value);
   }
 
-  public static FileProcessingErrorCode fromValue(Integer input) {
+  public static FileProcessingErrorCode fromValue(String input) {
     for (FileProcessingErrorCode b : FileProcessingErrorCode.values()) {
       if (b.value.equals(input)) {
         return b;
@@ -67,8 +68,8 @@ public enum FileProcessingErrorCode {
 
     @Override
     public FileProcessingErrorCode read(final JsonReader jsonReader) throws IOException {
-      Object value = jsonReader.nextInt();
-      return FileProcessingErrorCode.fromValue((Integer)(value));
+      Object value = jsonReader.nextString();
+      return FileProcessingErrorCode.fromValue((String)(value));
     }
   }
 }

@@ -1,6 +1,6 @@
 /*
  * Aspose.Pdf RestApi
- * Demo 1
+ * Aspose.Pdf RestApi provides a comprehensive set of endpoints for various PDF-related tasks, enabling efficient document processing and manipulation. Users can retrieve processing status, download files, manage file locks, parse documents, redact sensitive information, convert between formats, merge files, add watermarks, perform text searches, and much more. With endpoints for tasks like electronic signing, document comparison, and form filling, the API offers extensive functionality to cater to diverse PDF requirements.
  *
  * OpenAPI spec version: v1
  * Contact: Evgeny.Pirogov@aspose.com
@@ -23,10 +23,10 @@ import io.swagger.client.model.PropertyType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * The same fields as in DocumentProperty
+ * Represents a document property.
  */
-@Schema(description = "The same fields as in DocumentProperty")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-03-12T15:58:21.646745992Z[GMT]")
+@Schema(description = "Represents a document property.")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-04-20T08:30:02.342974725Z[GMT]")
 
 public class DocProperty {
   @SerializedName("key")
@@ -50,10 +50,10 @@ public class DocProperty {
   }
 
    /**
-   * Get key
+   * Gets or sets the key of the property.
    * @return key
   **/
-  @Schema(description = "")
+  @Schema(description = "Gets or sets the key of the property.")
   public String getKey() {
     return key;
   }
@@ -68,10 +68,10 @@ public class DocProperty {
   }
 
    /**
-   * Get name
+   * Gets or sets the name of the property.
    * @return name
   **/
-  @Schema(description = "")
+  @Schema(description = "Gets or sets the name of the property.")
   public String getName() {
     return name;
   }
@@ -86,10 +86,10 @@ public class DocProperty {
   }
 
    /**
-   * Get value
+   * Gets or sets the value of the property.
    * @return value
   **/
-  @Schema(description = "")
+  @Schema(description = "Gets or sets the value of the property.")
   public Object getValue() {
     return value;
   }
@@ -122,10 +122,10 @@ public class DocProperty {
   }
 
    /**
-   * Get readOnly
+   * Gets or sets a value indicating whether the property is read-only.
    * @return readOnly
   **/
-  @Schema(description = "")
+  @Schema(description = "Gets or sets a value indicating whether the property is read-only.")
   public Boolean isReadOnly() {
     return readOnly;
   }

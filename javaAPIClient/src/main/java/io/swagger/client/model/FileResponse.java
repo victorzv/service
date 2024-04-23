@@ -1,6 +1,6 @@
 /*
  * Aspose.Pdf RestApi
- * Demo 1
+ * Aspose.Pdf RestApi provides a comprehensive set of endpoints for various PDF-related tasks, enabling efficient document processing and manipulation. Users can retrieve processing status, download files, manage file locks, parse documents, redact sensitive information, convert between formats, merge files, add watermarks, perform text searches, and much more. With endpoints for tasks like electronic signing, document comparison, and form filling, the API offers extensive functionality to cater to diverse PDF requirements.
  *
  * OpenAPI spec version: v1
  * Contact: Evgeny.Pirogov@aspose.com
@@ -27,10 +27,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.threeten.bp.OffsetDateTime;
 /**
- * FileResponse
+ * Response class to get or set any api call status
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-03-12T15:58:21.646745992Z[GMT]")
+@Schema(description = "Response class to get or set any api call status")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-04-20T08:30:02.342974725Z[GMT]")
 
 public class FileResponse {
   @SerializedName("statusCode")
@@ -78,10 +78,10 @@ public class FileResponse {
   }
 
    /**
-   * Get statusCode
+   * Get or set StatusCode
    * @return statusCode
   **/
-  @Schema(description = "")
+  @Schema(description = "Get or set StatusCode")
   public Integer getStatusCode() {
     return statusCode;
   }
@@ -96,10 +96,10 @@ public class FileResponse {
   }
 
    /**
-   * Get status
+   * Get or set Status
    * @return status
   **/
-  @Schema(description = "")
+  @Schema(description = "Get or set Status")
   public String getStatus() {
     return status;
   }
@@ -114,10 +114,10 @@ public class FileResponse {
   }
 
    /**
-   * Get text
+   * Get or set Text
    * @return text
   **/
-  @Schema(description = "")
+  @Schema(description = "Get or set Text")
   public String getText() {
     return text;
   }
@@ -132,10 +132,10 @@ public class FileResponse {
   }
 
    /**
-   * Get locked
+   * Get or set Document locked with password
    * @return locked
   **/
-  @Schema(description = "")
+  @Schema(description = "Get or set Document locked with password")
   public Boolean isLocked() {
     return locked;
   }
@@ -176,10 +176,10 @@ public class FileResponse {
   }
 
    /**
-   * Get sharedFiles
+   * Get or set Files
    * @return sharedFiles
   **/
-  @Schema(description = "")
+  @Schema(description = "Get or set Files")
   public List<FileSafeResult> getSharedFiles() {
     return sharedFiles;
   }
@@ -202,10 +202,10 @@ public class FileResponse {
   }
 
    /**
-   * Get files
+   * Get or set Files
    * @return files
   **/
-  @Schema(description = "")
+  @Schema(description = "Get or set Files")
   public List<String> getFiles() {
     return files;
   }
@@ -247,10 +247,10 @@ public class FileResponse {
   }
 
    /**
-   * Get fileName
+   * Get or set FileName
    * @return fileName
   **/
-  @Schema(description = "")
+  @Schema(description = "Get or set FileName")
   public String getFileName() {
     return fileName;
   }
@@ -265,10 +265,10 @@ public class FileResponse {
   }
 
    /**
-   * Get folderName
+   * Get or set FolderName
    * @return folderName
   **/
-  @Schema(description = "")
+  @Schema(description = "Get or set FolderName")
   public String getFolderName() {
     return folderName;
   }
@@ -283,10 +283,10 @@ public class FileResponse {
   }
 
    /**
-   * Get resultData
+   * Data displaying on file processing result page
    * @return resultData
   **/
-  @Schema(description = "")
+  @Schema(description = "Data displaying on file processing result page")
   public Object getResultData() {
     return resultData;
   }
@@ -301,10 +301,10 @@ public class FileResponse {
   }
 
    /**
-   * Where is processing located
+   * Instance id where is processing located
    * @return appInstanceId
   **/
-  @Schema(description = "Where is processing located")
+  @Schema(description = "Instance id where is processing located")
   public String getAppInstanceId() {
     return appInstanceId;
   }

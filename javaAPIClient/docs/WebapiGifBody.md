@@ -1,4 +1,4 @@
-# WebapiMusicvideoBody
+# WebapiGifBody
 
 ## Properties
 Name | Type | Description | Notes

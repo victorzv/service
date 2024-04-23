@@ -206,6 +206,11 @@
       <version>${junit-version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+      <version>1.3</version> <!-- or the version appropriate for your project -->
+    </dependency>
   </dependencies>
   <properties>
     <java.version>1.7</java.version>

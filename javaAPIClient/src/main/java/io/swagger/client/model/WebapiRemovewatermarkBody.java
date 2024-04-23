@@ -1,6 +1,6 @@
 /*
  * Aspose.Pdf RestApi
- * Demo 1
+ * Aspose.Pdf RestApi provides a comprehensive set of endpoints for various PDF-related tasks, enabling efficient document processing and manipulation. Users can retrieve processing status, download files, manage file locks, parse documents, redact sensitive information, convert between formats, merge files, add watermarks, perform text searches, and much more. With endpoints for tasks like electronic signing, document comparison, and form filling, the API offers extensive functionality to cater to diverse PDF requirements.
  *
  * OpenAPI spec version: v1
  * Contact: Evgeny.Pirogov@aspose.com
@@ -28,7 +28,7 @@ import java.util.List;
  * WebapiRemovewatermarkBody
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-03-12T15:58:21.646745992Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-04-20T08:30:02.342974725Z[GMT]")
 
 public class WebapiRemovewatermarkBody {
   @SerializedName("watermarkText")

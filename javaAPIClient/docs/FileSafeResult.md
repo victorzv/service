@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**isSuccess** | **Boolean** | Is result success? |  [optional]
+**isSuccess** | **Boolean** | Processing status |  [optional]
 **id** | **String** | Upload id. |  [optional]
 **fileName** | **String** | File name. |  [optional]
 **uploadFileName** | **String** | Gets or sets the name of the upload file. |  [optional]

@@ -1,6 +1,6 @@
 /*
  * Aspose.Pdf RestApi
- * Demo 1
+ * Aspose.Pdf RestApi provides a comprehensive set of endpoints for various PDF-related tasks, enabling efficient document processing and manipulation. Users can retrieve processing status, download files, manage file locks, parse documents, redact sensitive information, convert between formats, merge files, add watermarks, perform text searches, and much more. With endpoints for tasks like electronic signing, document comparison, and form filling, the API offers extensive functionality to cater to diverse PDF requirements.
  *
  * OpenAPI spec version: v1
  * Contact: Evgeny.Pirogov@aspose.com
@@ -18,10 +18,7 @@ import org.junit.Test;
 import org.junit.Ignore;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 /**
@@ -33,9 +30,9 @@ public class ApiApiTest {
     private final ApiApi api = new ApiApi();
 
     /**
-     * Adds page numbers to the provided documents with the specified alignment, starting number, and format.
+     * Add page numbers to document.
      *
-     * This endpoint is used to add page numbers to the provided files with the specified alignment, starting number, and format.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Adds page numbers to the provided documents with the specified alignment, starting number, and format.
      *
      * @throws Exception
      *          if the Api call fails
@@ -56,41 +53,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Performs a binary comparison on the provided files.
+     * Compare documents text.
      *
-     * This endpoint is used to perform a binary comparison on the provided files.  If the comparison is started, the response will contain a success status and an optional message.  If the comparison fails, the response will contain an error status and a message indicating the reason for the failure.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void pdfWebapiBinaryComparisonPostTest() throws Exception {
-        List<File> files = null;
-        FileResponse response = api.pdfWebapiBinaryComparisonPost(files);
-
-        // TODO: test validations
-    }
-    /**
-     * Generates a PDF document based on the provided files and question.
-     *
-     * This endpoint is used to generate a PDF document based on the provided files and question.  If the generation is started, the response will contain a success status and an optional message.  If the generation fails, the response will contain an error status and a message indicating the reason for the failure.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void pdfWebapiChatpdfPostTest() throws Exception {
-        List<File> files = null;
-        Integer mode = null;
-        String question = null;
-        FileResponse response = api.pdfWebapiChatpdfPost(files, mode, question);
-
-        // TODO: test validations
-    }
-    /**
      * Compare provided files and create document with marked changes.
-     *
-     * This endpoint is used to compare the provided files.  If the comparison is started, the response will contain a success status and an optional message.  If the comparison fails, the response will contain an error status and a message indicating the reason for the failure.
      *
      * @throws Exception
      *          if the Api call fails
@@ -103,9 +68,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Compresses the provided files using the specified compression level.
+     * Compress document.
      *
-     * This endpoint is used to compress the provided files using the specified compression level.  If the compression is started, the response will contain a success status and an optional message.  If the compression fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Compresses the provided files using the specified compression level.
      *
      * @throws Exception
      *          if the Api call fails
@@ -119,9 +84,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Converts the provided files from one format to another, with options for XML conversion and font size adjustment.
+     * Convert document to another format.
      *
-     * This endpoint is used to convert the provided files from one format to another.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Converts the provided files from one format to another.
      *
      * @throws Exception
      *          if the Api call fails
@@ -141,9 +106,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Converts a web page to the specified output format.
+     * Convert web page to document.
      *
-     * This endpoint is used to convert a web page to the specified output format.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Converts a web page to the specified output format.
      *
      * @throws Exception
      *          if the Api call fails
@@ -157,9 +122,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Crops the provided files to the specified dimensions.
+     * Crop document.
      *
-     * This endpoint is used to crop the provided files to the specified dimensions.  If the cropping is started, the response will contain a success status and an optional message.  If the cropping fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Crops the provided files to the specified dimensions.
      *
      * @throws Exception
      *          if the Api call fails
@@ -178,9 +143,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Downloads a file.
+     * File download.
      *
-     * 
+     * Downloads processed file.
      *
      * @throws Exception
      *          if the Api call fails
@@ -194,42 +159,26 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Downloads a file as a stream.
+     * Sign document with certificate.
      *
-     * 
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void pdfWebapiDownloadStreamIdPostTest() throws Exception {
-        String id = null;
-        String fileName = null;
-        FileResponse response = api.pdfWebapiDownloadStreamIdPost(id, fileName);
-
-        // TODO: test validations
-    }
-    /**
-     * Electronically signs the provided files with the specified certificate and its password.
-     *
-     * This endpoint is used to electronically sign the provided files with the specified certificate and its password.  If the signing is started, the response will contain a success status and an optional message.  If the signing fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Electronically signs the provided documents with the specified certificate.
      *
      * @throws Exception
      *          if the Api call fails
      */
     @Test
     public void pdfWebapiEsignPostTest() throws Exception {
+        String passw = null;
         List<File> files = null;
         String inputType = null;
-        String passw = null;
-        FileResponse response = api.pdfWebapiEsignPost(files, inputType, passw);
+        FileResponse response = api.pdfWebapiEsignPost(passw, files, inputType);
 
         // TODO: test validations
     }
     /**
-     * Extracts tables from the provided documents and converts them to the specified output format.
+     * Extract tables from document.
      *
-     * This endpoint is used to extract tables from the provided files and convert them to the specified output format.  If the extraction is started, the response will contain a success status and an optional message.  If the extraction fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Extracts tables from the provided documents and converts them to the specified output format.
      *
      * @throws Exception
      *          if the Api call fails
@@ -244,9 +193,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Fills a form with the provided files.
+     * Fill form.
      *
-     * This endpoint is used to fill a form with the provided files.  If the filling is started, the response will contain a success status and an optional message.  If the filling fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Fills a form with the provided files.
      *
      * @throws Exception
      *          if the Api call fails
@@ -260,29 +209,30 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Creates a GIF from the provided images.
+     * Make GIF.
      *
-     * This endpoint is used to create a GIF from the provided images.  If the creation is started, the response will contain a success status and an optional message.  If the creation fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Creates a GIF from the provided images.
      *
      * @throws Exception
      *          if the Api call fails
      */
     @Test
     public void pdfWebapiGifPostTest() throws Exception {
+        List<File> files = null;
         Boolean keepImagesAsIs = null;
         Integer resizeToImage = null;
         Boolean streched = null;
         Integer width = null;
         Integer height = null;
         String frameTimes = null;
-        FileResponse response = api.pdfWebapiGifPost(keepImagesAsIs, resizeToImage, streched, width, height, frameTimes);
+        FileResponse response = api.pdfWebapiGifPost(files, keepImagesAsIs, resizeToImage, streched, width, height, frameTimes);
 
         // TODO: test validations
     }
     /**
-     * Hashes the provided files using the specified algorithm.
+     * Calculate document hash.
      *
-     * This endpoint is used to hash the provided files using the specified algorithm.  If the hashing is started, the response will contain a success status and an optional message.  If the hashing fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Calculate hashes of provided files using the specified algorithm.
      *
      * @throws Exception
      *          if the Api call fails
@@ -298,9 +248,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Locks a document with the provided password and optional files.
+     * Lock document.
      *
-     * This endpoint is used to lock a resource with an optional password and associated files.  If the lock is started, the response will contain a success status and processing id.  If the lock fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Locks a document with the provided password and optional files.
      *
      * @throws Exception
      *          if the Api call fails
@@ -314,9 +264,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Merges the provided files into a single document or image, with options for orientation and page size.
+     * Merge documents.
      *
-     * This endpoint is used to merge the provided files into a single document or image.  If the merge is started, the response will contain a success status and an optional message.  If the merge fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Merges the provided files into a single document or image, with options for orientation and page size.
      *
      * @throws Exception
      *          if the Api call fails
@@ -326,18 +276,19 @@ public class ApiApiTest {
         List<File> files = null;
         String inputType = null;
         String outputType = null;
+        Integer mergeType = null;
         Integer horizontal = null;
         Integer vertical = null;
         String pageSize = null;
         Boolean dcIsLandscape = null;
-        FileResponse response = api.pdfWebapiMergePost(files, inputType, outputType, horizontal, vertical, pageSize, dcIsLandscape);
+        FileResponse response = api.pdfWebapiMergePost(files, inputType, outputType, mergeType, horizontal, vertical, pageSize, dcIsLandscape);
 
         // TODO: test validations
     }
     /**
-     * Performs metadata operations on the provided files.
+     * Read and change document metadata.
      *
-     * This endpoint is used to perform metadata operations on the provided files.  If the operation is started, the response will contain a success status and an optional message.  If the operation fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Performs metadata operations on the provided files.
      *
      * @throws Exception
      *          if the Api call fails
@@ -353,26 +304,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Creates a music video from the provided files.
+     * Organize document pages.
      *
-     * This endpoint is used to create a music video from the provided files.  If the creation is started, the response will contain a success status and an optional message.  If the creation fails, the response will contain an error status and a message indicating the reason for the failure.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void pdfWebapiMusicVideoPostTest() throws Exception {
-        List<File> files = null;
-        Integer interval = null;
-        String outputType = null;
-        FileResponse response = api.pdfWebapiMusicVideoPost(files, interval, outputType);
-
-        // TODO: test validations
-    }
-    /**
      * Organizes the provided documents by removing or moving specified pages.
-     *
-     * This endpoint is used to organize the provided documents by removing or moving specified pages.  If the organization is started, the response will contain a success status and an optional message.  If the organization fails, the response will contain an error status and a message indicating the reason for the failure.
      *
      * @throws Exception
      *          if the Api call fails
@@ -388,24 +322,24 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Parses the provided files using a parser service.
+     * Parse document.
      *
-     * This endpoint is used to send files to a parser service for processing.  If the parsing is started, the response will contain a success status and an optional message.  If the parsing fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Parses the provided files using a parser service.
      *
      * @throws Exception
      *          if the Api call fails
      */
     @Test
     public void pdfWebapiParsePostTest() throws Exception {
-        List<File> files = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
         FileResponse response = api.pdfWebapiParsePost(files);
 
         // TODO: test validations
     }
     /**
-     * Redacts specified text from the provided documents, with options to search case-sensitively, target in text, comments, and metadata.
+     * Redact document text.
      *
-     * This endpoint is used to redact specified text from the provided files, with options to search case-sensitively and target different parts of the document such as text, comments, and metadata.  If the redaction is started, the response will contain a success status and an optional message.  If the redaction fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Redacts specified text from the provided documents, with options to search case-sensitively, target in text, comments, and metadata.
      *
      * @throws Exception
      *          if the Api call fails
@@ -424,9 +358,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Removes all files from processing.
+     * Remove stored files.
      *
-     * 
+     * Removes processed files from storage.
      *
      * @throws Exception
      *          if the Api call fails
@@ -439,9 +373,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Removes annotations from the provided documents.
+     * Remove document annotations.
      *
-     * This endpoint is used to remove annotations from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Removes annotations from the provided documents.
      *
      * @throws Exception
      *          if the Api call fails
@@ -454,9 +388,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Removes a watermark from the provided files.
+     * Removes document watermark.
      *
-     * This endpoint is used to remove a watermark from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Removes a watermark from the document pages.
      *
      * @throws Exception
      *          if the Api call fails
@@ -477,9 +411,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Removes specified pages from the provided files.
+     * Remove pages from document.
      *
-     * This endpoint is used to remove specified pages from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Removes specified pages from the provided files.
      *
      * @throws Exception
      *          if the Api call fails
@@ -493,9 +427,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Repairs the provided files.
+     * Repair document.
      *
-     * This endpoint is used to repair the provided files.  If the repair is started, the response will contain a success status and an optional message.  If the repair fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Repairs the provided files.
      *
      * @throws Exception
      *          if the Api call fails
@@ -508,9 +442,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Resizes the provided files to the specified dimensions or using a preset size.
+     * Resize document.
      *
-     * This endpoint is used to resize the provided files to the specified dimensions or using a preset size.  If the resizing is started, the response will contain a success status and an optional message.  If the resizing fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Resizes the provided files to the specified dimensions or using a preset size.
      *
      * @throws Exception
      *          if the Api call fails
@@ -533,9 +467,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Rotates the provided files by a specified angle, with options for rotation type and page number.
+     * Rotate document.
      *
-     * This endpoint is used to rotate the provided files by a specified angle.  If the rotation is started, the response will contain a success status and an optional message.  If the rotation fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Rotates the provided files by a specified angle, with options for rotation type and page number.
      *
      * @throws Exception
      *          if the Api call fails
@@ -551,9 +485,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Searches the provided files for the specified query and makr found text with yellow background.
+     * Search document text.
      *
-     * This endpoint is used to search the provided files for the specified query.  If the search is started, the response will contain a success status and an optional message.  If the search fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Searches the provided files for the specified query and makr found text with yellow background.
      *
      * @throws Exception
      *          if the Api call fails
@@ -567,9 +501,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Converts the provided files into a searchable PDF format for the specified language.
+     * Make scanned pdf searchable.
      *
-     * This endpoint is used to convert the provided files into a searchable PDF format for the specified language.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Converts the provided files into a searchable PDF format for the specified language.
      *
      * @throws Exception
      *          if the Api call fails
@@ -583,27 +517,30 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Adds a signature to the provided files.
+     * Add signature to document.
      *
-     * This endpoint is used to add a signature to the provided files.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Adds a signature, text and image to the provided documents.
      *
      * @throws Exception
      *          if the Api call fails
      */
     @Test
     public void pdfWebapiSignaturePostTest() throws Exception {
+        String image = null;
+        String text = null;
+        String textColor = null;
         List<File> files = null;
         String inputType = null;
         String outputType = null;
         String signatureType = null;
-        FileResponse response = api.pdfWebapiSignaturePost(files, inputType, outputType, signatureType);
+        FileResponse response = api.pdfWebapiSignaturePost(image, text, textColor, files, inputType, outputType, signatureType);
 
         // TODO: test validations
     }
     /**
-     * Splits the provided documents based on the specified split type and page rage to spit.
+     * Split document.
      *
-     * This endpoint is used to split documents based on the specified split type and page rage.  If the splitting is started, the response will contain a success status and an optional message.  If the splitting fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Splits the provided documents based on the specified split type and page rage to spit.
      *
      * @throws Exception
      *          if the Api call fails
@@ -618,9 +555,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Splits the provided images into smaller parts based on the specified parameters.
+     * Split image.
      *
-     * This endpoint is used to split images into smaller parts based on the specified parameters.  If the splitting is started, the response will contain a success status and an optional message.  If the splitting fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Splits the provided images into smaller parts based on the specified parameters.
      *
      * @throws Exception
      *          if the Api call fails
@@ -637,9 +574,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Retrieves the status of a processing.
+     * Processing status.
      *
-     * 
+     * Retrieves the status of a processing.
      *
      * @throws Exception
      *          if the Api call fails
@@ -652,9 +589,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Attempts to unlock a document with an password and associated files.
+     * Unlock document.
      *
-     * This endpoint is used to unlock a resource that was previously locked with a password on associated files.  If the unlock is started, the response will contain a success status and an optional message.  If the unlock fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Attempts to unlock a document with an password and associated files.
      *
      * @throws Exception
      *          if the Api call fails
@@ -668,9 +605,9 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Verifies the electronic signature of the provided files.
+     * Verify document certificate.
      *
-     * This endpoint is used to verify the electronic signature of the provided files.  If the verification is started, the response will contain a success status and an optional message.  If the verification fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Verifies the electronic signature of the provided files.
      *
      * @throws Exception
      *          if the Api call fails
@@ -684,62 +621,57 @@ public class ApiApiTest {
         // TODO: test validations
     }
     /**
-     * Adds a watermark to the provided files.
+     * Add watermark to document.
      *
-     * This endpoint is used to add a watermark to the provided files.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Adds a watermark to the provided files.
      *
      * @throws Exception
      *          if the Api call fails
      */
     @Test
     public void pdfWebapiWatermarkPostTest() throws Exception {
+        List<File> files = null;
+        String inputType = null;
+        String outputType = null;
+        Boolean isColored = null;
         Boolean isText = null;
         String text = null;
-        String name2 = null;
+        String name = null;
         Integer size = null;
         Boolean bold = null;
         Boolean italic = null;
         Boolean underlined = null;
         String color = null;
-        String contentType = null;
-        String contentDisposition = null;
-        Map<String, List<String>> headers = null;
-        Long length = null;
-        String name = null;
-        String fileName = null;
         Boolean isBackground = null;
         Integer rotation = null;
         Float transparency = null;
         Boolean layer = null;
         Integer pageFrom = null;
         Integer pageTo = null;
-        List<File> files = null;
-        String inputType = null;
-        String outputType = null;
-        FileResponse response = api.pdfWebapiWatermarkPost(isText, text, name2, size, bold, italic, underlined, color, contentType, contentDisposition, headers, length, name, fileName, isBackground, rotation, transparency, layer, pageFrom, pageTo, files, inputType, outputType);
+        FileResponse response = api.pdfWebapiWatermarkPost(files, inputType, outputType, isColored, isText, text, name, size, bold, italic, underlined, color, isBackground, rotation, transparency, layer, pageFrom, pageTo);
 
         // TODO: test validations
     }
     /**
-     * Counts the words in the provided files within the specified page range.
+     * Count words and chars in document.
      *
-     * This endpoint is used to count the words in the provided files within the specified page range.  If the counting is started, the response will contain a success status and the word count.  If the counting fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Counts the words in the provided files within the specified page range.
      *
      * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void pdfWebapiWordCounterPostTest() throws Exception {
+    public void pdfWebapiWordcounterPostTest() throws Exception {
         List<File> files = null;
         String pageRange = null;
-        FileResponse response = api.pdfWebapiWordCounterPost(files, pageRange);
+        FileResponse response = api.pdfWebapiWordcounterPost(files, pageRange);
 
         // TODO: test validations
     }
     /**
-     * Converts the provided documents from XFA format to a different format.
+     * Convert XFA format to a another format.
      *
-     * This endpoint is used to convert the provided files from XFA format to a different format.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Converts the provided documents from XFA format to a different format.
      *
      * @throws Exception
      *          if the Api call fails

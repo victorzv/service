@@ -1,6 +1,6 @@
 /*
  * Aspose.Pdf RestApi
- * Demo 1
+ * Aspose.Pdf RestApi provides a comprehensive set of endpoints for various PDF-related tasks, enabling efficient document processing and manipulation. Users can retrieve processing status, download files, manage file locks, parse documents, redact sensitive information, convert between formats, merge files, add watermarks, perform text searches, and much more. With endpoints for tasks like electronic signing, document comparison, and form filling, the API offers extensive functionality to cater to diverse PDF requirements.
  *
  * OpenAPI spec version: v1
  * Contact: Evgeny.Pirogov@aspose.com
@@ -25,21 +25,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * WebapiChatpdfBody
+ * WebapiGifBody
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-03-12T15:58:21.646745992Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-04-20T08:30:02.342974725Z[GMT]")
 
-public class WebapiChatpdfBody {
+public class WebapiGifBody {
   @SerializedName("files")
   private List<File> files = null;
 
-  public WebapiChatpdfBody files(List<File> files) {
+  public WebapiGifBody files(List<File> files) {
     this.files = files;
     return this;
   }
 
-  public WebapiChatpdfBody addFilesItem(File filesItem) {
+  public WebapiGifBody addFilesItem(File filesItem) {
     if (this.files == null) {
       this.files = new ArrayList<File>();
     }
@@ -69,8 +69,8 @@ public class WebapiChatpdfBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WebapiChatpdfBody webapiChatpdfBody = (WebapiChatpdfBody) o;
-    return Objects.equals(this.files, webapiChatpdfBody.files);
+    WebapiGifBody webapiGifBody = (WebapiGifBody) o;
+    return Objects.equals(this.files, webapiGifBody.files);
   }
 
   @Override
@@ -82,7 +82,7 @@ public class WebapiChatpdfBody {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WebapiChatpdfBody {\n");
+    sb.append("class WebapiGifBody {\n");
     
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("}");

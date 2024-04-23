@@ -1,4 +1,4 @@
-# WebapiChatpdfBody
+# WebapiWordcounterBody
 
 ## Properties
 Name | Type | Description | Notes

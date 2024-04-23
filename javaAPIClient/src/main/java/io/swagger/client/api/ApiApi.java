@@ -1,6 +1,6 @@
 /*
  * Aspose.Pdf RestApi
- * Demo 1
+ * Aspose.Pdf RestApi provides a comprehensive set of endpoints for various PDF-related tasks, enabling efficient document processing and manipulation. Users can retrieve processing status, download files, manage file locks, parse documents, redact sensitive information, convert between formats, merge files, add watermarks, perform text searches, and much more. With endpoints for tasks like electronic signing, document comparison, and form filling, the API offers extensive functionality to cater to diverse PDF requirements.
  *
  * OpenAPI spec version: v1
  * Contact: Evgeny.Pirogov@aspose.com
@@ -142,8 +142,8 @@ public class ApiApi {
     }
 
     /**
+     * Add page numbers to document.
      * Adds page numbers to the provided documents with the specified alignment, starting number, and format.
-     * This endpoint is used to add page numbers to the provided files with the specified alignment, starting number, and format.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param vAlignment The vertical alignment of the page numbers. (optional)
      * @param hAlignment The horizontal alignment of the page numbers. (optional)
@@ -162,8 +162,8 @@ public class ApiApi {
     }
 
     /**
+     * Add page numbers to document.
      * Adds page numbers to the provided documents with the specified alignment, starting number, and format.
-     * This endpoint is used to add page numbers to the provided files with the specified alignment, starting number, and format.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param vAlignment The vertical alignment of the page numbers. (optional)
      * @param hAlignment The horizontal alignment of the page numbers. (optional)
@@ -183,8 +183,8 @@ public class ApiApi {
     }
 
     /**
-     * Adds page numbers to the provided documents with the specified alignment, starting number, and format. (asynchronously)
-     * This endpoint is used to add page numbers to the provided files with the specified alignment, starting number, and format.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Add page numbers to document. (asynchronously)
+     * Adds page numbers to the provided documents with the specified alignment, starting number, and format.
      * @param files  (optional)
      * @param vAlignment The vertical alignment of the page numbers. (optional)
      * @param hAlignment The horizontal alignment of the page numbers. (optional)
@@ -225,262 +225,6 @@ public class ApiApi {
         return call;
     }
     /**
-     * Build call for pdfWebapiBinaryComparisonPost
-     * @param files  (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call pdfWebapiBinaryComparisonPostCall(List<File> files, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/pdf/webapi/BinaryComparison";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        if (files != null)
-        localVarFormParams.put("files", files);
-
-        final String[] localVarAccepts = {
-            "text/plain", "application/json", "text/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call pdfWebapiBinaryComparisonPostValidateBeforeCall(List<File> files, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        com.squareup.okhttp.Call call = pdfWebapiBinaryComparisonPostCall(files, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Performs a binary comparison on the provided files.
-     * This endpoint is used to perform a binary comparison on the provided files.  If the comparison is started, the response will contain a success status and an optional message.  If the comparison fails, the response will contain an error status and a message indicating the reason for the failure.
-     * @param files  (optional)
-     * @return FileResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public FileResponse pdfWebapiBinaryComparisonPost(List<File> files) throws ApiException {
-        ApiResponse<FileResponse> resp = pdfWebapiBinaryComparisonPostWithHttpInfo(files);
-        return resp.getData();
-    }
-
-    /**
-     * Performs a binary comparison on the provided files.
-     * This endpoint is used to perform a binary comparison on the provided files.  If the comparison is started, the response will contain a success status and an optional message.  If the comparison fails, the response will contain an error status and a message indicating the reason for the failure.
-     * @param files  (optional)
-     * @return ApiResponse&lt;FileResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<FileResponse> pdfWebapiBinaryComparisonPostWithHttpInfo(List<File> files) throws ApiException {
-        com.squareup.okhttp.Call call = pdfWebapiBinaryComparisonPostValidateBeforeCall(files, null, null);
-        Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Performs a binary comparison on the provided files. (asynchronously)
-     * This endpoint is used to perform a binary comparison on the provided files.  If the comparison is started, the response will contain a success status and an optional message.  If the comparison fails, the response will contain an error status and a message indicating the reason for the failure.
-     * @param files  (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call pdfWebapiBinaryComparisonPostAsync(List<File> files, final ApiCallback<FileResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = pdfWebapiBinaryComparisonPostValidateBeforeCall(files, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for pdfWebapiChatpdfPost
-     * @param files  (optional)
-     * @param mode The mode of operation for the PDF generation. (optional)
-     * @param question The question to be included in the PDF. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call pdfWebapiChatpdfPostCall(List<File> files, Integer mode, String question, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/pdf/webapi/chatpdf";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (mode != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("mode", mode));
-        if (question != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("question", question));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        if (files != null)
-        localVarFormParams.put("files", files);
-
-        final String[] localVarAccepts = {
-            "text/plain", "application/json", "text/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call pdfWebapiChatpdfPostValidateBeforeCall(List<File> files, Integer mode, String question, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        com.squareup.okhttp.Call call = pdfWebapiChatpdfPostCall(files, mode, question, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Generates a PDF document based on the provided files and question.
-     * This endpoint is used to generate a PDF document based on the provided files and question.  If the generation is started, the response will contain a success status and an optional message.  If the generation fails, the response will contain an error status and a message indicating the reason for the failure.
-     * @param files  (optional)
-     * @param mode The mode of operation for the PDF generation. (optional)
-     * @param question The question to be included in the PDF. (optional)
-     * @return FileResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public FileResponse pdfWebapiChatpdfPost(List<File> files, Integer mode, String question) throws ApiException {
-        ApiResponse<FileResponse> resp = pdfWebapiChatpdfPostWithHttpInfo(files, mode, question);
-        return resp.getData();
-    }
-
-    /**
-     * Generates a PDF document based on the provided files and question.
-     * This endpoint is used to generate a PDF document based on the provided files and question.  If the generation is started, the response will contain a success status and an optional message.  If the generation fails, the response will contain an error status and a message indicating the reason for the failure.
-     * @param files  (optional)
-     * @param mode The mode of operation for the PDF generation. (optional)
-     * @param question The question to be included in the PDF. (optional)
-     * @return ApiResponse&lt;FileResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<FileResponse> pdfWebapiChatpdfPostWithHttpInfo(List<File> files, Integer mode, String question) throws ApiException {
-        com.squareup.okhttp.Call call = pdfWebapiChatpdfPostValidateBeforeCall(files, mode, question, null, null);
-        Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Generates a PDF document based on the provided files and question. (asynchronously)
-     * This endpoint is used to generate a PDF document based on the provided files and question.  If the generation is started, the response will contain a success status and an optional message.  If the generation fails, the response will contain an error status and a message indicating the reason for the failure.
-     * @param files  (optional)
-     * @param mode The mode of operation for the PDF generation. (optional)
-     * @param question The question to be included in the PDF. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call pdfWebapiChatpdfPostAsync(List<File> files, Integer mode, String question, final ApiCallback<FileResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = pdfWebapiChatpdfPostValidateBeforeCall(files, mode, question, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for pdfWebapiComparisonPost
      * @param files  (optional)
      * @param progressListener Progress listener
@@ -492,7 +236,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/Comparison";
+        String localVarPath = "/pdf/webapi/comparison";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -544,8 +288,8 @@ public class ApiApi {
     }
 
     /**
+     * Compare documents text.
      * Compare provided files and create document with marked changes.
-     * This endpoint is used to compare the provided files.  If the comparison is started, the response will contain a success status and an optional message.  If the comparison fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @return FileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -556,8 +300,8 @@ public class ApiApi {
     }
 
     /**
+     * Compare documents text.
      * Compare provided files and create document with marked changes.
-     * This endpoint is used to compare the provided files.  If the comparison is started, the response will contain a success status and an optional message.  If the comparison fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @return ApiResponse&lt;FileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -569,8 +313,8 @@ public class ApiApi {
     }
 
     /**
-     * Compare provided files and create document with marked changes. (asynchronously)
-     * This endpoint is used to compare the provided files.  If the comparison is started, the response will contain a success status and an optional message.  If the comparison fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Compare documents text. (asynchronously)
+     * Compare provided files and create document with marked changes.
      * @param files  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -669,8 +413,8 @@ public class ApiApi {
     }
 
     /**
+     * Compress document.
      * Compresses the provided files using the specified compression level.
-     * This endpoint is used to compress the provided files using the specified compression level.  If the compression is started, the response will contain a success status and an optional message.  If the compression fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param compressType The level of compression to use. (optional)
      * @return FileResponse
@@ -682,8 +426,8 @@ public class ApiApi {
     }
 
     /**
+     * Compress document.
      * Compresses the provided files using the specified compression level.
-     * This endpoint is used to compress the provided files using the specified compression level.  If the compression is started, the response will contain a success status and an optional message.  If the compression fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param compressType The level of compression to use. (optional)
      * @return ApiResponse&lt;FileResponse&gt;
@@ -696,8 +440,8 @@ public class ApiApi {
     }
 
     /**
-     * Compresses the provided files using the specified compression level. (asynchronously)
-     * This endpoint is used to compress the provided files using the specified compression level.  If the compression is started, the response will contain a success status and an optional message.  If the compression fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Compress document. (asynchronously)
+     * Compresses the provided files using the specified compression level.
      * @param files  (optional)
      * @param compressType The level of compression to use. (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -815,8 +559,8 @@ public class ApiApi {
     }
 
     /**
-     * Converts the provided files from one format to another, with options for XML conversion and font size adjustment.
-     * This endpoint is used to convert the provided files from one format to another.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Convert document to another format.
+     * Converts the provided files from one format to another.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -834,8 +578,8 @@ public class ApiApi {
     }
 
     /**
-     * Converts the provided files from one format to another, with options for XML conversion and font size adjustment.
-     * This endpoint is used to convert the provided files from one format to another.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Convert document to another format.
+     * Converts the provided files from one format to another.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -854,8 +598,8 @@ public class ApiApi {
     }
 
     /**
-     * Converts the provided files from one format to another, with options for XML conversion and font size adjustment. (asynchronously)
-     * This endpoint is used to convert the provided files from one format to another.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Convert document to another format. (asynchronously)
+     * Converts the provided files from one format to another.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -961,8 +705,8 @@ public class ApiApi {
     }
 
     /**
+     * Convert web page to document.
      * Converts a web page to the specified output format.
-     * This endpoint is used to convert a web page to the specified output format.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param webPage  (optional)
      * @param outputType The desired format for the output file. (optional)
      * @return FileResponse
@@ -974,8 +718,8 @@ public class ApiApi {
     }
 
     /**
+     * Convert web page to document.
      * Converts a web page to the specified output format.
-     * This endpoint is used to convert a web page to the specified output format.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param webPage  (optional)
      * @param outputType The desired format for the output file. (optional)
      * @return ApiResponse&lt;FileResponse&gt;
@@ -988,8 +732,8 @@ public class ApiApi {
     }
 
     /**
-     * Converts a web page to the specified output format. (asynchronously)
-     * This endpoint is used to convert a web page to the specified output format.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Convert web page to document. (asynchronously)
+     * Converts a web page to the specified output format.
      * @param webPage  (optional)
      * @param outputType The desired format for the output file. (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -1104,8 +848,8 @@ public class ApiApi {
     }
 
     /**
+     * Crop document.
      * Crops the provided files to the specified dimensions.
-     * This endpoint is used to crop the provided files to the specified dimensions.  If the cropping is started, the response will contain a success status and an optional message.  If the cropping fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param top The number of pixels to crop from the top. (optional)
@@ -1122,8 +866,8 @@ public class ApiApi {
     }
 
     /**
+     * Crop document.
      * Crops the provided files to the specified dimensions.
-     * This endpoint is used to crop the provided files to the specified dimensions.  If the cropping is started, the response will contain a success status and an optional message.  If the cropping fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param top The number of pixels to crop from the top. (optional)
@@ -1141,8 +885,8 @@ public class ApiApi {
     }
 
     /**
-     * Crops the provided files to the specified dimensions. (asynchronously)
-     * This endpoint is used to crop the provided files to the specified dimensions.  If the cropping is started, the response will contain a success status and an optional message.  If the cropping fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Crop document. (asynchronously)
+     * Crops the provided files to the specified dimensions.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param top The number of pixels to crop from the top. (optional)
@@ -1250,8 +994,8 @@ public class ApiApi {
     }
 
     /**
-     * Downloads a file.
-     * 
+     * File download.
+     * Downloads processed file.
      * @param id The id of the processing to download. (required)
      * @param file The name of the file to download. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1261,8 +1005,8 @@ public class ApiApi {
     }
 
     /**
-     * Downloads a file.
-     * 
+     * File download.
+     * Downloads processed file.
      * @param id The id of the processing to download. (required)
      * @param file The name of the file to download. (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -1274,8 +1018,8 @@ public class ApiApi {
     }
 
     /**
-     * Downloads a file. (asynchronously)
-     * 
+     * File download. (asynchronously)
+     * Downloads processed file.
      * @param id The id of the processing to download. (required)
      * @param file The name of the file to download. (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -1308,147 +1052,16 @@ public class ApiApi {
         return call;
     }
     /**
-     * Build call for pdfWebapiDownloadStreamIdPost
-     * @param id The ID of the processing to download. (required)
-     * @param fileName The name of the file to download. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call pdfWebapiDownloadStreamIdPostCall(String id, String fileName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/pdf/webapi/download-stream/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (fileName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("fileName", fileName));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "text/plain", "application/json", "text/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call pdfWebapiDownloadStreamIdPostValidateBeforeCall(String id, String fileName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling pdfWebapiDownloadStreamIdPost(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = pdfWebapiDownloadStreamIdPostCall(id, fileName, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Downloads a file as a stream.
-     * 
-     * @param id The ID of the processing to download. (required)
-     * @param fileName The name of the file to download. (optional)
-     * @return FileResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public FileResponse pdfWebapiDownloadStreamIdPost(String id, String fileName) throws ApiException {
-        ApiResponse<FileResponse> resp = pdfWebapiDownloadStreamIdPostWithHttpInfo(id, fileName);
-        return resp.getData();
-    }
-
-    /**
-     * Downloads a file as a stream.
-     * 
-     * @param id The ID of the processing to download. (required)
-     * @param fileName The name of the file to download. (optional)
-     * @return ApiResponse&lt;FileResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<FileResponse> pdfWebapiDownloadStreamIdPostWithHttpInfo(String id, String fileName) throws ApiException {
-        com.squareup.okhttp.Call call = pdfWebapiDownloadStreamIdPostValidateBeforeCall(id, fileName, null, null);
-        Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Downloads a file as a stream. (asynchronously)
-     * 
-     * @param id The ID of the processing to download. (required)
-     * @param fileName The name of the file to download. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call pdfWebapiDownloadStreamIdPostAsync(String id, String fileName, final ApiCallback<FileResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = pdfWebapiDownloadStreamIdPostValidateBeforeCall(id, fileName, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for pdfWebapiEsignPost
+     * @param passw  (optional)
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
-     * @param passw The password to use for electronic signing. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call pdfWebapiEsignPostCall(List<File> files, String inputType, String passw, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call pdfWebapiEsignPostCall(String passw, List<File> files, String inputType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1458,12 +1071,12 @@ public class ApiApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (inputType != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("inputType", inputType));
-        if (passw != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("passw", passw));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (passw != null)
+        localVarFormParams.put("passw", passw);
         if (files != null)
         localVarFormParams.put("files", files);
 
@@ -1496,9 +1109,9 @@ public class ApiApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call pdfWebapiEsignPostValidateBeforeCall(List<File> files, String inputType, String passw, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call pdfWebapiEsignPostValidateBeforeCall(String passw, List<File> files, String inputType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        com.squareup.okhttp.Call call = pdfWebapiEsignPostCall(files, inputType, passw, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = pdfWebapiEsignPostCall(passw, files, inputType, progressListener, progressRequestListener);
         return call;
 
         
@@ -1508,45 +1121,45 @@ public class ApiApi {
     }
 
     /**
-     * Electronically signs the provided files with the specified certificate and its password.
-     * This endpoint is used to electronically sign the provided files with the specified certificate and its password.  If the signing is started, the response will contain a success status and an optional message.  If the signing fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Sign document with certificate.
+     * Electronically signs the provided documents with the specified certificate.
+     * @param passw  (optional)
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
-     * @param passw The password to use for electronic signing. (optional)
      * @return FileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FileResponse pdfWebapiEsignPost(List<File> files, String inputType, String passw) throws ApiException {
-        ApiResponse<FileResponse> resp = pdfWebapiEsignPostWithHttpInfo(files, inputType, passw);
+    public FileResponse pdfWebapiEsignPost(String passw, List<File> files, String inputType) throws ApiException {
+        ApiResponse<FileResponse> resp = pdfWebapiEsignPostWithHttpInfo(passw, files, inputType);
         return resp.getData();
     }
 
     /**
-     * Electronically signs the provided files with the specified certificate and its password.
-     * This endpoint is used to electronically sign the provided files with the specified certificate and its password.  If the signing is started, the response will contain a success status and an optional message.  If the signing fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Sign document with certificate.
+     * Electronically signs the provided documents with the specified certificate.
+     * @param passw  (optional)
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
-     * @param passw The password to use for electronic signing. (optional)
      * @return ApiResponse&lt;FileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FileResponse> pdfWebapiEsignPostWithHttpInfo(List<File> files, String inputType, String passw) throws ApiException {
-        com.squareup.okhttp.Call call = pdfWebapiEsignPostValidateBeforeCall(files, inputType, passw, null, null);
+    public ApiResponse<FileResponse> pdfWebapiEsignPostWithHttpInfo(String passw, List<File> files, String inputType) throws ApiException {
+        com.squareup.okhttp.Call call = pdfWebapiEsignPostValidateBeforeCall(passw, files, inputType, null, null);
         Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Electronically signs the provided files with the specified certificate and its password. (asynchronously)
-     * This endpoint is used to electronically sign the provided files with the specified certificate and its password.  If the signing is started, the response will contain a success status and an optional message.  If the signing fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Sign document with certificate. (asynchronously)
+     * Electronically signs the provided documents with the specified certificate.
+     * @param passw  (optional)
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
-     * @param passw The password to use for electronic signing. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call pdfWebapiEsignPostAsync(List<File> files, String inputType, String passw, final ApiCallback<FileResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call pdfWebapiEsignPostAsync(String passw, List<File> files, String inputType, final ApiCallback<FileResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1567,7 +1180,7 @@ public class ApiApi {
             };
         }
 
-        com.squareup.okhttp.Call call = pdfWebapiEsignPostValidateBeforeCall(files, inputType, passw, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = pdfWebapiEsignPostValidateBeforeCall(passw, files, inputType, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1642,8 +1255,8 @@ public class ApiApi {
     }
 
     /**
+     * Extract tables from document.
      * Extracts tables from the provided documents and converts them to the specified output format.
-     * This endpoint is used to extract tables from the provided files and convert them to the specified output format.  If the extraction is started, the response will contain a success status and an optional message.  If the extraction fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -1656,8 +1269,8 @@ public class ApiApi {
     }
 
     /**
+     * Extract tables from document.
      * Extracts tables from the provided documents and converts them to the specified output format.
-     * This endpoint is used to extract tables from the provided files and convert them to the specified output format.  If the extraction is started, the response will contain a success status and an optional message.  If the extraction fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -1671,8 +1284,8 @@ public class ApiApi {
     }
 
     /**
-     * Extracts tables from the provided documents and converts them to the specified output format. (asynchronously)
-     * This endpoint is used to extract tables from the provided files and convert them to the specified output format.  If the extraction is started, the response will contain a success status and an optional message.  If the extraction fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Extract tables from document. (asynchronously)
+     * Extracts tables from the provided documents and converts them to the specified output format.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -1773,8 +1386,8 @@ public class ApiApi {
     }
 
     /**
+     * Fill form.
      * Fills a form with the provided files.
-     * This endpoint is used to fill a form with the provided files.  If the filling is started, the response will contain a success status and an optional message.  If the filling fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param fileName The name of the file to fill the form with. (optional)
      * @return FileResponse
@@ -1786,8 +1399,8 @@ public class ApiApi {
     }
 
     /**
+     * Fill form.
      * Fills a form with the provided files.
-     * This endpoint is used to fill a form with the provided files.  If the filling is started, the response will contain a success status and an optional message.  If the filling fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param fileName The name of the file to fill the form with. (optional)
      * @return ApiResponse&lt;FileResponse&gt;
@@ -1800,8 +1413,8 @@ public class ApiApi {
     }
 
     /**
-     * Fills a form with the provided files. (asynchronously)
-     * This endpoint is used to fill a form with the provided files.  If the filling is started, the response will contain a success status and an optional message.  If the filling fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Fill form. (asynchronously)
+     * Fills a form with the provided files.
      * @param files  (optional)
      * @param fileName The name of the file to fill the form with. (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -1836,6 +1449,7 @@ public class ApiApi {
     }
     /**
      * Build call for pdfWebapiGifPost
+     * @param files  (optional)
      * @param keepImagesAsIs Indicates whether the images should be kept as is. (optional)
      * @param resizeToImage The index of the image to resize the other images to. (optional)
      * @param streched  (optional)
@@ -1847,7 +1461,7 @@ public class ApiApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call pdfWebapiGifPostCall(Boolean keepImagesAsIs, Integer resizeToImage, Boolean streched, Integer width, Integer height, String frameTimes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call pdfWebapiGifPostCall(List<File> files, Boolean keepImagesAsIs, Integer resizeToImage, Boolean streched, Integer width, Integer height, String frameTimes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1871,6 +1485,8 @@ public class ApiApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (files != null)
+        localVarFormParams.put("files", files);
 
         final String[] localVarAccepts = {
             "text/plain", "application/json", "text/json"
@@ -1879,7 +1495,7 @@ public class ApiApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "multipart/form-data"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1901,9 +1517,9 @@ public class ApiApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call pdfWebapiGifPostValidateBeforeCall(Boolean keepImagesAsIs, Integer resizeToImage, Boolean streched, Integer width, Integer height, String frameTimes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call pdfWebapiGifPostValidateBeforeCall(List<File> files, Boolean keepImagesAsIs, Integer resizeToImage, Boolean streched, Integer width, Integer height, String frameTimes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        com.squareup.okhttp.Call call = pdfWebapiGifPostCall(keepImagesAsIs, resizeToImage, streched, width, height, frameTimes, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = pdfWebapiGifPostCall(files, keepImagesAsIs, resizeToImage, streched, width, height, frameTimes, progressListener, progressRequestListener);
         return call;
 
         
@@ -1913,8 +1529,9 @@ public class ApiApi {
     }
 
     /**
+     * Make GIF.
      * Creates a GIF from the provided images.
-     * This endpoint is used to create a GIF from the provided images.  If the creation is started, the response will contain a success status and an optional message.  If the creation fails, the response will contain an error status and a message indicating the reason for the failure.
+     * @param files  (optional)
      * @param keepImagesAsIs Indicates whether the images should be kept as is. (optional)
      * @param resizeToImage The index of the image to resize the other images to. (optional)
      * @param streched  (optional)
@@ -1924,14 +1541,15 @@ public class ApiApi {
      * @return FileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FileResponse pdfWebapiGifPost(Boolean keepImagesAsIs, Integer resizeToImage, Boolean streched, Integer width, Integer height, String frameTimes) throws ApiException {
-        ApiResponse<FileResponse> resp = pdfWebapiGifPostWithHttpInfo(keepImagesAsIs, resizeToImage, streched, width, height, frameTimes);
+    public FileResponse pdfWebapiGifPost(List<File> files, Boolean keepImagesAsIs, Integer resizeToImage, Boolean streched, Integer width, Integer height, String frameTimes) throws ApiException {
+        ApiResponse<FileResponse> resp = pdfWebapiGifPostWithHttpInfo(files, keepImagesAsIs, resizeToImage, streched, width, height, frameTimes);
         return resp.getData();
     }
 
     /**
+     * Make GIF.
      * Creates a GIF from the provided images.
-     * This endpoint is used to create a GIF from the provided images.  If the creation is started, the response will contain a success status and an optional message.  If the creation fails, the response will contain an error status and a message indicating the reason for the failure.
+     * @param files  (optional)
      * @param keepImagesAsIs Indicates whether the images should be kept as is. (optional)
      * @param resizeToImage The index of the image to resize the other images to. (optional)
      * @param streched  (optional)
@@ -1941,15 +1559,16 @@ public class ApiApi {
      * @return ApiResponse&lt;FileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FileResponse> pdfWebapiGifPostWithHttpInfo(Boolean keepImagesAsIs, Integer resizeToImage, Boolean streched, Integer width, Integer height, String frameTimes) throws ApiException {
-        com.squareup.okhttp.Call call = pdfWebapiGifPostValidateBeforeCall(keepImagesAsIs, resizeToImage, streched, width, height, frameTimes, null, null);
+    public ApiResponse<FileResponse> pdfWebapiGifPostWithHttpInfo(List<File> files, Boolean keepImagesAsIs, Integer resizeToImage, Boolean streched, Integer width, Integer height, String frameTimes) throws ApiException {
+        com.squareup.okhttp.Call call = pdfWebapiGifPostValidateBeforeCall(files, keepImagesAsIs, resizeToImage, streched, width, height, frameTimes, null, null);
         Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Creates a GIF from the provided images. (asynchronously)
-     * This endpoint is used to create a GIF from the provided images.  If the creation is started, the response will contain a success status and an optional message.  If the creation fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Make GIF. (asynchronously)
+     * Creates a GIF from the provided images.
+     * @param files  (optional)
      * @param keepImagesAsIs Indicates whether the images should be kept as is. (optional)
      * @param resizeToImage The index of the image to resize the other images to. (optional)
      * @param streched  (optional)
@@ -1960,7 +1579,7 @@ public class ApiApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call pdfWebapiGifPostAsync(Boolean keepImagesAsIs, Integer resizeToImage, Boolean streched, Integer width, Integer height, String frameTimes, final ApiCallback<FileResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call pdfWebapiGifPostAsync(List<File> files, Boolean keepImagesAsIs, Integer resizeToImage, Boolean streched, Integer width, Integer height, String frameTimes, final ApiCallback<FileResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1981,7 +1600,7 @@ public class ApiApi {
             };
         }
 
-        com.squareup.okhttp.Call call = pdfWebapiGifPostValidateBeforeCall(keepImagesAsIs, resizeToImage, streched, width, height, frameTimes, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = pdfWebapiGifPostValidateBeforeCall(files, keepImagesAsIs, resizeToImage, streched, width, height, frameTimes, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2059,8 +1678,8 @@ public class ApiApi {
     }
 
     /**
-     * Hashes the provided files using the specified algorithm.
-     * This endpoint is used to hash the provided files using the specified algorithm.  If the hashing is started, the response will contain a success status and an optional message.  If the hashing fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Calculate document hash.
+     * Calculate hashes of provided files using the specified algorithm.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -2074,8 +1693,8 @@ public class ApiApi {
     }
 
     /**
-     * Hashes the provided files using the specified algorithm.
-     * This endpoint is used to hash the provided files using the specified algorithm.  If the hashing is started, the response will contain a success status and an optional message.  If the hashing fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Calculate document hash.
+     * Calculate hashes of provided files using the specified algorithm.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -2090,8 +1709,8 @@ public class ApiApi {
     }
 
     /**
-     * Hashes the provided files using the specified algorithm. (asynchronously)
-     * This endpoint is used to hash the provided files using the specified algorithm.  If the hashing is started, the response will contain a success status and an optional message.  If the hashing fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Calculate document hash. (asynchronously)
+     * Calculate hashes of provided files using the specified algorithm.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -2193,8 +1812,8 @@ public class ApiApi {
     }
 
     /**
+     * Lock document.
      * Locks a document with the provided password and optional files.
-     * This endpoint is used to lock a resource with an optional password and associated files.  If the lock is started, the response will contain a success status and processing id.  If the lock fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param passw The password required to lock the resource. (optional)
      * @return FileResponse
@@ -2206,8 +1825,8 @@ public class ApiApi {
     }
 
     /**
+     * Lock document.
      * Locks a document with the provided password and optional files.
-     * This endpoint is used to lock a resource with an optional password and associated files.  If the lock is started, the response will contain a success status and processing id.  If the lock fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param passw The password required to lock the resource. (optional)
      * @return ApiResponse&lt;FileResponse&gt;
@@ -2220,8 +1839,8 @@ public class ApiApi {
     }
 
     /**
-     * Locks a document with the provided password and optional files. (asynchronously)
-     * This endpoint is used to lock a resource with an optional password and associated files.  If the lock is started, the response will contain a success status and processing id.  If the lock fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Lock document. (asynchronously)
+     * Locks a document with the provided password and optional files.
      * @param files  (optional)
      * @param passw The password required to lock the resource. (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -2259,6 +1878,7 @@ public class ApiApi {
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output file. (optional)
+     * @param mergeType Type of merger operation. (optional)
      * @param horizontal The number of images to merge horizontally, if applicable. (optional)
      * @param vertical The number of images to merge vertically, if applicable. (optional)
      * @param pageSize The page size for the output file, if applicable. (optional)
@@ -2268,7 +1888,7 @@ public class ApiApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call pdfWebapiMergePostCall(List<File> files, String inputType, String outputType, Integer horizontal, Integer vertical, String pageSize, Boolean dcIsLandscape, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call pdfWebapiMergePostCall(List<File> files, String inputType, String outputType, Integer mergeType, Integer horizontal, Integer vertical, String pageSize, Boolean dcIsLandscape, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -2280,6 +1900,8 @@ public class ApiApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("inputType", inputType));
         if (outputType != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("outputType", outputType));
+        if (mergeType != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("mergeType", mergeType));
         if (horizontal != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("horizontal", horizontal));
         if (vertical != null)
@@ -2324,9 +1946,9 @@ public class ApiApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call pdfWebapiMergePostValidateBeforeCall(List<File> files, String inputType, String outputType, Integer horizontal, Integer vertical, String pageSize, Boolean dcIsLandscape, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call pdfWebapiMergePostValidateBeforeCall(List<File> files, String inputType, String outputType, Integer mergeType, Integer horizontal, Integer vertical, String pageSize, Boolean dcIsLandscape, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        com.squareup.okhttp.Call call = pdfWebapiMergePostCall(files, inputType, outputType, horizontal, vertical, pageSize, dcIsLandscape, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = pdfWebapiMergePostCall(files, inputType, outputType, mergeType, horizontal, vertical, pageSize, dcIsLandscape, progressListener, progressRequestListener);
         return call;
 
         
@@ -2336,11 +1958,12 @@ public class ApiApi {
     }
 
     /**
+     * Merge documents.
      * Merges the provided files into a single document or image, with options for orientation and page size.
-     * This endpoint is used to merge the provided files into a single document or image.  If the merge is started, the response will contain a success status and an optional message.  If the merge fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output file. (optional)
+     * @param mergeType Type of merger operation. (optional)
      * @param horizontal The number of images to merge horizontally, if applicable. (optional)
      * @param vertical The number of images to merge vertically, if applicable. (optional)
      * @param pageSize The page size for the output file, if applicable. (optional)
@@ -2348,17 +1971,18 @@ public class ApiApi {
      * @return FileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FileResponse pdfWebapiMergePost(List<File> files, String inputType, String outputType, Integer horizontal, Integer vertical, String pageSize, Boolean dcIsLandscape) throws ApiException {
-        ApiResponse<FileResponse> resp = pdfWebapiMergePostWithHttpInfo(files, inputType, outputType, horizontal, vertical, pageSize, dcIsLandscape);
+    public FileResponse pdfWebapiMergePost(List<File> files, String inputType, String outputType, Integer mergeType, Integer horizontal, Integer vertical, String pageSize, Boolean dcIsLandscape) throws ApiException {
+        ApiResponse<FileResponse> resp = pdfWebapiMergePostWithHttpInfo(files, inputType, outputType, mergeType, horizontal, vertical, pageSize, dcIsLandscape);
         return resp.getData();
     }
 
     /**
+     * Merge documents.
      * Merges the provided files into a single document or image, with options for orientation and page size.
-     * This endpoint is used to merge the provided files into a single document or image.  If the merge is started, the response will contain a success status and an optional message.  If the merge fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output file. (optional)
+     * @param mergeType Type of merger operation. (optional)
      * @param horizontal The number of images to merge horizontally, if applicable. (optional)
      * @param vertical The number of images to merge vertically, if applicable. (optional)
      * @param pageSize The page size for the output file, if applicable. (optional)
@@ -2366,18 +1990,19 @@ public class ApiApi {
      * @return ApiResponse&lt;FileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FileResponse> pdfWebapiMergePostWithHttpInfo(List<File> files, String inputType, String outputType, Integer horizontal, Integer vertical, String pageSize, Boolean dcIsLandscape) throws ApiException {
-        com.squareup.okhttp.Call call = pdfWebapiMergePostValidateBeforeCall(files, inputType, outputType, horizontal, vertical, pageSize, dcIsLandscape, null, null);
+    public ApiResponse<FileResponse> pdfWebapiMergePostWithHttpInfo(List<File> files, String inputType, String outputType, Integer mergeType, Integer horizontal, Integer vertical, String pageSize, Boolean dcIsLandscape) throws ApiException {
+        com.squareup.okhttp.Call call = pdfWebapiMergePostValidateBeforeCall(files, inputType, outputType, mergeType, horizontal, vertical, pageSize, dcIsLandscape, null, null);
         Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Merges the provided files into a single document or image, with options for orientation and page size. (asynchronously)
-     * This endpoint is used to merge the provided files into a single document or image.  If the merge is started, the response will contain a success status and an optional message.  If the merge fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Merge documents. (asynchronously)
+     * Merges the provided files into a single document or image, with options for orientation and page size.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output file. (optional)
+     * @param mergeType Type of merger operation. (optional)
      * @param horizontal The number of images to merge horizontally, if applicable. (optional)
      * @param vertical The number of images to merge vertically, if applicable. (optional)
      * @param pageSize The page size for the output file, if applicable. (optional)
@@ -2386,7 +2011,7 @@ public class ApiApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call pdfWebapiMergePostAsync(List<File> files, String inputType, String outputType, Integer horizontal, Integer vertical, String pageSize, Boolean dcIsLandscape, final ApiCallback<FileResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call pdfWebapiMergePostAsync(List<File> files, String inputType, String outputType, Integer mergeType, Integer horizontal, Integer vertical, String pageSize, Boolean dcIsLandscape, final ApiCallback<FileResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2407,7 +2032,7 @@ public class ApiApi {
             };
         }
 
-        com.squareup.okhttp.Call call = pdfWebapiMergePostValidateBeforeCall(files, inputType, outputType, horizontal, vertical, pageSize, dcIsLandscape, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = pdfWebapiMergePostValidateBeforeCall(files, inputType, outputType, mergeType, horizontal, vertical, pageSize, dcIsLandscape, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2415,7 +2040,7 @@ public class ApiApi {
     /**
      * Build call for pdfWebapiMetadataPost
      * @param files  (optional)
-     * @param operation  (optional)
+     * @param operation The operation to perform on the metadata. (optional)
      * @param folder The folder where the files are located. (optional)
      * @param name The name of the file to perform the operation on. (optional)
      * @param progressListener Progress listener
@@ -2485,10 +2110,10 @@ public class ApiApi {
     }
 
     /**
+     * Read and change document metadata.
      * Performs metadata operations on the provided files.
-     * This endpoint is used to perform metadata operations on the provided files.  If the operation is started, the response will contain a success status and an optional message.  If the operation fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
-     * @param operation  (optional)
+     * @param operation The operation to perform on the metadata. (optional)
      * @param folder The folder where the files are located. (optional)
      * @param name The name of the file to perform the operation on. (optional)
      * @return FileResponse
@@ -2500,10 +2125,10 @@ public class ApiApi {
     }
 
     /**
+     * Read and change document metadata.
      * Performs metadata operations on the provided files.
-     * This endpoint is used to perform metadata operations on the provided files.  If the operation is started, the response will contain a success status and an optional message.  If the operation fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
-     * @param operation  (optional)
+     * @param operation The operation to perform on the metadata. (optional)
      * @param folder The folder where the files are located. (optional)
      * @param name The name of the file to perform the operation on. (optional)
      * @return ApiResponse&lt;FileResponse&gt;
@@ -2516,10 +2141,10 @@ public class ApiApi {
     }
 
     /**
-     * Performs metadata operations on the provided files. (asynchronously)
-     * This endpoint is used to perform metadata operations on the provided files.  If the operation is started, the response will contain a success status and an optional message.  If the operation fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Read and change document metadata. (asynchronously)
+     * Performs metadata operations on the provided files.
      * @param files  (optional)
-     * @param operation  (optional)
+     * @param operation The operation to perform on the metadata. (optional)
      * @param folder The folder where the files are located. (optional)
      * @param name The name of the file to perform the operation on. (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -2553,140 +2178,6 @@ public class ApiApi {
         return call;
     }
     /**
-     * Build call for pdfWebapiMusicVideoPost
-     * @param files  (optional)
-     * @param interval The interval between frames in the music video. (optional)
-     * @param outputType The desired format for the output files. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call pdfWebapiMusicVideoPostCall(List<File> files, Integer interval, String outputType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/pdf/webapi/music-video";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (interval != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("interval", interval));
-        if (outputType != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("outputType", outputType));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        if (files != null)
-        localVarFormParams.put("files", files);
-
-        final String[] localVarAccepts = {
-            "text/plain", "application/json", "text/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call pdfWebapiMusicVideoPostValidateBeforeCall(List<File> files, Integer interval, String outputType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        com.squareup.okhttp.Call call = pdfWebapiMusicVideoPostCall(files, interval, outputType, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Creates a music video from the provided files.
-     * This endpoint is used to create a music video from the provided files.  If the creation is started, the response will contain a success status and an optional message.  If the creation fails, the response will contain an error status and a message indicating the reason for the failure.
-     * @param files  (optional)
-     * @param interval The interval between frames in the music video. (optional)
-     * @param outputType The desired format for the output files. (optional)
-     * @return FileResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public FileResponse pdfWebapiMusicVideoPost(List<File> files, Integer interval, String outputType) throws ApiException {
-        ApiResponse<FileResponse> resp = pdfWebapiMusicVideoPostWithHttpInfo(files, interval, outputType);
-        return resp.getData();
-    }
-
-    /**
-     * Creates a music video from the provided files.
-     * This endpoint is used to create a music video from the provided files.  If the creation is started, the response will contain a success status and an optional message.  If the creation fails, the response will contain an error status and a message indicating the reason for the failure.
-     * @param files  (optional)
-     * @param interval The interval between frames in the music video. (optional)
-     * @param outputType The desired format for the output files. (optional)
-     * @return ApiResponse&lt;FileResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<FileResponse> pdfWebapiMusicVideoPostWithHttpInfo(List<File> files, Integer interval, String outputType) throws ApiException {
-        com.squareup.okhttp.Call call = pdfWebapiMusicVideoPostValidateBeforeCall(files, interval, outputType, null, null);
-        Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Creates a music video from the provided files. (asynchronously)
-     * This endpoint is used to create a music video from the provided files.  If the creation is started, the response will contain a success status and an optional message.  If the creation fails, the response will contain an error status and a message indicating the reason for the failure.
-     * @param files  (optional)
-     * @param interval The interval between frames in the music video. (optional)
-     * @param outputType The desired format for the output files. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call pdfWebapiMusicVideoPostAsync(List<File> files, Integer interval, String outputType, final ApiCallback<FileResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = pdfWebapiMusicVideoPostValidateBeforeCall(files, interval, outputType, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for pdfWebapiOrganizePost
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
@@ -2701,7 +2192,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/Organize";
+        String localVarPath = "/pdf/webapi/organize";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2759,8 +2250,8 @@ public class ApiApi {
     }
 
     /**
+     * Organize document pages.
      * Organizes the provided documents by removing or moving specified pages.
-     * This endpoint is used to organize the provided documents by removing or moving specified pages.  If the organization is started, the response will contain a success status and an optional message.  If the organization fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param remove The pages to remove from the document. (optional)
@@ -2774,8 +2265,8 @@ public class ApiApi {
     }
 
     /**
+     * Organize document pages.
      * Organizes the provided documents by removing or moving specified pages.
-     * This endpoint is used to organize the provided documents by removing or moving specified pages.  If the organization is started, the response will contain a success status and an optional message.  If the organization fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param remove The pages to remove from the document. (optional)
@@ -2790,8 +2281,8 @@ public class ApiApi {
     }
 
     /**
-     * Organizes the provided documents by removing or moving specified pages. (asynchronously)
-     * This endpoint is used to organize the provided documents by removing or moving specified pages.  If the organization is started, the response will contain a success status and an optional message.  If the organization fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Organize document pages. (asynchronously)
+     * Organizes the provided documents by removing or moving specified pages.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param remove The pages to remove from the document. (optional)
@@ -2838,7 +2329,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/parse";
+        String localVarPath = "http://localhost:5000/pdf/webapi/parse";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2890,8 +2381,8 @@ public class ApiApi {
     }
 
     /**
+     * Parse document.
      * Parses the provided files using a parser service.
-     * This endpoint is used to send files to a parser service for processing.  If the parsing is started, the response will contain a success status and an optional message.  If the parsing fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @return FileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2902,8 +2393,8 @@ public class ApiApi {
     }
 
     /**
+     * Parse document.
      * Parses the provided files using a parser service.
-     * This endpoint is used to send files to a parser service for processing.  If the parsing is started, the response will contain a success status and an optional message.  If the parsing fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @return ApiResponse&lt;FileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2915,8 +2406,8 @@ public class ApiApi {
     }
 
     /**
-     * Parses the provided files using a parser service. (asynchronously)
-     * This endpoint is used to send files to a parser service for processing.  If the parsing is started, the response will contain a success status and an optional message.  If the parsing fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Parse document. (asynchronously)
+     * Parses the provided files using a parser service.
      * @param files  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3030,8 +2521,8 @@ public class ApiApi {
     }
 
     /**
+     * Redact document text.
      * Redacts specified text from the provided documents, with options to search case-sensitively, target in text, comments, and metadata.
-     * This endpoint is used to redact specified text from the provided files, with options to search case-sensitively and target different parts of the document such as text, comments, and metadata.  If the redaction is started, the response will contain a success status and an optional message.  If the redaction fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param searchQuery The text to search for and redact. (optional)
      * @param replaceText The text to replace the found text with. (optional)
@@ -3048,8 +2539,8 @@ public class ApiApi {
     }
 
     /**
+     * Redact document text.
      * Redacts specified text from the provided documents, with options to search case-sensitively, target in text, comments, and metadata.
-     * This endpoint is used to redact specified text from the provided files, with options to search case-sensitively and target different parts of the document such as text, comments, and metadata.  If the redaction is started, the response will contain a success status and an optional message.  If the redaction fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param searchQuery The text to search for and redact. (optional)
      * @param replaceText The text to replace the found text with. (optional)
@@ -3067,8 +2558,8 @@ public class ApiApi {
     }
 
     /**
-     * Redacts specified text from the provided documents, with options to search case-sensitively, target in text, comments, and metadata. (asynchronously)
-     * This endpoint is used to redact specified text from the provided files, with options to search case-sensitively and target different parts of the document such as text, comments, and metadata.  If the redaction is started, the response will contain a success status and an optional message.  If the redaction fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Redact document text. (asynchronously)
+     * Redacts specified text from the provided documents, with options to search case-sensitively, target in text, comments, and metadata.
      * @param files  (optional)
      * @param searchQuery The text to search for and redact. (optional)
      * @param replaceText The text to replace the found text with. (optional)
@@ -3173,8 +2664,8 @@ public class ApiApi {
     }
 
     /**
-     * Removes all files from processing.
-     * 
+     * Remove stored files.
+     * Removes processed files from storage.
      * @param id The ID of the processing to remove. (required)
      * @return FileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3185,8 +2676,8 @@ public class ApiApi {
     }
 
     /**
-     * Removes all files from processing.
-     * 
+     * Remove stored files.
+     * Removes processed files from storage.
      * @param id The ID of the processing to remove. (required)
      * @return ApiResponse&lt;FileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3198,8 +2689,8 @@ public class ApiApi {
     }
 
     /**
-     * Removes all files from processing. (asynchronously)
-     * 
+     * Remove stored files. (asynchronously)
+     * Removes processed files from storage.
      * @param id The ID of the processing to remove. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3295,8 +2786,8 @@ public class ApiApi {
     }
 
     /**
+     * Remove document annotations.
      * Removes annotations from the provided documents.
-     * This endpoint is used to remove annotations from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @return FileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3307,8 +2798,8 @@ public class ApiApi {
     }
 
     /**
+     * Remove document annotations.
      * Removes annotations from the provided documents.
-     * This endpoint is used to remove annotations from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @return ApiResponse&lt;FileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3320,8 +2811,8 @@ public class ApiApi {
     }
 
     /**
-     * Removes annotations from the provided documents. (asynchronously)
-     * This endpoint is used to remove annotations from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Remove document annotations. (asynchronously)
+     * Removes annotations from the provided documents.
      * @param files  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3441,8 +2932,8 @@ public class ApiApi {
     }
 
     /**
-     * Removes a watermark from the provided files.
-     * This endpoint is used to remove a watermark from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Removes document watermark.
+     * Removes a watermark from the document pages.
      * @param watermarkText  (optional)
      * @param top  (optional)
      * @param left  (optional)
@@ -3461,8 +2952,8 @@ public class ApiApi {
     }
 
     /**
-     * Removes a watermark from the provided files.
-     * This endpoint is used to remove a watermark from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Removes document watermark.
+     * Removes a watermark from the document pages.
      * @param watermarkText  (optional)
      * @param top  (optional)
      * @param left  (optional)
@@ -3482,8 +2973,8 @@ public class ApiApi {
     }
 
     /**
-     * Removes a watermark from the provided files. (asynchronously)
-     * This endpoint is used to remove a watermark from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Removes document watermark. (asynchronously)
+     * Removes a watermark from the document pages.
      * @param watermarkText  (optional)
      * @param top  (optional)
      * @param left  (optional)
@@ -3590,8 +3081,8 @@ public class ApiApi {
     }
 
     /**
+     * Remove pages from document.
      * Removes specified pages from the provided files.
-     * This endpoint is used to remove specified pages from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param removeRange The range of pages to remove from the files. (optional)
      * @return FileResponse
@@ -3603,8 +3094,8 @@ public class ApiApi {
     }
 
     /**
+     * Remove pages from document.
      * Removes specified pages from the provided files.
-     * This endpoint is used to remove specified pages from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param removeRange The range of pages to remove from the files. (optional)
      * @return ApiResponse&lt;FileResponse&gt;
@@ -3617,8 +3108,8 @@ public class ApiApi {
     }
 
     /**
-     * Removes specified pages from the provided files. (asynchronously)
-     * This endpoint is used to remove specified pages from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Remove pages from document. (asynchronously)
+     * Removes specified pages from the provided files.
      * @param files  (optional)
      * @param removeRange The range of pages to remove from the files. (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -3715,8 +3206,8 @@ public class ApiApi {
     }
 
     /**
+     * Repair document.
      * Repairs the provided files.
-     * This endpoint is used to repair the provided files.  If the repair is started, the response will contain a success status and an optional message.  If the repair fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @return FileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3727,8 +3218,8 @@ public class ApiApi {
     }
 
     /**
+     * Repair document.
      * Repairs the provided files.
-     * This endpoint is used to repair the provided files.  If the repair is started, the response will contain a success status and an optional message.  If the repair fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @return ApiResponse&lt;FileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3740,8 +3231,8 @@ public class ApiApi {
     }
 
     /**
-     * Repairs the provided files. (asynchronously)
-     * This endpoint is used to repair the provided files.  If the repair is started, the response will contain a success status and an optional message.  If the repair fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Repair document. (asynchronously)
+     * Repairs the provided files.
      * @param files  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3867,8 +3358,8 @@ public class ApiApi {
     }
 
     /**
+     * Resize document.
      * Resizes the provided files to the specified dimensions or using a preset size.
-     * This endpoint is used to resize the provided files to the specified dimensions or using a preset size.  If the resizing is started, the response will contain a success status and an optional message.  If the resizing fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -3889,8 +3380,8 @@ public class ApiApi {
     }
 
     /**
+     * Resize document.
      * Resizes the provided files to the specified dimensions or using a preset size.
-     * This endpoint is used to resize the provided files to the specified dimensions or using a preset size.  If the resizing is started, the response will contain a success status and an optional message.  If the resizing fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -3912,8 +3403,8 @@ public class ApiApi {
     }
 
     /**
-     * Resizes the provided files to the specified dimensions or using a preset size. (asynchronously)
-     * This endpoint is used to resize the provided files to the specified dimensions or using a preset size.  If the resizing is started, the response will contain a success status and an optional message.  If the resizing fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Resize document. (asynchronously)
+     * Resizes the provided files to the specified dimensions or using a preset size.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -4028,8 +3519,8 @@ public class ApiApi {
     }
 
     /**
+     * Rotate document.
      * Rotates the provided files by a specified angle, with options for rotation type and page number.
-     * This endpoint is used to rotate the provided files by a specified angle.  If the rotation is started, the response will contain a success status and an optional message.  If the rotation fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param angle The angle by which to rotate the files. (optional)
      * @param rotateType The type of rotation to perform. (optional)
@@ -4043,8 +3534,8 @@ public class ApiApi {
     }
 
     /**
+     * Rotate document.
      * Rotates the provided files by a specified angle, with options for rotation type and page number.
-     * This endpoint is used to rotate the provided files by a specified angle.  If the rotation is started, the response will contain a success status and an optional message.  If the rotation fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param angle The angle by which to rotate the files. (optional)
      * @param rotateType The type of rotation to perform. (optional)
@@ -4059,8 +3550,8 @@ public class ApiApi {
     }
 
     /**
-     * Rotates the provided files by a specified angle, with options for rotation type and page number. (asynchronously)
-     * This endpoint is used to rotate the provided files by a specified angle.  If the rotation is started, the response will contain a success status and an optional message.  If the rotation fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Rotate document. (asynchronously)
+     * Rotates the provided files by a specified angle, with options for rotation type and page number.
      * @param files  (optional)
      * @param angle The angle by which to rotate the files. (optional)
      * @param rotateType The type of rotation to perform. (optional)
@@ -4162,8 +3653,8 @@ public class ApiApi {
     }
 
     /**
+     * Search document text.
      * Searches the provided files for the specified query and makr found text with yellow background.
-     * This endpoint is used to search the provided files for the specified query.  If the search is started, the response will contain a success status and an optional message.  If the search fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param query The text to search for within the files. (optional)
      * @return FileResponse
@@ -4175,8 +3666,8 @@ public class ApiApi {
     }
 
     /**
+     * Search document text.
      * Searches the provided files for the specified query and makr found text with yellow background.
-     * This endpoint is used to search the provided files for the specified query.  If the search is started, the response will contain a success status and an optional message.  If the search fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param query The text to search for within the files. (optional)
      * @return ApiResponse&lt;FileResponse&gt;
@@ -4189,8 +3680,8 @@ public class ApiApi {
     }
 
     /**
-     * Searches the provided files for the specified query and makr found text with yellow background. (asynchronously)
-     * This endpoint is used to search the provided files for the specified query.  If the search is started, the response will contain a success status and an optional message.  If the search fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Search document text. (asynchronously)
+     * Searches the provided files for the specified query and makr found text with yellow background.
      * @param files  (optional)
      * @param query The text to search for within the files. (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -4290,8 +3781,8 @@ public class ApiApi {
     }
 
     /**
+     * Make scanned pdf searchable.
      * Converts the provided files into a searchable PDF format for the specified language.
-     * This endpoint is used to convert the provided files into a searchable PDF format for the specified language.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param lang The language of the files to be converted. (optional)
      * @return FileResponse
@@ -4303,8 +3794,8 @@ public class ApiApi {
     }
 
     /**
+     * Make scanned pdf searchable.
      * Converts the provided files into a searchable PDF format for the specified language.
-     * This endpoint is used to convert the provided files into a searchable PDF format for the specified language.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param lang The language of the files to be converted. (optional)
      * @return ApiResponse&lt;FileResponse&gt;
@@ -4317,8 +3808,8 @@ public class ApiApi {
     }
 
     /**
-     * Converts the provided files into a searchable PDF format for the specified language. (asynchronously)
-     * This endpoint is used to convert the provided files into a searchable PDF format for the specified language.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Make scanned pdf searchable. (asynchronously)
+     * Converts the provided files into a searchable PDF format for the specified language.
      * @param files  (optional)
      * @param lang The language of the files to be converted. (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -4353,6 +3844,9 @@ public class ApiApi {
     }
     /**
      * Build call for pdfWebapiSignaturePost
+     * @param image  (optional)
+     * @param text  (optional)
+     * @param textColor  (optional)
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -4362,11 +3856,11 @@ public class ApiApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call pdfWebapiSignaturePostCall(List<File> files, String inputType, String outputType, String signatureType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call pdfWebapiSignaturePostCall(String image, String text, String textColor, List<File> files, String inputType, String outputType, String signatureType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/Signature";
+        String localVarPath = "/pdf/webapi/signature";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4380,6 +3874,12 @@ public class ApiApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (image != null)
+        localVarFormParams.put("image", image);
+        if (text != null)
+        localVarFormParams.put("text", text);
+        if (textColor != null)
+        localVarFormParams.put("textColor", textColor);
         if (files != null)
         localVarFormParams.put("files", files);
 
@@ -4412,9 +3912,9 @@ public class ApiApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call pdfWebapiSignaturePostValidateBeforeCall(List<File> files, String inputType, String outputType, String signatureType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call pdfWebapiSignaturePostValidateBeforeCall(String image, String text, String textColor, List<File> files, String inputType, String outputType, String signatureType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        com.squareup.okhttp.Call call = pdfWebapiSignaturePostCall(files, inputType, outputType, signatureType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = pdfWebapiSignaturePostCall(image, text, textColor, files, inputType, outputType, signatureType, progressListener, progressRequestListener);
         return call;
 
         
@@ -4424,8 +3924,11 @@ public class ApiApi {
     }
 
     /**
-     * Adds a signature to the provided files.
-     * This endpoint is used to add a signature to the provided files.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Add signature to document.
+     * Adds a signature, text and image to the provided documents.
+     * @param image  (optional)
+     * @param text  (optional)
+     * @param textColor  (optional)
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -4433,14 +3936,17 @@ public class ApiApi {
      * @return FileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FileResponse pdfWebapiSignaturePost(List<File> files, String inputType, String outputType, String signatureType) throws ApiException {
-        ApiResponse<FileResponse> resp = pdfWebapiSignaturePostWithHttpInfo(files, inputType, outputType, signatureType);
+    public FileResponse pdfWebapiSignaturePost(String image, String text, String textColor, List<File> files, String inputType, String outputType, String signatureType) throws ApiException {
+        ApiResponse<FileResponse> resp = pdfWebapiSignaturePostWithHttpInfo(image, text, textColor, files, inputType, outputType, signatureType);
         return resp.getData();
     }
 
     /**
-     * Adds a signature to the provided files.
-     * This endpoint is used to add a signature to the provided files.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Add signature to document.
+     * Adds a signature, text and image to the provided documents.
+     * @param image  (optional)
+     * @param text  (optional)
+     * @param textColor  (optional)
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -4448,15 +3954,18 @@ public class ApiApi {
      * @return ApiResponse&lt;FileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FileResponse> pdfWebapiSignaturePostWithHttpInfo(List<File> files, String inputType, String outputType, String signatureType) throws ApiException {
-        com.squareup.okhttp.Call call = pdfWebapiSignaturePostValidateBeforeCall(files, inputType, outputType, signatureType, null, null);
+    public ApiResponse<FileResponse> pdfWebapiSignaturePostWithHttpInfo(String image, String text, String textColor, List<File> files, String inputType, String outputType, String signatureType) throws ApiException {
+        com.squareup.okhttp.Call call = pdfWebapiSignaturePostValidateBeforeCall(image, text, textColor, files, inputType, outputType, signatureType, null, null);
         Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Adds a signature to the provided files. (asynchronously)
-     * This endpoint is used to add a signature to the provided files.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Add signature to document. (asynchronously)
+     * Adds a signature, text and image to the provided documents.
+     * @param image  (optional)
+     * @param text  (optional)
+     * @param textColor  (optional)
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
@@ -4465,7 +3974,7 @@ public class ApiApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call pdfWebapiSignaturePostAsync(List<File> files, String inputType, String outputType, String signatureType, final ApiCallback<FileResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call pdfWebapiSignaturePostAsync(String image, String text, String textColor, List<File> files, String inputType, String outputType, String signatureType, final ApiCallback<FileResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4486,7 +3995,7 @@ public class ApiApi {
             };
         }
 
-        com.squareup.okhttp.Call call = pdfWebapiSignaturePostValidateBeforeCall(files, inputType, outputType, signatureType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = pdfWebapiSignaturePostValidateBeforeCall(image, text, textColor, files, inputType, outputType, signatureType, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -4561,8 +4070,8 @@ public class ApiApi {
     }
 
     /**
+     * Split document.
      * Splits the provided documents based on the specified split type and page rage to spit.
-     * This endpoint is used to split documents based on the specified split type and page rage.  If the splitting is started, the response will contain a success status and an optional message.  If the splitting fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param splitType The type of splitting to be performed. (optional)
      * @param pars Optional page rage for the splitting operation. (optional)
@@ -4575,8 +4084,8 @@ public class ApiApi {
     }
 
     /**
+     * Split document.
      * Splits the provided documents based on the specified split type and page rage to spit.
-     * This endpoint is used to split documents based on the specified split type and page rage.  If the splitting is started, the response will contain a success status and an optional message.  If the splitting fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param splitType The type of splitting to be performed. (optional)
      * @param pars Optional page rage for the splitting operation. (optional)
@@ -4590,8 +4099,8 @@ public class ApiApi {
     }
 
     /**
-     * Splits the provided documents based on the specified split type and page rage to spit. (asynchronously)
-     * This endpoint is used to split documents based on the specified split type and page rage.  If the splitting is started, the response will contain a success status and an optional message.  If the splitting fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Split document. (asynchronously)
+     * Splits the provided documents based on the specified split type and page rage to spit.
      * @param files  (optional)
      * @param splitType The type of splitting to be performed. (optional)
      * @param pars Optional page rage for the splitting operation. (optional)
@@ -4701,8 +4210,8 @@ public class ApiApi {
     }
 
     /**
+     * Split image.
      * Splits the provided images into smaller parts based on the specified parameters.
-     * This endpoint is used to split images into smaller parts based on the specified parameters.  If the splitting is started, the response will contain a success status and an optional message.  If the splitting fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param splitType The type of splitting to be performed. (optional)
      * @param vertical The number of vertical splits to create. (optional)
@@ -4717,8 +4226,8 @@ public class ApiApi {
     }
 
     /**
+     * Split image.
      * Splits the provided images into smaller parts based on the specified parameters.
-     * This endpoint is used to split images into smaller parts based on the specified parameters.  If the splitting is started, the response will contain a success status and an optional message.  If the splitting fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param splitType The type of splitting to be performed. (optional)
      * @param vertical The number of vertical splits to create. (optional)
@@ -4734,8 +4243,8 @@ public class ApiApi {
     }
 
     /**
-     * Splits the provided images into smaller parts based on the specified parameters. (asynchronously)
-     * This endpoint is used to split images into smaller parts based on the specified parameters.  If the splitting is started, the response will contain a success status and an optional message.  If the splitting fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Split image. (asynchronously)
+     * Splits the provided images into smaller parts based on the specified parameters.
      * @param files  (optional)
      * @param splitType The type of splitting to be performed. (optional)
      * @param vertical The number of vertical splits to create. (optional)
@@ -4838,8 +4347,8 @@ public class ApiApi {
     }
 
     /**
+     * Processing status.
      * Retrieves the status of a processing.
-     * 
      * @param id The ID of the processing to check the status of. (required)
      * @return FileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4850,8 +4359,8 @@ public class ApiApi {
     }
 
     /**
+     * Processing status.
      * Retrieves the status of a processing.
-     * 
      * @param id The ID of the processing to check the status of. (required)
      * @return ApiResponse&lt;FileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4863,8 +4372,8 @@ public class ApiApi {
     }
 
     /**
-     * Retrieves the status of a processing. (asynchronously)
-     * 
+     * Processing status. (asynchronously)
+     * Retrieves the status of a processing.
      * @param id The ID of the processing to check the status of. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4963,8 +4472,8 @@ public class ApiApi {
     }
 
     /**
+     * Unlock document.
      * Attempts to unlock a document with an password and associated files.
-     * This endpoint is used to unlock a resource that was previously locked with a password on associated files.  If the unlock is started, the response will contain a success status and an optional message.  If the unlock fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param passw The password used in locked document. (optional)
      * @return FileResponse
@@ -4976,8 +4485,8 @@ public class ApiApi {
     }
 
     /**
+     * Unlock document.
      * Attempts to unlock a document with an password and associated files.
-     * This endpoint is used to unlock a resource that was previously locked with a password on associated files.  If the unlock is started, the response will contain a success status and an optional message.  If the unlock fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param passw The password used in locked document. (optional)
      * @return ApiResponse&lt;FileResponse&gt;
@@ -4990,8 +4499,8 @@ public class ApiApi {
     }
 
     /**
-     * Attempts to unlock a document with an password and associated files. (asynchronously)
-     * This endpoint is used to unlock a resource that was previously locked with a password on associated files.  If the unlock is started, the response will contain a success status and an optional message.  If the unlock fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Unlock document. (asynchronously)
+     * Attempts to unlock a document with an password and associated files.
      * @param files  (optional)
      * @param passw The password used in locked document. (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -5091,8 +4600,8 @@ public class ApiApi {
     }
 
     /**
+     * Verify document certificate.
      * Verifies the electronic signature of the provided files.
-     * This endpoint is used to verify the electronic signature of the provided files.  If the verification is started, the response will contain a success status and an optional message.  If the verification fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @return FileResponse
@@ -5104,8 +4613,8 @@ public class ApiApi {
     }
 
     /**
+     * Verify document certificate.
      * Verifies the electronic signature of the provided files.
-     * This endpoint is used to verify the electronic signature of the provided files.  If the verification is started, the response will contain a success status and an optional message.  If the verification fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @return ApiResponse&lt;FileResponse&gt;
@@ -5118,8 +4627,8 @@ public class ApiApi {
     }
 
     /**
-     * Verifies the electronic signature of the provided files. (asynchronously)
-     * This endpoint is used to verify the electronic signature of the provided files.  If the verification is started, the response will contain a success status and an optional message.  If the verification fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Verify document certificate. (asynchronously)
+     * Verifies the electronic signature of the provided files.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -5154,35 +4663,30 @@ public class ApiApi {
     }
     /**
      * Build call for pdfWebapiWatermarkPost
-     * @param isText  (optional)
-     * @param text  (optional)
-     * @param name2  (optional)
-     * @param size  (optional)
-     * @param bold  (optional)
-     * @param italic  (optional)
-     * @param underlined  (optional)
-     * @param color  (optional)
-     * @param contentType  (optional)
-     * @param contentDisposition  (optional)
-     * @param headers  (optional)
-     * @param length  (optional)
-     * @param name  (optional)
-     * @param fileName  (optional)
-     * @param isBackground  (optional)
-     * @param rotation  (optional)
-     * @param transparency  (optional)
-     * @param layer  (optional)
-     * @param pageFrom  (optional)
-     * @param pageTo  (optional)
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
+     * @param isColored Indicate is watermark will be in color or grayscale. (optional)
+     * @param isText Indicates whether the watermark is text. (optional)
+     * @param text The text of the watermark. (optional)
+     * @param name The name of the font for the text watermark. (optional)
+     * @param size The size of the font for the text watermark. (optional)
+     * @param bold Indicates whether the text watermark is bold. (optional)
+     * @param italic Indicates whether the text watermark is italic. (optional)
+     * @param underlined Indicates whether the text watermark is underlined. (optional)
+     * @param color The color of the text or image watermark. (optional)
+     * @param isBackground Indicates whether the watermark is a background watermark. (optional)
+     * @param rotation The rotation angle of the watermark. (optional)
+     * @param transparency The transparency of the watermark. (optional)
+     * @param layer Indicates whether the watermark is a layer. (optional)
+     * @param pageFrom The starting page number for the watermark. (optional)
+     * @param pageTo The ending page number for the watermark. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call pdfWebapiWatermarkPostCall(Boolean isText, String text, String name2, Integer size, Boolean bold, Boolean italic, Boolean underlined, String color, String contentType, String contentDisposition, Map<String, List<String>> headers, Long length, String name, String fileName, Boolean isBackground, Integer rotation, Float transparency, Boolean layer, Integer pageFrom, Integer pageTo, List<File> files, String inputType, String outputType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call pdfWebapiWatermarkPostCall(List<File> files, String inputType, String outputType, Boolean isColored, Boolean isText, String text, String name, Integer size, Boolean bold, Boolean italic, Boolean underlined, String color, Boolean isBackground, Integer rotation, Float transparency, Boolean layer, Integer pageFrom, Integer pageTo, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -5194,50 +4698,40 @@ public class ApiApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("inputType", inputType));
         if (outputType != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("outputType", outputType));
+        if (isColored != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("isColored", isColored));
+        if (isText != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("isText", isText));
+        if (text != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("text", text));
+        if (name != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("name", name));
+        if (size != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
+        if (bold != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("bold", bold));
+        if (italic != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("italic", italic));
+        if (underlined != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("underlined", underlined));
+        if (color != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("color", color));
+        if (isBackground != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("isBackground", isBackground));
+        if (rotation != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("rotation", rotation));
+        if (transparency != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("transparency", transparency));
+        if (layer != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("layer", layer));
+        if (pageFrom != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("pageFrom", pageFrom));
+        if (pageTo != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("pageTo", pageTo));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        if (isText != null)
-        localVarFormParams.put("isText", isText);
-        if (text != null)
-        localVarFormParams.put("text", text);
-        if (name != null)
-        localVarFormParams.put("name", name);
-        if (size != null)
-        localVarFormParams.put("size", size);
-        if (bold != null)
-        localVarFormParams.put("bold", bold);
-        if (italic != null)
-        localVarFormParams.put("italic", italic);
-        if (underlined != null)
-        localVarFormParams.put("underlined", underlined);
-        if (color != null)
-        localVarFormParams.put("color", color);
-        if (contentType != null)
-        localVarFormParams.put("ContentType", contentType);
-        if (contentDisposition != null)
-        localVarFormParams.put("ContentDisposition", contentDisposition);
-        if (headers != null)
-        localVarFormParams.put("Headers", headers);
-        if (length != null)
-        localVarFormParams.put("Length", length);
-        if (name != null)
-        localVarFormParams.put("Name", name);
-        if (fileName != null)
-        localVarFormParams.put("FileName", fileName);
-        if (isBackground != null)
-        localVarFormParams.put("isBackground", isBackground);
-        if (rotation != null)
-        localVarFormParams.put("rotation", rotation);
-        if (transparency != null)
-        localVarFormParams.put("transparency", transparency);
-        if (layer != null)
-        localVarFormParams.put("layer", layer);
-        if (pageFrom != null)
-        localVarFormParams.put("pageFrom", pageFrom);
-        if (pageTo != null)
-        localVarFormParams.put("pageTo", pageTo);
         if (files != null)
         localVarFormParams.put("files", files);
 
@@ -5270,9 +4764,9 @@ public class ApiApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call pdfWebapiWatermarkPostValidateBeforeCall(Boolean isText, String text, String name2, Integer size, Boolean bold, Boolean italic, Boolean underlined, String color, String contentType, String contentDisposition, Map<String, List<String>> headers, Long length, String name, String fileName, Boolean isBackground, Integer rotation, Float transparency, Boolean layer, Integer pageFrom, Integer pageTo, List<File> files, String inputType, String outputType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call pdfWebapiWatermarkPostValidateBeforeCall(List<File> files, String inputType, String outputType, Boolean isColored, Boolean isText, String text, String name, Integer size, Boolean bold, Boolean italic, Boolean underlined, String color, Boolean isBackground, Integer rotation, Float transparency, Boolean layer, Integer pageFrom, Integer pageTo, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        com.squareup.okhttp.Call call = pdfWebapiWatermarkPostCall(isText, text, name2, size, bold, italic, underlined, color, contentType, contentDisposition, headers, length, name, fileName, isBackground, rotation, transparency, layer, pageFrom, pageTo, files, inputType, outputType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = pdfWebapiWatermarkPostCall(files, inputType, outputType, isColored, isText, text, name, size, bold, italic, underlined, color, isBackground, rotation, transparency, layer, pageFrom, pageTo, progressListener, progressRequestListener);
         return call;
 
         
@@ -5282,105 +4776,90 @@ public class ApiApi {
     }
 
     /**
+     * Add watermark to document.
      * Adds a watermark to the provided files.
-     * This endpoint is used to add a watermark to the provided files.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
-     * @param isText  (optional)
-     * @param text  (optional)
-     * @param name2  (optional)
-     * @param size  (optional)
-     * @param bold  (optional)
-     * @param italic  (optional)
-     * @param underlined  (optional)
-     * @param color  (optional)
-     * @param contentType  (optional)
-     * @param contentDisposition  (optional)
-     * @param headers  (optional)
-     * @param length  (optional)
-     * @param name  (optional)
-     * @param fileName  (optional)
-     * @param isBackground  (optional)
-     * @param rotation  (optional)
-     * @param transparency  (optional)
-     * @param layer  (optional)
-     * @param pageFrom  (optional)
-     * @param pageTo  (optional)
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
+     * @param isColored Indicate is watermark will be in color or grayscale. (optional)
+     * @param isText Indicates whether the watermark is text. (optional)
+     * @param text The text of the watermark. (optional)
+     * @param name The name of the font for the text watermark. (optional)
+     * @param size The size of the font for the text watermark. (optional)
+     * @param bold Indicates whether the text watermark is bold. (optional)
+     * @param italic Indicates whether the text watermark is italic. (optional)
+     * @param underlined Indicates whether the text watermark is underlined. (optional)
+     * @param color The color of the text or image watermark. (optional)
+     * @param isBackground Indicates whether the watermark is a background watermark. (optional)
+     * @param rotation The rotation angle of the watermark. (optional)
+     * @param transparency The transparency of the watermark. (optional)
+     * @param layer Indicates whether the watermark is a layer. (optional)
+     * @param pageFrom The starting page number for the watermark. (optional)
+     * @param pageTo The ending page number for the watermark. (optional)
      * @return FileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FileResponse pdfWebapiWatermarkPost(Boolean isText, String text, String name2, Integer size, Boolean bold, Boolean italic, Boolean underlined, String color, String contentType, String contentDisposition, Map<String, List<String>> headers, Long length, String name, String fileName, Boolean isBackground, Integer rotation, Float transparency, Boolean layer, Integer pageFrom, Integer pageTo, List<File> files, String inputType, String outputType) throws ApiException {
-        ApiResponse<FileResponse> resp = pdfWebapiWatermarkPostWithHttpInfo(isText, text, name2, size, bold, italic, underlined, color, contentType, contentDisposition, headers, length, name, fileName, isBackground, rotation, transparency, layer, pageFrom, pageTo, files, inputType, outputType);
+    public FileResponse pdfWebapiWatermarkPost(List<File> files, String inputType, String outputType, Boolean isColored, Boolean isText, String text, String name, Integer size, Boolean bold, Boolean italic, Boolean underlined, String color, Boolean isBackground, Integer rotation, Float transparency, Boolean layer, Integer pageFrom, Integer pageTo) throws ApiException {
+        ApiResponse<FileResponse> resp = pdfWebapiWatermarkPostWithHttpInfo(files, inputType, outputType, isColored, isText, text, name, size, bold, italic, underlined, color, isBackground, rotation, transparency, layer, pageFrom, pageTo);
         return resp.getData();
     }
 
     /**
+     * Add watermark to document.
      * Adds a watermark to the provided files.
-     * This endpoint is used to add a watermark to the provided files.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
-     * @param isText  (optional)
-     * @param text  (optional)
-     * @param name2  (optional)
-     * @param size  (optional)
-     * @param bold  (optional)
-     * @param italic  (optional)
-     * @param underlined  (optional)
-     * @param color  (optional)
-     * @param contentType  (optional)
-     * @param contentDisposition  (optional)
-     * @param headers  (optional)
-     * @param length  (optional)
-     * @param name  (optional)
-     * @param fileName  (optional)
-     * @param isBackground  (optional)
-     * @param rotation  (optional)
-     * @param transparency  (optional)
-     * @param layer  (optional)
-     * @param pageFrom  (optional)
-     * @param pageTo  (optional)
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
+     * @param isColored Indicate is watermark will be in color or grayscale. (optional)
+     * @param isText Indicates whether the watermark is text. (optional)
+     * @param text The text of the watermark. (optional)
+     * @param name The name of the font for the text watermark. (optional)
+     * @param size The size of the font for the text watermark. (optional)
+     * @param bold Indicates whether the text watermark is bold. (optional)
+     * @param italic Indicates whether the text watermark is italic. (optional)
+     * @param underlined Indicates whether the text watermark is underlined. (optional)
+     * @param color The color of the text or image watermark. (optional)
+     * @param isBackground Indicates whether the watermark is a background watermark. (optional)
+     * @param rotation The rotation angle of the watermark. (optional)
+     * @param transparency The transparency of the watermark. (optional)
+     * @param layer Indicates whether the watermark is a layer. (optional)
+     * @param pageFrom The starting page number for the watermark. (optional)
+     * @param pageTo The ending page number for the watermark. (optional)
      * @return ApiResponse&lt;FileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FileResponse> pdfWebapiWatermarkPostWithHttpInfo(Boolean isText, String text, String name2, Integer size, Boolean bold, Boolean italic, Boolean underlined, String color, String contentType, String contentDisposition, Map<String, List<String>> headers, Long length, String name, String fileName, Boolean isBackground, Integer rotation, Float transparency, Boolean layer, Integer pageFrom, Integer pageTo, List<File> files, String inputType, String outputType) throws ApiException {
-        com.squareup.okhttp.Call call = pdfWebapiWatermarkPostValidateBeforeCall(isText, text, name2, size, bold, italic, underlined, color, contentType, contentDisposition, headers, length, name, fileName, isBackground, rotation, transparency, layer, pageFrom, pageTo, files, inputType, outputType, null, null);
+    public ApiResponse<FileResponse> pdfWebapiWatermarkPostWithHttpInfo(List<File> files, String inputType, String outputType, Boolean isColored, Boolean isText, String text, String name, Integer size, Boolean bold, Boolean italic, Boolean underlined, String color, Boolean isBackground, Integer rotation, Float transparency, Boolean layer, Integer pageFrom, Integer pageTo) throws ApiException {
+        com.squareup.okhttp.Call call = pdfWebapiWatermarkPostValidateBeforeCall(files, inputType, outputType, isColored, isText, text, name, size, bold, italic, underlined, color, isBackground, rotation, transparency, layer, pageFrom, pageTo, null, null);
         Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Adds a watermark to the provided files. (asynchronously)
-     * This endpoint is used to add a watermark to the provided files.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
-     * @param isText  (optional)
-     * @param text  (optional)
-     * @param name2  (optional)
-     * @param size  (optional)
-     * @param bold  (optional)
-     * @param italic  (optional)
-     * @param underlined  (optional)
-     * @param color  (optional)
-     * @param contentType  (optional)
-     * @param contentDisposition  (optional)
-     * @param headers  (optional)
-     * @param length  (optional)
-     * @param name  (optional)
-     * @param fileName  (optional)
-     * @param isBackground  (optional)
-     * @param rotation  (optional)
-     * @param transparency  (optional)
-     * @param layer  (optional)
-     * @param pageFrom  (optional)
-     * @param pageTo  (optional)
+     * Add watermark to document. (asynchronously)
+     * Adds a watermark to the provided files.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
+     * @param isColored Indicate is watermark will be in color or grayscale. (optional)
+     * @param isText Indicates whether the watermark is text. (optional)
+     * @param text The text of the watermark. (optional)
+     * @param name The name of the font for the text watermark. (optional)
+     * @param size The size of the font for the text watermark. (optional)
+     * @param bold Indicates whether the text watermark is bold. (optional)
+     * @param italic Indicates whether the text watermark is italic. (optional)
+     * @param underlined Indicates whether the text watermark is underlined. (optional)
+     * @param color The color of the text or image watermark. (optional)
+     * @param isBackground Indicates whether the watermark is a background watermark. (optional)
+     * @param rotation The rotation angle of the watermark. (optional)
+     * @param transparency The transparency of the watermark. (optional)
+     * @param layer Indicates whether the watermark is a layer. (optional)
+     * @param pageFrom The starting page number for the watermark. (optional)
+     * @param pageTo The ending page number for the watermark. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call pdfWebapiWatermarkPostAsync(Boolean isText, String text, String name2, Integer size, Boolean bold, Boolean italic, Boolean underlined, String color, String contentType, String contentDisposition, Map<String, List<String>> headers, Long length, String name, String fileName, Boolean isBackground, Integer rotation, Float transparency, Boolean layer, Integer pageFrom, Integer pageTo, List<File> files, String inputType, String outputType, final ApiCallback<FileResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call pdfWebapiWatermarkPostAsync(List<File> files, String inputType, String outputType, Boolean isColored, Boolean isText, String text, String name, Integer size, Boolean bold, Boolean italic, Boolean underlined, String color, Boolean isBackground, Integer rotation, Float transparency, Boolean layer, Integer pageFrom, Integer pageTo, final ApiCallback<FileResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5401,13 +4880,13 @@ public class ApiApi {
             };
         }
 
-        com.squareup.okhttp.Call call = pdfWebapiWatermarkPostValidateBeforeCall(isText, text, name2, size, bold, italic, underlined, color, contentType, contentDisposition, headers, length, name, fileName, isBackground, rotation, transparency, layer, pageFrom, pageTo, files, inputType, outputType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = pdfWebapiWatermarkPostValidateBeforeCall(files, inputType, outputType, isColored, isText, text, name, size, bold, italic, underlined, color, isBackground, rotation, transparency, layer, pageFrom, pageTo, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for pdfWebapiWordCounterPost
+     * Build call for pdfWebapiWordcounterPost
      * @param files  (optional)
      * @param pageRange The range of pages to count words in. (optional)
      * @param progressListener Progress listener
@@ -5415,11 +4894,11 @@ public class ApiApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call pdfWebapiWordCounterPostCall(List<File> files, String pageRange, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call pdfWebapiWordcounterPostCall(List<File> files, String pageRange, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/WordCounter";
+        String localVarPath = "/pdf/webapi/wordcounter";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5461,9 +4940,9 @@ public class ApiApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call pdfWebapiWordCounterPostValidateBeforeCall(List<File> files, String pageRange, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call pdfWebapiWordcounterPostValidateBeforeCall(List<File> files, String pageRange, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        com.squareup.okhttp.Call call = pdfWebapiWordCounterPostCall(files, pageRange, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = pdfWebapiWordcounterPostCall(files, pageRange, progressListener, progressRequestListener);
         return call;
 
         
@@ -5473,42 +4952,42 @@ public class ApiApi {
     }
 
     /**
+     * Count words and chars in document.
      * Counts the words in the provided files within the specified page range.
-     * This endpoint is used to count the words in the provided files within the specified page range.  If the counting is started, the response will contain a success status and the word count.  If the counting fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param pageRange The range of pages to count words in. (optional)
      * @return FileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FileResponse pdfWebapiWordCounterPost(List<File> files, String pageRange) throws ApiException {
-        ApiResponse<FileResponse> resp = pdfWebapiWordCounterPostWithHttpInfo(files, pageRange);
+    public FileResponse pdfWebapiWordcounterPost(List<File> files, String pageRange) throws ApiException {
+        ApiResponse<FileResponse> resp = pdfWebapiWordcounterPostWithHttpInfo(files, pageRange);
         return resp.getData();
     }
 
     /**
+     * Count words and chars in document.
      * Counts the words in the provided files within the specified page range.
-     * This endpoint is used to count the words in the provided files within the specified page range.  If the counting is started, the response will contain a success status and the word count.  If the counting fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param pageRange The range of pages to count words in. (optional)
      * @return ApiResponse&lt;FileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FileResponse> pdfWebapiWordCounterPostWithHttpInfo(List<File> files, String pageRange) throws ApiException {
-        com.squareup.okhttp.Call call = pdfWebapiWordCounterPostValidateBeforeCall(files, pageRange, null, null);
+    public ApiResponse<FileResponse> pdfWebapiWordcounterPostWithHttpInfo(List<File> files, String pageRange) throws ApiException {
+        com.squareup.okhttp.Call call = pdfWebapiWordcounterPostValidateBeforeCall(files, pageRange, null, null);
         Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Counts the words in the provided files within the specified page range. (asynchronously)
-     * This endpoint is used to count the words in the provided files within the specified page range.  If the counting is started, the response will contain a success status and the word count.  If the counting fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Count words and chars in document. (asynchronously)
+     * Counts the words in the provided files within the specified page range.
      * @param files  (optional)
      * @param pageRange The range of pages to count words in. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call pdfWebapiWordCounterPostAsync(List<File> files, String pageRange, final ApiCallback<FileResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call pdfWebapiWordcounterPostAsync(List<File> files, String pageRange, final ApiCallback<FileResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5529,7 +5008,7 @@ public class ApiApi {
             };
         }
 
-        com.squareup.okhttp.Call call = pdfWebapiWordCounterPostValidateBeforeCall(files, pageRange, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = pdfWebapiWordcounterPostValidateBeforeCall(files, pageRange, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<FileResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -5601,8 +5080,8 @@ public class ApiApi {
     }
 
     /**
+     * Convert XFA format to a another format.
      * Converts the provided documents from XFA format to a different format.
-     * This endpoint is used to convert the provided files from XFA format to a different format.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @return FileResponse
@@ -5614,8 +5093,8 @@ public class ApiApi {
     }
 
     /**
+     * Convert XFA format to a another format.
      * Converts the provided documents from XFA format to a different format.
-     * This endpoint is used to convert the provided files from XFA format to a different format.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @return ApiResponse&lt;FileResponse&gt;
@@ -5628,8 +5107,8 @@ public class ApiApi {
     }
 
     /**
-     * Converts the provided documents from XFA format to a different format. (asynchronously)
-     * This endpoint is used to convert the provided files from XFA format to a different format.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
+     * Convert XFA format to a another format. (asynchronously)
+     * Converts the provided documents from XFA format to a different format.
      * @param files  (optional)
      * @param inputType The format of the input files. (optional)
      * @param callback The callback to be executed when the API call finishes
