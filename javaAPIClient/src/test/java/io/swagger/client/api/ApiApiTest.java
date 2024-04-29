@@ -333,7 +333,7 @@ public class ApiApiTest {
     public void pdfWebapiParsePostTest() throws Exception {
         List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
         FileResponse response = api.pdfWebapiParsePost(files);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -630,26 +630,26 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiWatermarkPostTest() throws Exception {
-        List<File> files = null;
-        String inputType = null;
-        String outputType = null;
-        Boolean isColored = null;
-        Boolean isText = null;
-        String text = null;
-        String name = null;
-        Integer size = null;
-        Boolean bold = null;
-        Boolean italic = null;
-        Boolean underlined = null;
-        String color = null;
-        Boolean isBackground = null;
-        Integer rotation = null;
-        Float transparency = null;
-        Boolean layer = null;
-        Integer pageFrom = null;
-        Integer pageTo = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));;;
+        String inputType = "pdf";
+        String outputType = "pdf";
+        Boolean isColored = false;
+        Boolean isText = true;
+        String text = "TEST";
+        String name = "TEST_WATERMARK";
+        Integer size = 20;
+        Boolean bold = true;
+        Boolean italic = false;
+        Boolean underlined = false;
+        String color = "GREEN";
+        Boolean isBackground = true;
+        Integer rotation = 0;
+        Float transparency = 0.9f;
+        Boolean layer = true;
+        Integer pageFrom = 1;
+        Integer pageTo = 1;
         FileResponse response = api.pdfWebapiWatermarkPost(files, inputType, outputType, isColored, isText, text, name, size, bold, italic, underlined, color, isBackground, rotation, transparency, layer, pageFrom, pageTo);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -662,10 +662,10 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiWordcounterPostTest() throws Exception {
-        List<File> files = null;
-        String pageRange = null;
+        List<File> files =  Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));;
+        String pageRange = "1-2";
         FileResponse response = api.pdfWebapiWordcounterPost(files, pageRange);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -678,10 +678,13 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiXfaconvertPostTest() throws Exception {
-        List<File> files = null;
-        String inputType = null;
-        FileResponse response = api.pdfWebapiXfaconvertPost(files, inputType);
+        List<File> files = new ArrayList<File>();
 
+        files.add(new File("/home/tigra/Service/TestData/test.pdf"));
+
+        String inputType = "PDF";
+        FileResponse response = api.pdfWebapiXfaconvertPost(files, inputType);
+        System.out.println(response);
         // TODO: test validations
     }
 }

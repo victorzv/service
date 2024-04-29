@@ -74,7 +74,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/addnumber";
+        String localVarPath = "http://localhost:5000/pdf/webapi/addnumber";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -236,7 +236,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/comparison";
+        String localVarPath = "http://localhost:5000/pdf/webapi/comparison";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -359,7 +359,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/compress";
+        String localVarPath = "http://localhost:5000/pdf/webapi/compress";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -493,7 +493,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/convert";
+        String localVarPath = "http://localhost:5000/pdf/webapi/convert";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -651,7 +651,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/convert-webpage";
+        String localVarPath = "http://localhost:5000/pdf/webapi/convert-webpage";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -784,7 +784,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/crop";
+        String localVarPath = "http://localhost:5000/pdf/webapi/crop";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -937,7 +937,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/download/{id}"
+        String localVarPath = "http://localhost:5000/pdf/webapi/download/{id}"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1065,7 +1065,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/esign";
+        String localVarPath = "http://localhost:5000/pdf/webapi/esign";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1199,7 +1199,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/extract";
+        String localVarPath = "http://localhost:5000/pdf/webapi/extract";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1332,7 +1332,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/form-filler";
+        String localVarPath = "http://localhost:5000/pdf/webapi/form-filler";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1465,7 +1465,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/gif";
+        String localVarPath = "http://localhost:5000/pdf/webapi/gif";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1620,7 +1620,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/hash";
+        String localVarPath = "http://localhost:5000/pdf/webapi/hash";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1758,7 +1758,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/lock";
+        String localVarPath = "http://localhost:5000/pdf/webapi/lock";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1892,7 +1892,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/merge";
+        String localVarPath = "http://localhost:5000/pdf/webapi/merge";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2052,7 +2052,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/metadata";
+        String localVarPath = "http://localhost:5000/pdf/webapi/metadata";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2192,7 +2192,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/organize";
+        String localVarPath = "http://localhost:5000/pdf/webapi/organize";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2457,7 +2457,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/redact";
+        String localVarPath = "http://localhost:5000/pdf/webapi/redact";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2609,7 +2609,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/remove/{id}"
+        String localVarPath = "http://localhost:5000/pdf/webapi/remove/{id}"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2734,7 +2734,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/remove";
+        String localVarPath = "http://localhost:5000/pdf/webapi/remove";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2864,7 +2864,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/remove-watermark";
+        String localVarPath = "http://localhost:5000/pdf/webapi/remove-watermark";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3027,7 +3027,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/removepages";
+        String localVarPath = "http://localhost:5000/pdf/webapi/removepages";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3154,7 +3154,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/repair";
+        String localVarPath = "http://localhost:5000/pdf/webapi/repair";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3286,7 +3286,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/resize";
+        String localVarPath = "http://localhost:5000/pdf/webapi/resize";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3461,7 +3461,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/rotate";
+        String localVarPath = "http://localhost:5000/pdf/webapi/rotate";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3599,7 +3599,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/search";
+        String localVarPath = "http://localhost:5000/pdf/webapi/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3727,7 +3727,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/searchable";
+        String localVarPath = "http://localhost:5000/pdf/webapi/searchable";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3860,7 +3860,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/signature";
+        String localVarPath = "http://localhost:5000/pdf/webapi/signature";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4014,7 +4014,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/splitdoc";
+        String localVarPath = "http://localhost:5000/pdf/webapi/splitdoc";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4150,7 +4150,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/splitimage";
+        String localVarPath = "http://localhost:5000/pdf/webapi/splitimage";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4292,7 +4292,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/status/{id}"
+        String localVarPath = "http://localhost:5000/pdf/webapi/status/{id}"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -4418,7 +4418,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/unlock";
+        String localVarPath = "http://localhost:5000/pdf/webapi/unlock";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4546,7 +4546,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/verify_esign";
+        String localVarPath = "http://localhost:5000/pdf/webapi/verify_esign";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4690,7 +4690,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/watermark";
+        String localVarPath = "http://localhost:5000/pdf/webapi/watermark";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4898,7 +4898,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/wordcounter";
+        String localVarPath = "http://localhost:5000/pdf/webapi/wordcounter";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5026,7 +5026,7 @@ public class ApiApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/pdf/webapi/xfaconvert";
+        String localVarPath = "http://localhost:5000/pdf/webapi/xfaconvert";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

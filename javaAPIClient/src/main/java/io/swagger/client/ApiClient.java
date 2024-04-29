@@ -16,11 +16,14 @@ import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor.Level;
+
+import com.squareup.okhttp.OkHttpClient;
 import okio.BufferedSink;
 import okio.Okio;
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
+
 
 import javax.net.ssl.*;
 import java.io.File;
@@ -381,7 +384,7 @@ public class ApiClient {
         if (debugging != this.debugging) {
             if (debugging) {
                 loggingInterceptor = new HttpLoggingInterceptor();
-                loggingInterceptor.setLevel(Level.BODY);
+                loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
                 httpClient.interceptors().add(loggingInterceptor);
             } else {
                 httpClient.interceptors().remove(loggingInterceptor);
@@ -1111,12 +1114,23 @@ public class ApiClient {
     public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams) {
         MultipartBuilder mpBuilder = new MultipartBuilder().type(MultipartBuilder.FORM);
         for (Entry<String, Object> param : formParams.entrySet()) {
-            if (param.getValue() instanceof File) {
+            String key = param.getKey();
+            Object value = param.getValue();
+
+            if (value instanceof File) {
                 File file = (File) param.getValue();
                 Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"" + file.getName() + "\"");
                 MediaType mediaType = MediaType.parse(guessContentTypeFromFile(file));
                 mpBuilder.addPart(partHeaders, RequestBody.create(mediaType, file));
-            } else {
+            }
+            else if (param.getValue() instanceof List) {
+                for (File file : (List<File>)param.getValue()) {
+                    Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"" + file.getName() + "\"");
+                    MediaType mediaType = MediaType.parse(guessContentTypeFromFile(file));
+                    mpBuilder.addPart(partHeaders, RequestBody.create(mediaType, file));
+                }
+            }
+            else {
                 Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"");
                 mpBuilder.addPart(partHeaders, RequestBody.create(null, parameterToString(param.getValue())));
             }

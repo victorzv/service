@@ -1260,6 +1260,8 @@ class ApiApi
                 }
             }
 
+            print_r($content);
+
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
@@ -1367,7 +1369,7 @@ class ApiApi
     protected function pdfWebapiCompressPostRequest($files = null, $compress_type = null)
     {
 
-        $resourcePath = '/pdf/webapi/compress';
+        $resourcePath = 'http://localhost:5000/pdf/webapi/compress';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1442,7 +1444,7 @@ class ApiApi
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -3290,7 +3292,7 @@ class ApiApi
     protected function pdfWebapiExtractPostRequest($files = null, $input_type = null, $output_type = null)
     {
 
-        $resourcePath = '/pdf/webapi/extract';
+        $resourcePath = 'http://localhost:5000/pdf/webapi/extract';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7183,7 +7185,7 @@ class ApiApi
     protected function pdfWebapiRemovepagesPostRequest($files = null, $remove_range = null)
     {
 
-        $resourcePath = '/pdf/webapi/removepages';
+        $resourcePath = 'http://localhost:5000/pdf/webapi/removepages';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -10085,7 +10087,24 @@ class ApiApi
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
-            } else {
+            }
+            if ($returnType === 'string[]'){
+                $content = $responseBody; //stream goes to serializer
+                $decodeContent = json_decode($content, true);
+                if (is_array($decodeContent)){
+                    $processContent = [];
+                    foreach ($decodeContent as $file){
+                        if (is_string($file) && file_exists($file)){
+                            $processContent[] = fopen($file, 'r');
+                        }
+                    }
+                    $content = $processContent;
+                }
+                else {
+                    $content = $decodeContent;
+                }
+            }
+            else {
                 $content = $responseBody->getContents();
                 if (!in_array($returnType, ['string','integer','bool'])) {
                     $content = json_decode($content);
@@ -10199,7 +10218,7 @@ class ApiApi
     protected function pdfWebapiVerifyEsignPostRequest($files = null, $input_type = null)
     {
 
-        $resourcePath = '/pdf/webapi/verify_esign';
+        $resourcePath = 'http://localhost:5000/pdf/webapi/verify_esign';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -10271,13 +10290,24 @@ class ApiApi
             $headers
         );
 
+        
+
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
+
+        echo $resourcePath ."?" . $query . "\r\n";
+
+        echo $httpBody."\r\n";
+
+        $request = new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
+
+        var_dump($request);
+
+        return  $request;
     }
 
     /**
