@@ -6,11 +6,12 @@ $apiInstance = new Swagger\Client\Api\ApiApi(
 );
 
 $files = array("/home/tigra/Service/TestData/Test.pdf"); // string[] |
-$compress_type = 56; // int | The level of compression to use.
+
+$remove_range = "2"; // string | The range of pages to remove from the files.
 
 try {
-    $result = $apiInstance->pdfWebapiCompressPost($files, $compress_type);
+    $result = $apiInstance->pdfWebapiRemovepagesPost($files, $remove_range);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ApiApi->pdfWebapiCompressPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ApiApi->pdfWebapiRemovepagesPost: ', $e->getMessage(), PHP_EOL;
 }

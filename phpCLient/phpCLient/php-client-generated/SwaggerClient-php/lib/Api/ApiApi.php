@@ -1201,6 +1201,8 @@ class ApiApi
      */
     public function pdfWebapiCompressPost($files = null, $compress_type = null)
     {
+//        echo "files: \r\n";
+//        var_dump($files);
         list($response) = $this->pdfWebapiCompressPostWithHttpInfo($files, $compress_type);
         return $response;
     }
@@ -1225,7 +1227,10 @@ class ApiApi
         try {
             $options = $this->createHttpClientOption();
             try {
+                echo "send request\r\n";
                 $response = $this->client->send($request, $options);
+                echo "Response\r\n";
+
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1251,6 +1256,9 @@ class ApiApi
             }
 
             $responseBody = $response->getBody();
+
+            echo "responseBody ".$responseBody."\r\n";
+
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
             } else {
@@ -1259,8 +1267,6 @@ class ApiApi
                     $content = json_decode($content);
                 }
             }
-
-            print_r($content);
 
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
@@ -1381,13 +1387,14 @@ class ApiApi
             $queryParams['compressType'] = ObjectSerializer::toQueryValue($compress_type, 'int32');
         }
 
-
         // form params
         if ($files !== null) {
             $formParams['files'] = ObjectSerializer::toFormValue($files);
         }
+
         // body params
         $_tempBody = null;
+
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1442,12 +1449,18 @@ class ApiApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
+
+        $request =  new Request(
             'POST',
             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
+
+        echo "REQUEST: \r\n";
+        var_dump($request);
+
+        return $request;
     }
 
     /**
@@ -5622,6 +5635,7 @@ class ApiApi
      */
     public function pdfWebapiParsePost($files = null)
     {
+        echo "1\r\n";
         list($response) = $this->pdfWebapiParsePostWithHttpInfo($files);
         return $response;
     }
@@ -5639,6 +5653,8 @@ class ApiApi
      */
     public function pdfWebapiParsePostWithHttpInfo($files = null)
     {
+        echo "2\r\n";
+
         $returnType = '\Swagger\Client\Model\FileResponse';
         $request = $this->pdfWebapiParsePostRequest($files);
 
@@ -5647,6 +5663,7 @@ class ApiApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                echo "ERROR\r\n";
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
@@ -5783,8 +5800,8 @@ class ApiApi
      */
     protected function pdfWebapiParsePostRequest($files = null)
     {
-
-        $resourcePath = '/pdf/webapi/parse';
+        echo "3\r\n";
+        $resourcePath = 'http://localhost:5000/pdf/webapi/parse';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5853,9 +5870,14 @@ class ApiApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        echo "Headers: \r\n";
+        print_r($headers);
+        echo "httpBody:\r\n";
+        print_r($httpBody);
+        echo "\r\n";
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -7043,6 +7065,11 @@ class ApiApi
         try {
             $options = $this->createHttpClientOption();
             try {
+//                echo "options:\r\n";
+//                var_dump($options);
+//                echo "request: \r\n";
+//                var_dump($request);
+
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
@@ -7258,9 +7285,11 @@ class ApiApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $query = $query."&inputType=pdf&outputType=pdf";
+        echo $query."\r\n";
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
