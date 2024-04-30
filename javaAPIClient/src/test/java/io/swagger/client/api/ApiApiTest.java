@@ -39,17 +39,17 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiAddnumberPostTest() throws Exception {
-        List<File> files = null;
-        String vAlignment = null;
-        String hAlignment = null;
-        Integer startingNumber = null;
-        Integer sNumber = null;
-        Integer fNumber = null;
-        Integer margin = null;
-        Integer fontSize = null;
-        String format = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
+        String vAlignment = "1";
+        String hAlignment = "2";
+        Integer startingNumber = 1;
+        Integer sNumber = 1;
+        Integer fNumber = 1;
+        Integer margin = 10;
+        Integer fontSize = 10;
+        String format = "pdf";
         FileResponse response = api.pdfWebapiAddnumberPost(files, vAlignment, hAlignment, startingNumber, sNumber, fNumber, margin, fontSize, format);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -62,9 +62,9 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiComparisonPostTest() throws Exception {
-        List<File> files = null;
+        List<File> files =  Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));;
         FileResponse response = api.pdfWebapiComparisonPost(files);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -77,10 +77,10 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiCompressPostTest() throws Exception {
-        List<File> files = null;
-        Integer compressType = null;
+        List<File> files =  Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
+        Integer compressType = 1;
         FileResponse response = api.pdfWebapiCompressPost(files, compressType);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -93,16 +93,16 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiConvertPostTest() throws Exception {
-        List<File> files = null;
-        String inputType = null;
-        String outputType = null;
-        Integer xmlType = null;
-        String xmlTag = null;
-        Integer fontSise = null;
-        Boolean isToSingle = null;
-        String separator = null;
+        List<File> files =  Arrays.asList(new File("/home/tigra/Service/TestData/test.7z"));
+        String inputType = "7z";
+        String outputType = "pdf";
+        Integer xmlType = 1;
+        String xmlTag = "tag";
+        Integer fontSise = 10;
+        Boolean isToSingle = true;
+        String separator = "tab";
         FileResponse response = api.pdfWebapiConvertPost(files, inputType, outputType, xmlType, xmlTag, fontSise, isToSingle, separator);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -115,10 +115,10 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiConvertWebpagePostTest() throws Exception {
-        String webPage = null;
-        String outputType = null;
+        String webPage = "https://products.aspose.app/pdf/redaction";
+        String outputType = "test.bmp";
         FileResponse response = api.pdfWebapiConvertWebpagePost(webPage, outputType);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -131,15 +131,15 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiCropPostTest() throws Exception {
-        List<File> files = null;
-        String inputType = null;
-        Integer top = null;
-        Integer right = null;
-        Integer bottom = null;
-        Integer left = null;
-        String outputType = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.apng"));
+        String inputType = "apng";
+        Integer top = 1;
+        Integer right = 10;
+        Integer bottom = 10;
+        Integer left = 1;
+        String outputType = "apng";
         FileResponse response = api.pdfWebapiCropPost(files, inputType, top, right, bottom, left, outputType);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -150,14 +150,14 @@ public class ApiApiTest {
      * @throws Exception
      *          if the Api call fails
      */
-    @Test
-    public void pdfWebapiDownloadIdGetTest() throws Exception {
-        String id = null;
-        String file = null;
-        api.pdfWebapiDownloadIdGet(id, file);
-
-        // TODO: test validations
-    }
+//    @Test
+//    public void pdfWebapiDownloadIdGetTest() throws Exception {
+//        String id = null;
+//        String file = null;
+//        api.pdfWebapiDownloadIdGet(id, file);
+//
+//        // TODO: test validations
+//    }
     /**
      * Sign document with certificate.
      *
@@ -168,11 +168,11 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiEsignPostTest() throws Exception {
-        String passw = null;
-        List<File> files = null;
-        String inputType = null;
+        String passw = "123456";
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
+        String inputType = "pdf";
         FileResponse response = api.pdfWebapiEsignPost(passw, files, inputType);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -185,11 +185,11 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiExtractPostTest() throws Exception {
-        List<File> files = null;
-        String inputType = null;
-        String outputType = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.doc"));
+        String inputType = "doc";
+        String outputType = "xlsx";
         FileResponse response = api.pdfWebapiExtractPost(files, inputType, outputType);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -202,10 +202,10 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiFormFillerPostTest() throws Exception {
-        List<File> files = null;
-        String fileName = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
+        String fileName = "test.pdf";
         FileResponse response = api.pdfWebapiFormFillerPost(files, fileName);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -218,15 +218,15 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiGifPostTest() throws Exception {
-        List<File> files = null;
-        Boolean keepImagesAsIs = null;
-        Integer resizeToImage = null;
-        Boolean streched = null;
-        Integer width = null;
-        Integer height = null;
-        String frameTimes = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.jpg"));
+        Boolean keepImagesAsIs = false;
+        Integer resizeToImage = -1;
+        Boolean streched = true;
+        Integer width = 100;
+        Integer height = 100;
+        String frameTimes = "1000";
         FileResponse response = api.pdfWebapiGifPost(files, keepImagesAsIs, resizeToImage, streched, width, height, frameTimes);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -239,12 +239,12 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiHashPostTest() throws Exception {
-        List<File> files = null;
-        String inputType = null;
-        String outputType = null;
-        String alg = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.jpg"));
+        String inputType = "pdf";
+        String outputType = "txt";
+        String alg = "md5";
         FileResponse response = api.pdfWebapiHashPost(files, inputType, outputType, alg);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -257,10 +257,10 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiLockPostTest() throws Exception {
-        List<File> files = null;
-        String passw = null;
+        List<File> files =  Arrays.asList(new File("/home/tigra/Service/TestData/test.jpg"));
+        String passw = "123456";
         FileResponse response = api.pdfWebapiLockPost(files, passw);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -273,16 +273,16 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiMergePostTest() throws Exception {
-        List<File> files = null;
-        String inputType = null;
-        String outputType = null;
-        Integer mergeType = null;
-        Integer horizontal = null;
-        Integer vertical = null;
-        String pageSize = null;
-        Boolean dcIsLandscape = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.bmp"));
+        String inputType = "bmp";
+        String outputType = "bmp";
+        Integer mergeType = 1;
+        Integer horizontal = 2;
+        Integer vertical = 1;
+        String pageSize = "A4";
+        Boolean dcIsLandscape = true;
         FileResponse response = api.pdfWebapiMergePost(files, inputType, outputType, mergeType, horizontal, vertical, pageSize, dcIsLandscape);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -295,12 +295,12 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiMetadataPostTest() throws Exception {
-        List<File> files = null;
-        String operation = null;
-        String folder = null;
-        String name = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.xlsx"));
+        String operation = "get-properties";
+        String folder = "folder";
+        String name = "text.pdf";
         FileResponse response = api.pdfWebapiMetadataPost(files, operation, folder, name);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -313,12 +313,12 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiOrganizePostTest() throws Exception {
-        List<File> files = null;
-        String inputType = null;
-        String remove = null;
-        String move = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
+        String inputType = "pdf";
+        String remove = "1";
+        String move = "";
         FileResponse response = api.pdfWebapiOrganizePost(files, inputType, remove, move);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -346,15 +346,15 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiRedactPostTest() throws Exception {
-        List<File> files = null;
-        String searchQuery = null;
-        String replaceText = null;
-        Boolean caseSensitive = null;
-        Boolean text = null;
-        Boolean comments = null;
-        Boolean metadata = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.doc"));
+        String searchQuery = "query";
+        String replaceText = "replace";
+        Boolean caseSensitive = true;
+        Boolean text = true;
+        Boolean comments = true;
+        Boolean metadata = true;
         FileResponse response = api.pdfWebapiRedactPost(files, searchQuery, replaceText, caseSensitive, text, comments, metadata);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -382,9 +382,9 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiRemovePostTest() throws Exception {
-        List<File> files = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));;
         FileResponse response = api.pdfWebapiRemovePost(files);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -397,17 +397,17 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiRemoveWatermarkPostTest() throws Exception {
-        String watermarkText = null;
-        Integer top = null;
-        Integer left = null;
-        Integer bottom = null;
-        Integer right = null;
-        List<File> files = null;
-        Boolean isAllPages = null;
-        String watermarkType = null;
-        String removeRange = null;
+        String watermarkText = "watermark text";
+        Integer top = 1;
+        Integer left = 1;
+        Integer bottom = 1;
+        Integer right = 1;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
+        Boolean isAllPages = true;
+        String watermarkType = "text";
+        String removeRange = "1-2";
         FileResponse response = api.pdfWebapiRemoveWatermarkPost(watermarkText, top, left, bottom, right, files, isAllPages, watermarkType, removeRange);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -420,10 +420,10 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiRemovepagesPostTest() throws Exception {
-        List<File> files = null;
-        String removeRange = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
+        String removeRange = "2";
         FileResponse response = api.pdfWebapiRemovepagesPost(files, removeRange);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -436,8 +436,9 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiRepairPostTest() throws Exception {
-        List<File> files = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
         FileResponse response = api.pdfWebapiRepairPost(files);
+        System.out.println(response);
 
         // TODO: test validations
     }
@@ -451,19 +452,20 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiResizePostTest() throws Exception {
-        List<File> files = null;
-        String inputType = null;
-        String outputType = null;
-        Integer resizeType = null;
-        String presetType = null;
-        String presetSize = null;
-        Integer width = null;
-        Integer height = null;
-        Integer percentage = null;
-        Boolean useProportions = null;
-        String pageSize = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.bmp"));
+        String inputType = "bmp";
+        String outputType = "bmp";
+        Integer resizeType = 1;
+        String presetType = "preset";
+        String presetSize = "1";
+        Integer width = 1;
+        Integer height = 1;
+        Integer percentage = 1;
+        Boolean useProportions = true;
+        String pageSize = "A4";
         FileResponse response = api.pdfWebapiResizePost(files, inputType, outputType, resizeType, presetType, presetSize, width, height, percentage, useProportions, pageSize);
 
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -476,12 +478,12 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiRotatePostTest() throws Exception {
-        List<File> files = null;
-        Integer angle = null;
-        String rotateType = null;
-        String pageNum = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
+        Integer angle = 15;
+        String rotateType = "test";
+        String pageNum = "1";
         FileResponse response = api.pdfWebapiRotatePost(files, angle, rotateType, pageNum);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -494,10 +496,10 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiSearchPostTest() throws Exception {
-        List<File> files = null;
-        String query = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));;
+        String query = "1";
         FileResponse response = api.pdfWebapiSearchPost(files, query);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -510,10 +512,10 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiSearchablePostTest() throws Exception {
-        List<File> files = null;
-        String lang = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
+        String lang = "eng";
         FileResponse response = api.pdfWebapiSearchablePost(files, lang);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -526,15 +528,15 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiSignaturePostTest() throws Exception {
-        String image = null;
-        String text = null;
-        String textColor = null;
-        List<File> files = null;
-        String inputType = null;
-        String outputType = null;
-        String signatureType = null;
+        String image = "imageFile";
+        String text = "";
+        String textColor = "";
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
+        String inputType = "pdf";
+        String outputType = "pdf";
+        String signatureType = "drawing";
         FileResponse response = api.pdfWebapiSignaturePost(image, text, textColor, files, inputType, outputType, signatureType);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -547,11 +549,11 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiSplitdocPostTest() throws Exception {
-        List<File> files = null;
-        Integer splitType = null;
-        String pars = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
+        Integer splitType = 1;
+        String pars = "1";
         FileResponse response = api.pdfWebapiSplitdocPost(files, splitType, pars);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -564,13 +566,13 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiSplitimagePostTest() throws Exception {
-        List<File> files = null;
-        Integer splitType = null;
-        Integer vertical = null;
-        Integer horizontal = null;
-        String outputType = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.bmp"));
+        Integer splitType = 1;
+        Integer vertical = 1;
+        Integer horizontal = 1;
+        String outputType = "bmp";
         FileResponse response = api.pdfWebapiSplitimagePost(files, splitType, vertical, horizontal, outputType);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -581,13 +583,13 @@ public class ApiApiTest {
      * @throws Exception
      *          if the Api call fails
      */
-    @Test
-    public void pdfWebapiStatusIdPostTest() throws Exception {
-        String id = null;
-        FileResponse response = api.pdfWebapiStatusIdPost(id);
-
-        // TODO: test validations
-    }
+//    @Test
+//    public void pdfWebapiStatusIdPostTest() throws Exception {
+//        String id = null;
+//        FileResponse response = api.pdfWebapiStatusIdPost(id);
+//
+//        // TODO: test validations
+//    }
     /**
      * Unlock document.
      *
@@ -598,10 +600,10 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiUnlockPostTest() throws Exception {
-        List<File> files = null;
-        String passw = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
+        String passw = "test";
         FileResponse response = api.pdfWebapiUnlockPost(files, passw);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -614,10 +616,10 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiVerifyEsignPostTest() throws Exception {
-        List<File> files = null;
-        String inputType = null;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
+        String inputType = "pdf";
         FileResponse response = api.pdfWebapiVerifyEsignPost(files, inputType);
-
+        System.out.println(response);
         // TODO: test validations
     }
     /**
@@ -630,21 +632,21 @@ public class ApiApiTest {
      */
     @Test
     public void pdfWebapiWatermarkPostTest() throws Exception {
-        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));;;
+        List<File> files = Arrays.asList(new File("/home/tigra/Service/TestData/test.pdf"));
         String inputType = "pdf";
         String outputType = "pdf";
-        Boolean isColored = false;
+        Boolean isColored = true;
         Boolean isText = true;
-        String text = "TEST";
-        String name = "TEST_WATERMARK";
-        Integer size = 20;
+        String text = "text";
+        String name = "Arial";
+        Integer size = 10;
         Boolean bold = true;
-        Boolean italic = false;
-        Boolean underlined = false;
-        String color = "GREEN";
+        Boolean italic = true;
+        Boolean underlined = true;
+        String color = "#ff0000";
         Boolean isBackground = true;
-        Integer rotation = 0;
-        Float transparency = 0.9f;
+        Integer rotation = 45;
+        Float transparency = 1f;
         Boolean layer = true;
         Integer pageFrom = 1;
         Integer pageTo = 1;
@@ -688,3 +690,4 @@ public class ApiApiTest {
         // TODO: test validations
     }
 }
+
