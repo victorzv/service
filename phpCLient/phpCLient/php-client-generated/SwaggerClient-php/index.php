@@ -13,5 +13,7 @@ try {
     $result = $apiInstance->pdfWebapiRemovepagesPost($files, $remove_range);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ApiApi->pdfWebapiRemovepagesPost: ', $e->getMessage(), PHP_EOL;
+    echo "Exception:\r\n";
+    print_r($e);
+    echo "\n\n".$e->getTraceAsString()."\n\n";
 }

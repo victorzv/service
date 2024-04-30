@@ -7223,14 +7223,14 @@ class ApiApi
         if ($remove_range !== null) {
             $queryParams['removeRange'] = ObjectSerializer::toQueryValue($remove_range, null);
         }
-
-
         // form params
         if ($files !== null) {
             $formParams['files'] = ObjectSerializer::toFormValue($files);
         }
         // body params
         $_tempBody = null;
+
+        $boundary = bin2hex(random_bytes(16));
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -7241,9 +7241,9 @@ class ApiApi
                 ['text/plain', 'application/json', 'text/json'],
                 ['multipart/form-data']
             );
+            $multipart = true;
         }
 
-        // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
@@ -7252,16 +7252,37 @@ class ApiApi
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
+
             if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                if (isset($formParams['files']) && is_array($formParams['files'])) {
+                    $multipartContents = [];
+                    foreach ($formParams['files'] as $file) {
+                        // Проверяем существует ли файл и является ли он доступным для чтения
+                        if (is_string($file) && file_exists($file)) {
+                            $contentType = mime_content_type($file);
+                            // Создаем ресурс файла
+                            $fileResource = fopen($file, 'r');
+                            // Добавляем элемент мультипарт формы
+                            $multipartContents[] = [
+                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
+                                'contents' => $fileResource, // Ресурс файла
+                                'filename' => basename($file), // Имя файла
+                                'headers' => [
+                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
+                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                ]
+                            ];
+                        }
+                    }
+//                foreach ($formParams as $formParamName => $formParamValue) {
+//                    $multipartContents[] = [
+//                        'name' => $formParamName,
+//                        'contents' => $formParamValue
+//                    ];
+//                }
+
+                    $httpBody = new MultipartStream($multipartContents);
                 }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
@@ -7285,8 +7306,15 @@ class ApiApi
         );
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        $query = $query."&inputType=pdf&outputType=pdf";
-        echo $query."\r\n";
+
+
+        if ($multipart) {
+            $contentTypeHeader = 'multipart/form-data; boundary=' . $httpBody->getBoundary();
+            $headers['Content-Type'] = $contentTypeHeader;
+        }
+
+        print_r($headers);
+
         return new Request(
             'POST',
             $resourcePath . ($query ? "?{$query}" : ''),
