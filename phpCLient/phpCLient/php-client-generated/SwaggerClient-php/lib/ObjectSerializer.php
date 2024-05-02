@@ -231,6 +231,9 @@ class ObjectSerializer
      */
     public static function deserialize($data, $class, $httpHeaders = null, $discriminator = "")
     {
+        echo "DATA: \r\n";
+        print_r($data);
+        echo "\r\n";
         if (null === $data) {
             return null;
         } elseif (substr($class, 0, 4) === 'map[') { // for associative array e.g. map[string,int]
@@ -303,6 +306,7 @@ class ObjectSerializer
                 }
             }
             $instance = new $class();
+
             foreach ($instance::swaggerTypes() as $property => $type) {
                 $propertySetter = $instance::setters()[$property];
 

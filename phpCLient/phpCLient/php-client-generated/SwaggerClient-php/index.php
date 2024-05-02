@@ -5,7 +5,7 @@ $apiInstance = new Swagger\Client\Api\ApiApi(
     new GuzzleHttp\Client()
 );
 
-$files = array("/home/tigra/Service/TestData/Test.pdf"); // string[] |
+$files = array("test.pdf"); // string[] |
 
 $remove_range = "2"; // string | The range of pages to remove from the files.
 
@@ -14,6 +14,5 @@ try {
     print_r($result);
 } catch (Exception $e) {
     echo "Exception:\r\n";
-    print_r($e);
-    echo "\n\n".$e->getTraceAsString()."\n\n";
+    echo $e->getTraceAsString()."\n\n";
 }

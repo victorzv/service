@@ -36,6 +36,9 @@ final class MultipartStream implements StreamInterface
     {
         $this->boundary = $boundary ?: bin2hex(random_bytes(20));
         $this->stream = $this->createStream($elements);
+        echo "ELEMENTS: \r\n";
+        print_r($elements);
+        echo "\r\n";
     }
 
     public function getBoundary(): string
@@ -153,13 +156,18 @@ final class MultipartStream implements StreamInterface
      */
     private static function getHeader(array $headers, string $key): ?string
     {
+//        $lowercaseHeader = strtolower($key);
+//        foreach ($headers as $k => $v) {
+//            if (strtolower((string) $k) === $lowercaseHeader) {
+//                return $v;
+//            }
+//        }
+//
+//        return null;
         $lowercaseHeader = strtolower($key);
-        foreach ($headers as $k => $v) {
-            if (strtolower((string) $k) === $lowercaseHeader) {
-                return $v;
-            }
+        if (isset($headers[$lowercaseHeader])) {
+            return $headers[$lowercaseHeader];
         }
-
         return null;
     }
 }

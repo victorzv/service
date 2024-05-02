@@ -32,6 +32,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Stream;
 use GuzzleHttp\RequestOptions;
 use Swagger\Client\ApiException;
 use Swagger\Client\Configuration;
@@ -7065,10 +7066,10 @@ class ApiApi
         try {
             $options = $this->createHttpClientOption();
             try {
-//                echo "options:\r\n";
-//                var_dump($options);
-//                echo "request: \r\n";
-//                var_dump($request);
+
+//                echo "REQUEST:\r\n";
+//                print_r($request);
+//                echo "\r\n";
 
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -7255,17 +7256,18 @@ class ApiApi
 
             if ($multipart) {
                 if (isset($formParams['files']) && is_array($formParams['files'])) {
+
                     $multipartContents = [];
                     foreach ($formParams['files'] as $file) {
                         // Проверяем существует ли файл и является ли он доступным для чтения
-                        if (is_string($file) && file_exists($file)) {
+                        if (is_string($file) && file_exists($file) && is_readable($file)) {
                             $contentType = mime_content_type($file);
-                            // Создаем ресурс файла
                             $fileResource = fopen($file, 'r');
+
                             // Добавляем элемент мультипарт формы
                             $multipartContents[] = [
                                 'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => $fileResource, // Ресурс файла
+                                'contents' => new Stream($fileResource), // Ресурс файла
                                 'filename' => basename($file), // Имя файла
                                 'headers' => [
                                     'Content-Type' => $contentType, // Указываем тип содержимого файла
@@ -7274,16 +7276,20 @@ class ApiApi
                             ];
                         }
                     }
-//                foreach ($formParams as $formParamName => $formParamValue) {
-//                    $multipartContents[] = [
-//                        'name' => $formParamName,
-//                        'contents' => $formParamValue
-//                    ];
-//                }
+
+//                    foreach ($formParams as $formParamName => $formParamValue) {
+//                        print_r($formParamValue);
+//
+//                        $multipartContents[] = [
+//                            'name' => ,
+//                            'contents' => $formParamValue
+//                        ];
+//                    }
+
 
                     $httpBody = new MultipartStream($multipartContents);
-                }
 
+            }
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
 
@@ -7313,7 +7319,6 @@ class ApiApi
             $headers['Content-Type'] = $contentTypeHeader;
         }
 
-        print_r($headers);
 
         return new Request(
             'POST',
