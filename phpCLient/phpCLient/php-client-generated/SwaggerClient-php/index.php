@@ -14,5 +14,6 @@ try {
     print_r($result);
 } catch (Exception $e) {
     echo "Exception:\r\n";
+    print_r($e);
     echo $e->getTraceAsString()."\n\n";
 }

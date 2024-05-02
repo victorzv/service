@@ -307,16 +307,74 @@ class ObjectSerializer
             }
             $instance = new $class();
 
-            foreach ($instance::swaggerTypes() as $property => $type) {
-                $propertySetter = $instance::setters()[$property];
+            if (is_object($instance) && method_exists($instance, 'swaggerTypes')) {
 
-                if (!isset($propertySetter) || !isset($data->{$instance::attributeMap()[$property]})) {
-                    continue;
-                }
+                $swaggerTypes = $instance::swaggerTypes();
+                $attributeMap = $instance::attributeMap();
+                $setters = $instance::setters();
 
-                $propertyValue = $data->{$instance::attributeMap()[$property]};
-                if (isset($propertyValue)) {
-                    $instance->$propertySetter(self::deserialize($propertyValue, $type, null));
+                foreach ($instance::swaggerTypes() as $property => $type) {
+
+                    // Проверяем наличие метода установки свойства
+                    if (!isset($setters[$property])) {
+                        continue;
+                    }
+
+                    // Получаем соответствующий атрибут объекта
+                    $attribute = $attributeMap[$property] ?? null;
+
+                    // Проверяем наличие соответствующего атрибута объекта в данных
+                    if (!isset($attribute) || !isset($data->{$attribute})) {
+                        continue;
+                    }
+
+                    // Получаем значение свойства из данных
+                    $propertyValue = $data->{$attribute};
+
+                    // Вызываем метод установки свойства с десериализованным значением
+                    $setter = $setters[$property];
+                    echo "property value: ".$propertyValue."\r\n"."  type ".$type."\r\n";
+
+                    if (!isset($propertyValue)){
+                        continue;
+                    }
+
+                    if (isset($propertyValue)) {
+                        if ($property === 'fileCount') {
+                            // Проверяем, что значение является числом
+                            if (is_numeric($propertyValue)) {
+                                // Преобразуем числовое значение в соответствующее перечисление
+                                $errorCode = (int) $propertyValue;
+                                if (in_array($errorCode, \Swagger\Client\Model\FileProcessingErrorCode::getAllowableEnumValues(), true)) {
+                                    // Устанавливаем значение перечисления
+                                    $instance->$setter($errorCode);
+                                } else {
+                                    // Обработка недопустимого значения
+                                    throw new \InvalidArgumentException("Invalid value for enum 'FileProcessingErrorCode': $errorCode");
+                                }
+                            } else {
+                                // Обработка недопустимого типа данных
+                                throw new \InvalidArgumentException("Invalid type for 'fileCount': expected numeric value");
+                            }
+                        } else {
+                            // Обычная обработка для остальных свойств
+                            // Ваш код здесь для установки значений других свойств
+                            $instance->$setter(self::deserialize($propertyValue, $type, null));
+                        }
+                    }
+
+                    $instance->$setter(self::deserialize($propertyValue, $type, null));
+
+                    $propertySetter = $instance::setters()[$property];
+
+                    if (!isset($propertySetter) || !isset($data->{$instance::attributeMap()[$property]})) {
+                        continue;
+                    }
+
+                    $propertyValue = $data->{$instance::attributeMap()[$property]};
+                    if (isset($propertyValue)) {
+                        $instance->$propertySetter(self::deserialize($propertyValue, $type, null));
+                    }
                 }
             }
             return $instance;

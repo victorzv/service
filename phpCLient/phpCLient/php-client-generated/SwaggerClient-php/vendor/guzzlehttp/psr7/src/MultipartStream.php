@@ -36,9 +36,6 @@ final class MultipartStream implements StreamInterface
     {
         $this->boundary = $boundary ?: bin2hex(random_bytes(20));
         $this->stream = $this->createStream($elements);
-        echo "ELEMENTS: \r\n";
-        print_r($elements);
-        echo "\r\n";
     }
 
     public function getBoundary(): string

@@ -328,9 +328,6 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
         $request = $this->applyOptions($request, $options);
         /** @var HandlerStack $handler */
         $handler = $options['handler'];
-        echo "HANDLER\r\n";
-        print_r($handler);
-        echo "\r\n";
         try {
             return P\Create::promiseFor($handler($request, $options));
         } catch (\Exception $e) {
