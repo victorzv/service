@@ -63,8 +63,8 @@ class FileResponse implements ModelInterface, ArrayAccess
         'updated' => '\DateTime',
         'shared_files' => '\Swagger\Client\Model\FileSafeResult[]',
         'files' => 'string[]',
-        'file_processing_error_code' => '\Swagger\Client\Model\FileProcessingErrorCode',
-        'file_count' => 'int',
+        'file_processing_error_code' => 'string', //\Swagger\Client\Model\FileProcessingErrorCode
+        'file_count' => 'int', //int
         'file_name' => 'string',
         'folder_name' => 'string',
         'result_data' => '',

@@ -42,10 +42,10 @@ class FileProcessingErrorCode
     /**
      * Possible values of this enum
      */
-    const UNKNOWN_ERROR = 0;
-    const ERROR_10000 = 10000;
-    const ERROR_10001 = 10001;
-    const ERROR_10002 = 10002;
+    const UNKNOWN_ERROR = "0";
+    const ERROR_10000 = "10000";
+    const ERROR_10001 = "10001";
+    const ERROR_10002 = "10002";
     /**
      * Gets allowable values of the enum
      * @return string[]
