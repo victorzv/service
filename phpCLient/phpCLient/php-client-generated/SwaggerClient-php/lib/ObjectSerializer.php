@@ -231,9 +231,6 @@ class ObjectSerializer
      */
     public static function deserialize($data, $class, $httpHeaders = null, $discriminator = "")
     {
-//        echo "DATA: \r\n";
-//        print_r($data);
-//        echo "\r\n";
 
         if (null === $data) {
             return null;
@@ -316,23 +313,23 @@ class ObjectSerializer
 
                 foreach ($instance::swaggerTypes() as $property => $type) {
 
-                    // Проверяем наличие метода установки свойства
+
                     if (!isset($setters[$property])) {
                         continue;
                     }
 
-                    // Получаем соответствующий атрибут объекта
+
                     $attribute = $attributeMap[$property] ?? null;
 
-                    // Проверяем наличие соответствующего атрибута объекта в данных
+
                     if (!isset($attribute) || !isset($data->{$attribute})) {
                         continue;
                     }
 
-                    // Получаем значение свойства из данных
+
                     $propertyValue = $data->{$attribute};
 
-                    // Вызываем метод установки свойства с десериализованным значением
+
                     $setter = $setters[$property];
 
                     if (!isset($propertyValue)){
@@ -341,24 +338,23 @@ class ObjectSerializer
 
                     if (isset($propertyValue)) {
                         if ($property === 'fileCount') {
-                            // Проверяем, что значение является числом
+
                             if (is_numeric($propertyValue)) {
-                                // Преобразуем числовое значение в соответствующее перечисление
+
                                 $errorCode = (int) $propertyValue;
                                 if (in_array($errorCode, \Swagger\Client\Model\FileProcessingErrorCode::getAllowableEnumValues(), true)) {
-                                    // Устанавливаем значение перечисления
+
                                     $instance->$setter($errorCode);
                                 } else {
-                                    // Обработка недопустимого значения
+
                                     throw new \InvalidArgumentException("Invalid value for enum 'FileProcessingErrorCode': $errorCode");
                                 }
                             } else {
-                                // Обработка недопустимого типа данных
+
                                 throw new \InvalidArgumentException("Invalid type for 'fileCount': expected numeric value");
                             }
                         } else {
-                            // Обычная обработка для остальных свойств
-                            // Ваш код здесь для установки значений других свойств
+
                             $instance->$setter(self::deserialize($propertyValue, $type, null));
                         }
                     }

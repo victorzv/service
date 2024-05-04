@@ -382,14 +382,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -656,14 +656,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -954,14 +954,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -1234,14 +1234,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -1525,14 +1525,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -1869,14 +1869,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -2158,14 +2158,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -2492,14 +2492,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -3025,14 +3025,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -3314,14 +3314,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -3603,14 +3603,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -3891,14 +3891,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -4217,14 +4217,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -4517,14 +4517,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -4801,14 +4801,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -5130,14 +5130,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -5432,14 +5432,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -5726,14 +5726,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -6029,14 +6029,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -6305,14 +6305,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -6635,14 +6635,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -6920,14 +6920,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -7196,14 +7196,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -7544,14 +7544,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -7826,14 +7826,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -8113,14 +8113,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -8479,14 +8479,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -8782,14 +8782,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -9067,14 +9067,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -9352,14 +9352,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -9655,14 +9655,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -9949,14 +9949,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -10261,14 +10261,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -10547,14 +10547,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -10832,14 +10832,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -11134,14 +11134,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -11612,14 +11612,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -11897,14 +11897,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
@@ -12182,14 +12182,14 @@ class ApiApi
                             $contentType = mime_content_type($file);
                             $fileResource = fopen($file, 'r');
 
-                            // Добавляем элемент мультипарт формы
+                            
                             $multipartContents[] = [
-                                'name' => 'files[]', // Имя элемента формы (важно добавить [])
-                                'contents' => new Stream($fileResource), // Ресурс файла
-                                'filename' => basename($file), // Имя файла
+                                'name' => 'files[]', 
+                                'contents' => new Stream($fileResource), 
+                                'filename' => basename($file), 
                                 'headers' => [
-                                    'Content-Type' => $contentType, // Указываем тип содержимого файла
-                                    'Content-Length' => filesize($file), // Указываем размер файла
+                                    'Content-Type' => $contentType, 
+                                    'Content-Length' => filesize($file), 
                                 ]
                             ];
                         }
