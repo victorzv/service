@@ -609,7 +609,7 @@ class ApiApi
     protected function pdfWebapiBinaryComparisonPostRequest($files = null)
     {
 
-        $resourcePath = '/pdf/webapi/BinaryComparison';
+        $resourcePath = 'http://localhost:5000/pdf/webapi/BinaryComparison';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -708,7 +708,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -899,7 +899,7 @@ class ApiApi
     protected function pdfWebapiChatpdfPostRequest($files = null, $mode = null, $question = null)
     {
 
-        $resourcePath = '/pdf/webapi/chatpdf';
+        $resourcePath = 'http://localhost:5000/pdf/webapi/chatpdf';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1006,7 +1006,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1286,7 +1286,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1823,8 +1823,8 @@ class ApiApi
         }
         // query params
         if ($is_to_single !== null) {
-            $queryParams['isToSingle'] = ObjectSerializer::toQueryValue($is_to_single, null);
         }
+        $queryParams['isToSingle'] = ObjectSerializer::toQueryValue($is_to_single, 'null');
         // query params
         if ($separator !== null) {
             $queryParams['separator'] = ObjectSerializer::toQueryValue($separator, null);
@@ -1921,7 +1921,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2124,6 +2124,11 @@ class ApiApi
         if ($web_page !== null) {
             $formParams['webPage'] = ObjectSerializer::toFormValue($web_page);
         }
+
+        echo "FORM PARAMS:\n";
+        print_r($formParams);
+        echo "\n";
+
         // body params
         $_tempBody = null;
 
@@ -2134,7 +2139,8 @@ class ApiApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['text/plain', 'application/json', 'text/json'],
-                ['multipart/form-data']
+                ['']
+                //['multipart/form-data']
             );
             $multipart = true;
         }
@@ -2180,6 +2186,17 @@ class ApiApi
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             }
+                else{
+                    $multipartContents = [];
+                    foreach ($formParams as $formParamName => $formParamValue) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValue
+                        ];
+                    }
+                    // for HTTP post (form)
+                    $httpBody = new MultipartStream($multipartContents);
+                }
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
 
@@ -2210,7 +2227,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2544,7 +2561,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2699,7 +2716,7 @@ class ApiApi
             );
         }
 
-        $resourcePath = '/pdf/webapi/download/{id}';
+        $resourcePath = 'http://localhost:5000/pdf/webapi/download/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2778,7 +2795,7 @@ class ApiApi
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -3068,7 +3085,7 @@ class ApiApi
         }
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -3110,6 +3127,10 @@ class ApiApi
     {
         $returnType = '\Swagger\Client\Model\FileResponse';
         $request = $this->pdfWebapiEsignPostRequest($files, $input_type, $passw);
+
+//        echo "Request: \n";
+//        print_r($request);
+//        echo "\n";
 
         try {
             $options = $this->createHttpClientOption();
@@ -3355,9 +3376,12 @@ class ApiApi
             $contentTypeHeader = 'multipart/form-data; boundary=' . $httpBody->getBoundary();
             $headers['Content-Type'] = $contentTypeHeader;
         }
+
+        echo "URL\n".$resourcePath . ($query ? "?{$query}" : '')."\n";
+        
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -3654,7 +3678,7 @@ class ApiApi
         }
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -3943,7 +3967,7 @@ class ApiApi
         }
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -3965,9 +3989,9 @@ class ApiApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\FileResponse
      */
-    public function pdfWebapiGifPost($keep_images_as_is = null, $resize_to_image = null, $streched = null, $width = null, $height = null, $frame_times = null)
+    public function pdfWebapiGifPost($files = null, $keep_images_as_is = null, $resize_to_image = null, $streched = null, $width = null, $height = null, $frame_times = null)
     {
-        list($response) = $this->pdfWebapiGifPostWithHttpInfo($keep_images_as_is, $resize_to_image, $streched, $width, $height, $frame_times);
+        list($response) = $this->pdfWebapiGifPostWithHttpInfo($files, $keep_images_as_is, $resize_to_image, $streched, $width, $height, $frame_times);
         return $response;
     }
 
@@ -3987,10 +4011,10 @@ class ApiApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\FileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function pdfWebapiGifPostWithHttpInfo($keep_images_as_is = null, $resize_to_image = null, $streched = null, $width = null, $height = null, $frame_times = null)
+    public function pdfWebapiGifPostWithHttpInfo($files = null, $keep_images_as_is = null, $resize_to_image = null, $streched = null, $width = null, $height = null, $frame_times = null)
     {
         $returnType = '\Swagger\Client\Model\FileResponse';
-        $request = $this->pdfWebapiGifPostRequest($keep_images_as_is, $resize_to_image, $streched, $width, $height, $frame_times);
+        $request = $this->pdfWebapiGifPostRequest($files, $keep_images_as_is, $resize_to_image, $streched, $width, $height, $frame_times);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4146,7 +4170,7 @@ class ApiApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function pdfWebapiGifPostRequest($keep_images_as_is = null, $resize_to_image = null, $streched = null, $width = null, $height = null, $frame_times = null)
+    protected function pdfWebapiGifPostRequest($files, $keep_images_as_is = null, $resize_to_image = null, $streched = null, $width = null, $height = null, $frame_times = null)
     {
 
         $resourcePath = 'http://localhost:5000/pdf/webapi/gif';
@@ -4179,6 +4203,10 @@ class ApiApi
         // query params
         if ($frame_times !== null) {
             $queryParams['frameTimes'] = ObjectSerializer::toQueryValue($frame_times, null);
+        }
+
+        if ($files !== null) {
+            $formParams['files'] = ObjectSerializer::toFormValue($files);
         }
 
 
@@ -4262,7 +4290,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $resourcePath . ($query ? "?{$query}" : ''), //$this->config->getHost() . 
+            $resourcePath . ($query ? "?{$query}" : ''), // 
             $headers,
             $httpBody
         );
@@ -4564,7 +4592,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -4848,7 +4876,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -5176,7 +5204,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -5479,7 +5507,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -5773,7 +5801,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -6076,7 +6104,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -6681,7 +6709,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -6967,7 +6995,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -7243,7 +7271,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -7591,7 +7619,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -8160,7 +8188,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -8526,7 +8554,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -8829,7 +8857,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -9114,7 +9142,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -9399,7 +9427,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -9702,7 +9730,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -9996,7 +10024,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -10308,7 +10336,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -10594,7 +10622,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $resourcePath . ($query ? "?{$query}" : ''),//$this->config->getHost() . 
+            $resourcePath . ($query ? "?{$query}" : ''),// 
             $headers,
             $httpBody
         );
@@ -10879,7 +10907,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -11659,7 +11687,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -11944,7 +11972,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -12229,7 +12257,7 @@ class ApiApi
 
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+             $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

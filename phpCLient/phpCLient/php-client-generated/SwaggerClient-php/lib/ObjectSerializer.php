@@ -231,6 +231,9 @@ class ObjectSerializer
      */
     public static function deserialize($data, $class, $httpHeaders = null, $discriminator = "")
     {
+        echo "DATA:\n";
+        print_r($data);
+        echo "\n";
 
         if (null === $data) {
             return null;
