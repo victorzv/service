@@ -5224,9 +5224,9 @@ class ApiApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\FileResponse
      */
-    public function pdfWebapiMetadataPost($files = null, $opration = null, $folder = null, $name = null)
+    public function pdfWebapiMetadataPost($files = null, $operation = null, $folder = null, $name = null)
     {
-        list($response) = $this->pdfWebapiMetadataPostWithHttpInfo($files, $opration, $folder, $name);
+        list($response) = $this->pdfWebapiMetadataPostWithHttpInfo($files, $operation, $folder, $name);
         return $response;
     }
 
@@ -5244,10 +5244,10 @@ class ApiApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\FileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function pdfWebapiMetadataPostWithHttpInfo($files = null, $opration = null, $folder = null, $name = null)
+    public function pdfWebapiMetadataPostWithHttpInfo($files = null, $operation = null, $folder = null, $name = null)
     {
         $returnType = '\Swagger\Client\Model\FileResponse';
-        $request = $this->pdfWebapiMetadataPostRequest($files, $opration, $folder, $name);
+        $request = $this->pdfWebapiMetadataPostRequest($files, $operation, $folder, $name);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5409,7 +5409,7 @@ class ApiApi
 
         // query params
         if ($opration !== null) {
-            $queryParams['opration'] = ObjectSerializer::toQueryValue($opration, null);
+            $queryParams['operation'] = ObjectSerializer::toQueryValue($opration, null);
         }
         // query params
         if ($folder !== null) {
@@ -11607,6 +11607,7 @@ class ApiApi
         }
         // body params
         $_tempBody = null;
+        $multipart = false;
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
