@@ -23,28 +23,76 @@ open class ApiClient(val baseUrl: String) {
         val jsonHeaders: Map<String, String> = mapOf(ContentType to JsonMediaType, Accept to JsonMediaType)
     }
 
-    protected inline fun <reified T> requestBody(content: T, mediaType: String = JsonMediaType): RequestBody =
-            when {
-                content is File -> RequestBody.create(mediaType.toMediaTypeOrNull(), content)
+    private fun guessMimeType(file: File): String {
+        val fileName = file.name
+        val extension = fileName.substringAfterLast('.', "")
+        return when (extension.toLowerCase()) {
+            "pdf" -> "application/pdf"
+            "doc" -> "application/msword"
+            "docx" -> "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            "xls" -> "application/vnd.ms-excel"
+            "xlsx" -> "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            "txt" -> "text/plain"
+            "png" -> "image/png"
+            "jpg", "jpeg" -> "image/jpeg"
+            "gif" -> "image/gif"
+            "bmp" -> "image/bmp"
+            else -> "application/octet-stream"
+        }
+    }
 
-                mediaType == FormDataMediaType -> {
-                    var builder = FormBody.Builder()
-                    // content's type *must* be Map<String, Any>
-                    @Suppress("UNCHECKED_CAST")
-                    (content as Map<String, String>).forEach { key, value ->
-                        builder = builder.add(key, value)
+    protected inline fun <reified T> requestBody(content: T, mediaType: String = JsonMediaType): RequestBody {
+
+        return when {
+            content is File -> RequestBody.create(mediaType.toMediaTypeOrNull(), content)
+
+            mediaType == FormDataMediaType -> {
+                val requestBodyBuilder = MultipartBody.Builder().setType(MultipartBody.FORM)
+                when {
+                    content is Map<*, *> -> {
+                        println("Key: $content, Value type: ${content?.javaClass?.simpleName}")
+                        // Handle form data
+                        @Suppress("UNCHECKED_CAST")
+                        (content as Map<*, *>).forEach { key, value ->
+                            // Проверяем, является ли значение массивом байтов
+                            if (value is ByteArray) {
+                                // Если значение является массивом байтов, добавляем его как файловое содержимое
+                                val fileName = "file$key"
+                                requestBodyBuilder.addFormDataPart(
+                                    key.toString(),
+                                    fileName,
+                                    RequestBody.create("application/octet-stream".toMediaTypeOrNull(), value)
+                                )
+                            } else {
+                                // Если значение не является массивом байтов, обрабатываем его как обычное поле формы
+                                requestBodyBuilder.addFormDataPart(key.toString(), value.toString())
+                            }
+                        }
                     }
-                    builder.build()
+                    else -> throw IllegalArgumentException("Unsupported content type for FormDataMediaType")
                 }
-                mediaType == JsonMediaType -> RequestBody.create(
-                        mediaType.toMediaTypeOrNull(), Serializer.moshi.adapter(T::class.java).toJson(content)
-                )
-                mediaType == XmlMediaType -> TODO("xml not currently supported.")
-
-                // TODO: this should be extended with other serializers
-                else -> TODO("requestBody currently only supports JSON body and File body.")
+                requestBodyBuilder.build()
             }
 
+//                var builder = FormBody.Builder()
+//                // content's type *must* be Map<String, Any>
+//                @Suppress("UNCHECKED_CAST")
+//                (content as Map<String, String>).forEach { key, value ->
+//                    builder = builder.add(key, value)
+//                }
+//                builder.build()
+
+
+            mediaType == JsonMediaType -> RequestBody.create(
+                mediaType.toMediaTypeOrNull(), Serializer.moshi.adapter(T::class.java).toJson(content)
+            )
+
+            mediaType == XmlMediaType -> TODO("xml not currently supported.")
+
+            // TODO: this should be extended with other serializers
+            else -> TODO("requestBody currently only supports JSON body and File body.")
+        }
+    }
     protected inline fun <reified T : Any?> responseBody(body: ResponseBody?, mediaType: String = JsonMediaType): T? {
         if (body == null) return null
         return when (mediaType) {
@@ -53,7 +101,7 @@ open class ApiClient(val baseUrl: String) {
         }
     }
 
-    protected inline fun <reified T : Any?> request(requestConfig: RequestConfig, body: Any? = null): ApiInfrastructureResponse<T?> {
+    protected inline fun <reified T : Any?> request(requestConfig: RequestConfig, body: Any? = null): Response/*ApiInfrastructureResponse<T?>*/ {
         val httpUrl = baseUrl.toHttpUrlOrNull() ?: throw IllegalStateException("baseUrl is invalid.")
 
         var urlBuilder = httpUrl.newBuilder()
@@ -66,7 +114,7 @@ open class ApiClient(val baseUrl: String) {
         }
 
         val url = urlBuilder.build()
-        val headers = requestConfig.headers + defaultHeaders
+        val headers = requestConfig.headers // + defaultHeaders
 
         if (headers[ContentType] ?: "" == "") {
             throw kotlin.IllegalStateException("Missing Content-Type header. This is required.")
@@ -95,33 +143,34 @@ open class ApiClient(val baseUrl: String) {
         val realRequest = request.build()
         val response = client.newCall(realRequest).execute()
 
-        // TODO: handle specific mapping types. e.g. Map<int, Class<?>>
-        when {
-            response.isRedirect -> return Redirection(
-                    response.code,
-                    response.headers.toMultimap()
-            )
-            response.isInformational -> return Informational(
-                    response.message,
-                    response.code,
-                    response.headers.toMultimap()
-            )
-            response.isSuccessful -> return Success(
-                    responseBody(response.body, accept),
-                    response.code,
-                    response.headers.toMultimap()
-            )
-            response.isClientError -> return ClientError(
-                    response.body?.string(),
-                    response.code,
-                    response.headers.toMultimap()
-            )
-            else -> return ServerError(
-                    null,
-                    response.body?.string(),
-                    response.code,
-                    response.headers.toMultimap()
-            )
-        }
+        return response
+//        // TODO: handle specific mapping types. e.g. Map<int, Class<?>>
+//        when {
+//            response.isRedirect -> return Redirection(
+//                    response.code,
+//                    response.headers.toMultimap()
+//            )
+//            response.isInformational -> return Informational(
+//                    response.message,
+//                    response.code,
+//                    response.headers.toMultimap()
+//            )
+//            response.isSuccessful -> return Success(
+//                    responseBody(response.body, accept),
+//                    response.code,
+//                    response.headers.toMultimap()
+//            )
+//            response.isClientError -> return ClientError(
+//                    response.body?.string(),
+//                    response.code,
+//                    response.headers.toMultimap()
+//            )
+//            else -> return ServerError(
+//                    null,
+//                    response.body?.string(),
+//                    response.code,
+//                    response.headers.toMultimap()
+//            )
+//        }
     }
 }

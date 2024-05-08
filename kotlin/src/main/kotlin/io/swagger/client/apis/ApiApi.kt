@@ -14,8 +14,10 @@ package io.swagger.client.apis
 import io.swagger.client.models.FileResponse
 
 import io.swagger.client.infrastructure.*
+import okhttp3.Response
 
 class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
+
 
     /**
      * Adds page numbers to the provided documents with the specified alignment, starting number, and format.
@@ -31,6 +33,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param format The format of the page numbers. (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiAddnumberPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, vAlignment: kotlin.String? = null, hAlignment: kotlin.String? = null, startingNumber: kotlin.Int? = null, sNumber: kotlin.Int? = null, fNumber: kotlin.Int? = null, margin: kotlin.Int? = null, fontSize: kotlin.Int? = null, format: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -70,13 +73,14 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
                 localVariableConfig, localVariableBody
         )
 
-        return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as FileResponse
-            ResponseType.Informational -> TODO()
-            ResponseType.Redirection -> TODO()
-            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
-            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
-        }
+        return response
+//        return when (response.responseType) {
+//            ResponseType.Success -> (response as Success<*>).data as FileResponse
+//            ResponseType.Informational -> TODO()
+//            ResponseType.Redirection -> TODO()
+//            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+//            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+//        }
     }
     /**
      * Performs a binary comparison on the provided files.
@@ -141,7 +145,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Compare provided files and create document with marked changes.
      * This endpoint is used to compare the provided files.  If the comparison is started, the response will contain a success status and an optional message.  If the comparison fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -149,7 +153,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @return FileResponse
      */
     @Suppress("UNCHECKED_CAST")
-    fun pdfWebapiComparisonPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null): FileResponse {
+    fun pdfWebapiComparisonPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null): Response/*FileResponse*/ {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "multipart/form-data")
         localVariableHeaders["Accept"] = "text/plain, application/json, text/json"
@@ -161,13 +165,14 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
                 localVariableConfig, localVariableBody
         )
 
-        return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as FileResponse
-            ResponseType.Informational -> TODO()
-            ResponseType.Redirection -> TODO()
-            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
-            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
-        }
+        return response
+//        return when (response.responseType) {
+//            ResponseType.Success -> (response as Success<*>).data as FileResponse
+//            ResponseType.Informational -> TODO()
+//            ResponseType.Redirection -> TODO()
+//            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error".plus(response.body))
+//            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+//        }
     }
     /**
      * Compresses the provided files using the specified compression level.
@@ -176,9 +181,13 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param compressType The level of compression to use. (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
+     *//*
     fun pdfWebapiCompressPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, compressType: kotlin.Int? = null): FileResponse {
+
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
+
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>().apply {
             if (compressType != null) {
                 put("compressType", listOf(compressType.toString()))
@@ -201,7 +210,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Converts the provided files from one format to another, with options for XML conversion and font size adjustment.
      * This endpoint is used to convert the provided files from one format to another.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -214,7 +223,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param isToSingle Indicates whether the conversion should result in a single file, if applicable. (optional)
      * @param separator The separator to use when converting, if applicable. (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiConvertPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, inputType: kotlin.String? = null, outputType: kotlin.String? = null, xmlType: kotlin.Int? = null, xmlTag: kotlin.String? = null, fontSise: kotlin.Int? = null, isToSingle: kotlin.Boolean? = null, separator: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -258,14 +267,14 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Converts a web page to the specified output format.
      * This endpoint is used to convert a web page to the specified output format.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param webPage  (optional)
      * @param outputType The desired format for the output file. (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiConvertWebpagePost(webPage: kotlin.String? = null, outputType: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("webPage" to "$webPage")
@@ -291,7 +300,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Crops the provided files to the specified dimensions.
      * This endpoint is used to crop the provided files to the specified dimensions.  If the cropping is started, the response will contain a success status and an optional message.  If the cropping fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -303,7 +312,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param left The number of pixels to crop from the left. (optional)
      * @param outputType The desired format for the output files. (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiCropPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, inputType: kotlin.String? = null, top: kotlin.Int? = null, right: kotlin.Int? = null, bottom: kotlin.Int? = null, left: kotlin.Int? = null, outputType: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -344,14 +353,14 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Downloads a file.
      * 
      * @param id The id of the processing to download. 
      * @param file The name of the file to download. (optional)
      * @return void
-     */
+     *
     fun pdfWebapiDownloadIdGet(id: kotlin.String, file: kotlin.String? = null): Unit {
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>().apply {
             if (file != null) {
@@ -373,14 +382,14 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Downloads a file as a stream.
      * 
      * @param id The ID of the processing to download. 
      * @param fileName The name of the file to download. (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiDownloadStreamIdPost(id: kotlin.String, fileName: kotlin.String? = null): FileResponse {
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>().apply {
@@ -403,7 +412,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Electronically signs the provided files with the specified certificate and its password.
      * This endpoint is used to electronically sign the provided files with the specified certificate and its password.  If the signing is started, the response will contain a success status and an optional message.  If the signing fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -411,7 +420,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param inputType The format of the input files. (optional)
      * @param passw The password to use for electronic signing. (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiEsignPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, inputType: kotlin.String? = null, passw: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -440,7 +449,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Extracts tables from the provided documents and converts them to the specified output format.
      * This endpoint is used to extract tables from the provided files and convert them to the specified output format.  If the extraction is started, the response will contain a success status and an optional message.  If the extraction fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -448,7 +457,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param inputType The format of the input files. (optional)
      * @param outputType The desired format for the output files. (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiExtractPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, inputType: kotlin.String? = null, outputType: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -477,14 +486,14 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Fills a form with the provided files.
      * This endpoint is used to fill a form with the provided files.  If the filling is started, the response will contain a success status and an optional message.  If the filling fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param fileName The name of the file to fill the form with. (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiFormFillerPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, fileName: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -510,7 +519,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Creates a GIF from the provided images.
      * This endpoint is used to create a GIF from the provided images.  If the creation is started, the response will contain a success status and an optional message.  If the creation fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -521,7 +530,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param height The height of the GIF. (optional)
      * @param frameTimes The times for each frame in the GIF. (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiGifPost(keepImagesAsIs: kotlin.Boolean? = null, resizeToImage: kotlin.Int? = null, streched: kotlin.Boolean? = null, width: kotlin.Int? = null, height: kotlin.Int? = null, frameTimes: kotlin.String? = null): FileResponse {
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>().apply {
@@ -559,7 +568,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Hashes the provided files using the specified algorithm.
      * This endpoint is used to hash the provided files using the specified algorithm.  If the hashing is started, the response will contain a success status and an optional message.  If the hashing fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -568,7 +577,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param outputType The desired format for the output files. (optional)
      * @param alg The hashing algorithm to use. (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiHashPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, inputType: kotlin.String? = null, outputType: kotlin.String? = null, alg: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -600,14 +609,14 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Locks a document with the provided password and optional files.
      * This endpoint is used to lock a resource with an optional password and associated files.  If the lock is started, the response will contain a success status and processing id.  If the lock fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @param passw The password required to lock the resource. (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiLockPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, passw: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -633,7 +642,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Merges the provided files into a single document or image, with options for orientation and page size.
      * This endpoint is used to merge the provided files into a single document or image.  If the merge is started, the response will contain a success status and an optional message.  If the merge fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -645,7 +654,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param pageSize The page size for the output file, if applicable. (optional)
      * @param dcIsLandscape Indicates whether the output file should be in landscape orientation. (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiMergePost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, inputType: kotlin.String? = null, outputType: kotlin.String? = null, horizontal: kotlin.Int? = null, vertical: kotlin.Int? = null, pageSize: kotlin.String? = null, dcIsLandscape: kotlin.Boolean? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -686,7 +695,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Performs metadata operations on the provided files.
      * This endpoint is used to perform metadata operations on the provided files.  If the operation is started, the response will contain a success status and an optional message.  If the operation fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -695,7 +704,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param folder The folder where the files are located. (optional)
      * @param name The name of the file to perform the operation on. (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiMetadataPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, opration: kotlin.String? = null, folder: kotlin.String? = null, name: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -727,7 +736,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Creates a music video from the provided files.
      * This endpoint is used to create a music video from the provided files.  If the creation is started, the response will contain a success status and an optional message.  If the creation fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -735,7 +744,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param interval The interval between frames in the music video. (optional)
      * @param outputType The desired format for the output files. (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiMusicVideoPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, interval: kotlin.Int? = null, outputType: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -764,7 +773,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Organizes the provided documents by removing or moving specified pages.
      * This endpoint is used to organize the provided documents by removing or moving specified pages.  If the organization is started, the response will contain a success status and an optional message.  If the organization fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -773,7 +782,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param remove The pages to remove from the document. (optional)
      * @param move The pages to move within the document. (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiOrganizePost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, inputType: kotlin.String? = null, remove: kotlin.String? = null, move: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -805,13 +814,13 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Parses the provided files using a parser service.
      * This endpoint is used to send files to a parser service for processing.  If the parsing is started, the response will contain a success status and an optional message.  If the parsing fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiParsePost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -832,7 +841,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Redacts specified text from the provided documents, with options to search case-sensitively, target in text, comments, and metadata.
      * This endpoint is used to redact specified text from the provided files, with options to search case-sensitively and target different parts of the document such as text, comments, and metadata.  If the redaction is started, the response will contain a success status and an optional message.  If the redaction fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -844,7 +853,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param comments Indicates whether comments should be redacted. (optional)
      * @param metadata Indicates whether metadata should be redacted. (optional)
      * @return FileResponse
-     */
+     *
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiRedactPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, searchQuery: kotlin.String? = null, replaceText: kotlin.String? = null, caseSensitive: kotlin.Boolean? = null, text: kotlin.Boolean? = null, comments: kotlin.Boolean? = null, metadata: kotlin.Boolean? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -885,13 +894,14 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Removes all files from processing.
      * 
      * @param id The ID of the processing to remove. 
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiRemoveIdPost(id: kotlin.String): FileResponse {
         val localVariableConfig = RequestConfig(
@@ -910,12 +920,14 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
     }
+    */
     /**
      * Removes annotations from the provided documents.
      * This endpoint is used to remove annotations from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiRemovePost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -937,6 +949,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
     }
+    */
     /**
      * Removes a watermark from the provided files.
      * This endpoint is used to remove a watermark from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -951,6 +964,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param removeRange The range of pages to remove the watermark from. (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiRemoveWatermarkPost(watermarkText: kotlin.String? = null, top: kotlin.Int? = null, left: kotlin.Int? = null, bottom: kotlin.Int? = null, right: kotlin.Int? = null, files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, isAllPages: kotlin.Boolean? = null, watermarkType: kotlin.String? = null, removeRange: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("watermarkText" to "$watermarkText", "top" to "$top", "left" to "$left", "bottom" to "$bottom", "right" to "$right", "files" to "$files")
@@ -983,6 +997,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
     }
+    */
     /**
      * Removes specified pages from the provided files.
      * This endpoint is used to remove specified pages from the provided files.  If the removal is started, the response will contain a success status and an optional message.  If the removal fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -990,6 +1005,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param removeRange The range of pages to remove from the files. (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiRemovepagesPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, removeRange: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -1016,12 +1032,14 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
     }
+    */
     /**
      * Repairs the provided files.
      * This endpoint is used to repair the provided files.  If the repair is started, the response will contain a success status and an optional message.  If the repair fails, the response will contain an error status and a message indicating the reason for the failure.
      * @param files  (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiRepairPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -1043,6 +1061,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
     }
+    */
     /**
      * Resizes the provided files to the specified dimensions or using a preset size.
      * This endpoint is used to resize the provided files to the specified dimensions or using a preset size.  If the resizing is started, the response will contain a success status and an optional message.  If the resizing fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -1059,6 +1078,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param pageSize The page size to use for the resized files. (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiResizePost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, inputType: kotlin.String? = null, outputType: kotlin.String? = null, resizeType: kotlin.Int? = null, presetType: kotlin.String? = null, presetSize: kotlin.String? = null, width: kotlin.Int? = null, height: kotlin.Int? = null, percentage: kotlin.Int? = null, useProportions: kotlin.Boolean? = null, pageSize: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -1112,6 +1132,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
     }
+    */
     /**
      * Rotates the provided files by a specified angle, with options for rotation type and page number.
      * This endpoint is used to rotate the provided files by a specified angle.  If the rotation is started, the response will contain a success status and an optional message.  If the rotation fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -1121,6 +1142,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param pageNum The page number to rotate, if applicable. (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiRotatePost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, angle: kotlin.Int? = null, rotateType: kotlin.String? = null, pageNum: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -1153,6 +1175,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
     }
+    */
     /**
      * Searches the provided files for the specified query and makr found text with yellow background.
      * This endpoint is used to search the provided files for the specified query.  If the search is started, the response will contain a success status and an optional message.  If the search fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -1160,6 +1183,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param query The text to search for within the files. (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiSearchPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, query: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -1186,6 +1210,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
     }
+    */
     /**
      * Converts the provided files into a searchable PDF format for the specified language.
      * This endpoint is used to convert the provided files into a searchable PDF format for the specified language.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -1193,6 +1218,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param lang The language of the files to be converted. (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiSearchablePost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, lang: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -1219,6 +1245,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
     }
+    */
     /**
      * Adds a signature to the provided files.
      * This endpoint is used to add a signature to the provided files.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -1228,6 +1255,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param signatureType The type of signature to add. (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiSignaturePost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, inputType: kotlin.String? = null, outputType: kotlin.String? = null, signatureType: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -1260,6 +1288,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
     }
+    */
     /**
      * Splits the provided documents based on the specified split type and page rage to spit.
      * This endpoint is used to split documents based on the specified split type and page rage.  If the splitting is started, the response will contain a success status and an optional message.  If the splitting fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -1268,6 +1297,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param pars Optional page rage for the splitting operation. (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiSplitdocPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, splitType: kotlin.Int? = null, pars: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -1297,6 +1327,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
     }
+    */
     /**
      * Splits the provided images into smaller parts based on the specified parameters.
      * This endpoint is used to split images into smaller parts based on the specified parameters.  If the splitting is started, the response will contain a success status and an optional message.  If the splitting fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -1307,6 +1338,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param outputType The desired output format for the split images. (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiSplitimagePost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, splitType: kotlin.Int? = null, vertical: kotlin.Int? = null, horizontal: kotlin.Int? = null, outputType: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -1342,12 +1374,14 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
     }
+    */
     /**
      * Retrieves the status of a processing.
      * 
      * @param id The ID of the processing to check the status of. 
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiStatusIdPost(id: kotlin.String): FileResponse {
         val localVariableConfig = RequestConfig(
@@ -1366,6 +1400,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
     }
+    */
     /**
      * Attempts to unlock a document with an password and associated files.
      * This endpoint is used to unlock a resource that was previously locked with a password on associated files.  If the unlock is started, the response will contain a success status and an optional message.  If the unlock fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -1373,6 +1408,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param passw The password used in locked document. (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiUnlockPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, passw: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -1399,6 +1435,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
     }
+    */
     /**
      * Verifies the electronic signature of the provided files.
      * This endpoint is used to verify the electronic signature of the provided files.  If the verification is started, the response will contain a success status and an optional message.  If the verification fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -1406,6 +1443,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param inputType The format of the input files. (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiVerifyEsignPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, inputType: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -1432,6 +1470,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
     }
+    */
     /**
      * Adds a watermark to the provided files.
      * This endpoint is used to add a watermark to the provided files.  If the addition is started, the response will contain a success status and an optional message.  If the addition fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -1460,6 +1499,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param outputType The desired format for the output files. (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiWatermarkPost(isText: kotlin.Boolean? = null, text: kotlin.String? = null, name2: kotlin.String? = null, size: kotlin.Int? = null, bold: kotlin.Boolean? = null, italic: kotlin.Boolean? = null, underlined: kotlin.Boolean? = null, color: kotlin.String? = null, contentType: kotlin.String? = null, contentDisposition: kotlin.String? = null, headers: kotlin.collections.Map<kotlin.String, kotlin.Array<kotlin.String>>? = null, length: kotlin.Long? = null, name: kotlin.String? = null, fileName: kotlin.String? = null, isBackground: kotlin.Boolean? = null, rotation: kotlin.Int? = null, transparency: kotlin.Float? = null, layer: kotlin.Boolean? = null, pageFrom: kotlin.Int? = null, pageTo: kotlin.Int? = null, files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, inputType: kotlin.String? = null, outputType: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("isText" to "$isText", "text" to "$text", "name" to "$name", "size" to "$size", "bold" to "$bold", "italic" to "$italic", "underlined" to "$underlined", "color" to "$color", "ContentType" to "$contentType", "ContentDisposition" to "$contentDisposition", "Headers" to "$headers", "Length" to "$length", "Name" to "$name", "FileName" to "$fileName", "isBackground" to "$isBackground", "rotation" to "$rotation", "transparency" to "$transparency", "layer" to "$layer", "pageFrom" to "$pageFrom", "pageTo" to "$pageTo", "files" to "$files")
@@ -1488,7 +1528,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Counts the words in the provided files within the specified page range.
      * This endpoint is used to count the words in the provided files within the specified page range.  If the counting is started, the response will contain a success status and the word count.  If the counting fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -1496,6 +1536,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param pageRange The range of pages to count words in. (optional)
      * @return FileResponse
      */
+    /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiWordCounterPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, pageRange: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -1521,7 +1562,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
     /**
      * Converts the provided documents from XFA format to a different format.
      * This endpoint is used to convert the provided files from XFA format to a different format.  If the conversion is started, the response will contain a success status and an optional message.  If the conversion fails, the response will contain an error status and a message indicating the reason for the failure.
@@ -1529,6 +1570,7 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
      * @param inputType The format of the input files. (optional)
      * @return FileResponse
      */
+   /*
     @Suppress("UNCHECKED_CAST")
     fun pdfWebapiXfaconvertPost(files: kotlin.Array<kotlin.Array<kotlin.Byte>>? = null, inputType: kotlin.String? = null): FileResponse {
         val localVariableBody: kotlin.Any? = mapOf("files" to "$files")
@@ -1554,5 +1596,5 @@ class ApiApi(basePath: kotlin.String = "/") : ApiClient(basePath) {
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
             ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
         }
-    }
+    }*/
 }

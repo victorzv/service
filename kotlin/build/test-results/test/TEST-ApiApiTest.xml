@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ApiApiTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-08T06:03:14" hostname="Tigra-ps" time="0.339">
+<testsuite name="ApiApiTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-08T09:28:27" hostname="Tigra-ps" time="0.369">
   <properties/>
-  <testcase name="pdfWebapiComparisonPostTest" classname="ApiApiTest" time="0.339"/>
-  <system-out><![CDATA[Hello
+  <testcase name="pdfWebapiComparisonPostTest" classname="ApiApiTest" time="0.369"/>
+  <system-out><![CDATA[Key: {files=[[Ljava.lang.Byte;@5a7fe64f}, Value type: SingletonMap
+Response{protocol=http/1.1, code=200, message=OK, url=http://localhost:5000/pdf/webapi/Comparison}
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
