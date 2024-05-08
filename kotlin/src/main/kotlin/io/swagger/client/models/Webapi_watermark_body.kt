@@ -40,7 +40,6 @@ data class WebapiWatermarkBody (
 
     val isText: kotlin.Boolean? = null,
     val text: kotlin.String? = null,
-    val name: kotlin.String? = null,
     val size: kotlin.Int? = null,
     val bold: kotlin.Boolean? = null,
     val italic: kotlin.Boolean? = null,

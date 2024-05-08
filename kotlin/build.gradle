@@ -30,4 +30,10 @@ dependencies {
     implementation "com.squareup.moshi:moshi-adapters:1.11.0"
     implementation "com.squareup.okhttp3:okhttp:4.9.0"
     testImplementation "io.kotlintest:kotlintest:2.0.7"
+    testImplementation 'junit:junit:4.+' // Зависимость на JUnit
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit' // Зависимость для поддержки Kotlin в JUnit
 }
+
+//test {
+//    useJUnitPlatform() // Настройка использования JUnit
+//}
