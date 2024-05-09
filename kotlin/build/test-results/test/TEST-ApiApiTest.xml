@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ApiApiTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-08T09:28:27" hostname="Tigra-ps" time="0.369">
+<testsuite name="ApiApiTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-09T06:58:19" hostname="Tigra-ps" time="101.96">
   <properties/>
-  <testcase name="pdfWebapiComparisonPostTest" classname="ApiApiTest" time="0.369"/>
-  <system-out><![CDATA[Key: {files=[[Ljava.lang.Byte;@5a7fe64f}, Value type: SingletonMap
-Response{protocol=http/1.1, code=200, message=OK, url=http://localhost:5000/pdf/webapi/Comparison}
+  <testcase name="testManualUpload" classname="ApiApiTest" time="101.96"/>
+  <system-out><![CDATA[Response received: 200
+{"statusCode":204,"status":"Processing","text":null,"locked":false,"updated":null,"sharedFiles":[],"files":null,"fileProcessingErrorCode":"OK","fileCount":0,"fileName":"test.pdf","folderName":"a1121de7-810c-4d9b-a092-d83eef5182f0","resultData":null,"appInstanceId":null}
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

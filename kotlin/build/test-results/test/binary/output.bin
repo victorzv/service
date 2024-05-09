@@ -1,2 +1,2 @@
-CKey: {files=[[Ljava.lang.Byte;@5a7fe64f}, Value type: SingletonMap
-cResponse{protocol=http/1.1, code=200, message=OK, url=http://localhost:5000/pdf/webapi/Comparison}
+Response received: 200
+è{"statusCode":204,"status":"Processing","text":null,"locked":false,"updated":null,"sharedFiles":[],"files":null,"fileProcessingErrorCode":"OK","fileCount":0,"fileName":"test.pdf","folderName":"a1121de7-810c-4d9b-a092-d83eef5182f0","resultData":null,"appInstanceId":null}
