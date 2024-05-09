@@ -1,0 +1,136 @@
+/usr/lib/jvm/java-11-openjdk-amd64/bin/javadoc
+@options
+@packages
+-classpath
+'/home/tigra/.m2/repository/io/swagger/core/v3/swagger-annotations/2.0.0/swagger-annotations-2.0.0.jar:/home/tigra/.m2/repository/com/squareup/okhttp/okhttp/2.7.5/okhttp-2.7.5.jar:/home/tigra/.m2/repository/com/squareup/okio/okio/1.6.0/okio-1.6.0.jar:/home/tigra/.m2/repository/com/squareup/okhttp/logging-interceptor/2.7.5/logging-interceptor-2.7.5.jar:/home/tigra/.m2/repository/com/google/code/gson/gson/2.8.1/gson-2.8.1.jar:/home/tigra/.m2/repository/io/gsonfire/gson-fire/1.8.3/gson-fire-1.8.3.jar:/home/tigra/.m2/repository/org/threeten/threetenbp/1.3.5/threetenbp-1.3.5.jar:/home/tigra/.m2/repository/javax/annotation/javax.annotation-api/1.3/javax.annotation-api-1.3.jar:/home/tigra/.m2/repository/com/squareup/okhttp3/okhttp/4.9.3/okhttp-4.9.3.jar:/home/tigra/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.10/kotlin-stdlib-1.4.10.jar:/home/tigra/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.10/kotlin-stdlib-common-1.4.10.jar:/home/tigra/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/home/tigra/Service/java-client/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/tigra/Service/java-client/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'swagger-java-client 1.0.0 API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' '/home/tigra/Service/java-client/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'swagger-java-client 1.0.0 API'
+io.swagger.client.auth
+io.swagger.client.auth
+io.swagger.client.auth
+io.swagger.client.auth
+io.swagger.client.auth
+io.swagger.client
+io.swagger.client
+io.swagger.client
+io.swagger.client
+io.swagger.client.api
+io.swagger.client
+io.swagger.client
+io.swagger.client
+io.swagger.client
+io.swagger.client
+io.swagger.client
+io.swagger.client
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+io.swagger.client.model
+/home/tigra/.m2/repository/io/swagger/core/v3/swagger-annotations/2.0.0/swagger-annotations-2.0.0.jar = 1522077293000
+/home/tigra/.m2/repository/com/squareup/okhttp/okhttp/2.7.5/okhttp-2.7.5.jar = 1456500233000
+/home/tigra/.m2/repository/com/squareup/okio/okio/1.6.0/okio-1.6.0.jar = 1440547193000
+/home/tigra/.m2/repository/com/squareup/okhttp/logging-interceptor/2.7.5/logging-interceptor-2.7.5.jar = 1456500338000
+/home/tigra/.m2/repository/com/google/code/gson/gson/2.8.1/gson-2.8.1.jar = 1496194739000
+/home/tigra/.m2/repository/io/gsonfire/gson-fire/1.8.3/gson-fire-1.8.3.jar = 1523143052000
+/home/tigra/.m2/repository/org/threeten/threetenbp/1.3.5/threetenbp-1.3.5.jar = 1496838034000
+/home/tigra/.m2/repository/javax/annotation/javax.annotation-api/1.3/javax.annotation-api-1.3.jar = 1713603248073
+/home/tigra/.m2/repository/com/squareup/okhttp3/okhttp/4.9.3/okhttp-4.9.3.jar = 1714123973043
+/home/tigra/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.10/kotlin-stdlib-1.4.10.jar = 1714123973099
+/home/tigra/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.10/kotlin-stdlib-common-1.4.10.jar = 1714123972891
+/home/tigra/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar = 1714123972759
+/home/tigra/Service/java-client/src/main/java = 1715186762000
+/home/tigra/Service/java-client/target/apidocs/constant-values.html = 1715248101801
+/home/tigra/Service/java-client/target/apidocs/type-search-index.zip = 1715248102201
+/home/tigra/Service/java-client/target/apidocs/help-doc.html = 1715248102225
+/home/tigra/Service/java-client/target/apidocs/allclasses.html = 1715248102217
+/home/tigra/Service/java-client/target/apidocs/script.js = 1715248102225
+/home/tigra/Service/java-client/target/apidocs/index.html = 1715248102221
+/home/tigra/Service/java-client/target/apidocs/element-list = 1715248101769
+/home/tigra/Service/java-client/target/apidocs/member-search-index.zip = 1715248102201
+/home/tigra/Service/java-client/target/apidocs/package-search-index.zip = 1715248102197
+/home/tigra/Service/java-client/target/apidocs/allpackages-index.html = 1715248102213
+/home/tigra/Service/java-client/target/apidocs/allclasses-index.html = 1715248102213
+/home/tigra/Service/java-client/target/apidocs/deprecated-list.html = 1715248102217
+/home/tigra/Service/java-client/target/apidocs/serialized-form.html = 1715248101805
+/home/tigra/Service/java-client/target/apidocs/jquery-ui.overrides.css = 1715248102229
+/home/tigra/Service/java-client/target/apidocs/type-search-index.js = 1715248102201
+/home/tigra/Service/java-client/target/apidocs/overview-tree.html = 1715248102093
+/home/tigra/Service/java-client/target/apidocs/index-all.html = 1715248102205
+/home/tigra/Service/java-client/target/apidocs/search.js = 1715248102225
+/home/tigra/Service/java-client/target/apidocs/overview-summary.html = 1715248102225
+/home/tigra/Service/java-client/target/apidocs/member-search-index.js = 1715248102201
+/home/tigra/Service/java-client/target/apidocs/stylesheet.css = 1715248102225
+/home/tigra/Service/java-client/target/apidocs/package-search-index.js = 1715248102197
