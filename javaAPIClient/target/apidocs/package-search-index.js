@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"io.swagger.client"},{"l":"io.swagger.client.api"},{"l":"io.swagger.client.auth"},{"l":"io.swagger.client.model"}]
